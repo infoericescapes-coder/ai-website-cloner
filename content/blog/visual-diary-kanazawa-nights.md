@@ -1,6 +1,6 @@
 ---
 title: "Visual Diary: Kanazawa Nights"
-date: "2025-07-29"
+date: "2025-07-30"
 author: "Eric Kowalczyk"
 categories: ["Diary", "Photography"]
 tags: ["Photography", "Story"]

@@ -1,6 +1,6 @@
 ---
 title: "Who Did You Make That For?"
-date: "2025-09-10"
+date: "2025-09-11"
 author: "Eric Kowalczyk"
 categories: ["Inspiration", "Photography"]
 tags: ["Inspiration", "Photography"]

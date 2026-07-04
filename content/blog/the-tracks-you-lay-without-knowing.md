@@ -1,6 +1,6 @@
 ---
 title: "The Tracks You Lay Without Knowing"
-date: "2026-05-09"
+date: "2026-05-10"
 author: "Eric Kowalczyk"
 categories: ["Inspiration", "Lesson", "Photography"]
 tags: ["Inspiration", "Lesson", "Photography", "Story"]

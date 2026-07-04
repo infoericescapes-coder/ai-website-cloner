@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import GearCard from "@/components/GearCard";
+
+export const metadata: Metadata = {
+  title: "My Gear — ERIC ESCAPES",
+  description: "The camera gear, drone, filters and travel tech Eric uses.",
+};
 
 type SimpleLinkItem = {
   label: string;
@@ -182,6 +188,22 @@ export default function MyGearPage() {
               href="https://amzn.to/4clcQVu"
             />
           </div>
+
+          {/* Image-block clickthrough (mirrors live: X-T5 image links to amzn.to/4sll44M) */}
+          <a
+            href="https://amzn.to/4sll44M"
+            target="_blank"
+            rel="noopener"
+            className="relative block aspect-[679/494] w-full overflow-hidden"
+          >
+            <Image
+              src="/images/my-gear/camera-xt5.jpg"
+              alt=""
+              fill
+              sizes="(max-width: 768px) 100vw, 672px"
+              className="object-contain"
+            />
+          </a>
         </div>
       </section>
 
@@ -212,6 +234,23 @@ export default function MyGearPage() {
               href="https://amzn.to/3D13xHj"
             />
           </div>
+
+          {/* Image-block clickthrough (mirrors live: drone image links to amzn.to/47wxcoN,
+              the older DJI target — live parity wins over the newer product link above) */}
+          <a
+            href="https://amzn.to/47wxcoN"
+            target="_blank"
+            rel="noopener"
+            className="relative block aspect-[1388/1157] w-full overflow-hidden"
+          >
+            <Image
+              src="/images/my-gear/drone-mini4pro.jpg"
+              alt=""
+              fill
+              sizes="(max-width: 768px) 100vw, 672px"
+              className="object-contain"
+            />
+          </a>
         </div>
       </section>
 

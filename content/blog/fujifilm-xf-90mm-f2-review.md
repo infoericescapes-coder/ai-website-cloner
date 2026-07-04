@@ -1,6 +1,6 @@
 ---
 title: "Fujifilm 90mm f2 Review"
-date: "2025-01-13"
+date: "2025-01-14"
 author: "Eric Kowalczyk"
 categories: []
 tags: ["Gear"]

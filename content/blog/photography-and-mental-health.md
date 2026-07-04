@@ -1,6 +1,6 @@
 ---
 title: "Photography and Mental Health"
-date: "2024-07-23"
+date: "2024-07-24"
 author: "Eric Kowalczyk"
 categories: []
 tags: []

@@ -38,7 +38,7 @@ export async function generateMetadata({
   // does NOT convert '+', so normalise it explicitly.
   const name = decodeURIComponent(category).replace(/\+/g, " ");
   return {
-    title: `${name} — Blog — ERIC ESCAPES`,
+    title: `${name} — Photography Blog — ERIC ESCAPES`,
     description: `Photography stories and notes filed under ${name}.`,
   };
 }

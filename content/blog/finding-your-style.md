@@ -1,6 +1,6 @@
 ---
 title: "Unteachable Photography Lessons"
-date: "2025-10-01"
+date: "2025-10-02"
 author: "Eric Kowalczyk"
 categories: ["Lesson", "Photography"]
 tags: ["Inspiration", "Lesson", "Photography"]

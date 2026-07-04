@@ -63,7 +63,10 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="mt-2 flex flex-wrap items-center gap-6">
+            <h4 className="mt-2 font-heading text-[30px] font-normal text-white">
+              Contact
+            </h4>
+            <div className="flex flex-wrap items-center gap-6">
               <a
                 href="https://www.instagram.com/ericescapes"
                 target="_blank"
@@ -125,7 +128,7 @@ export default function AboutPage() {
                 kicker="EDC Camera"
                 name="Fujifilm X-T5"
                 image="/images/home/camera-xt5.jpg"
-                href="https://amzn.to/4clcQVu"
+                href="https://amzn.to/4u2HNEg"
               />
               <GearCard
                 kicker="Establishing Lens"
@@ -137,7 +140,7 @@ export default function AboutPage() {
                 kicker="Detail Lens"
                 name="Fujifilm XF 50mm F/2"
                 image="/images/home/lens-50f2.jpg"
-                href="https://amzn.to/4u2HNEg"
+                href="https://amzn.to/4clcQVu"
               />
             </div>
 

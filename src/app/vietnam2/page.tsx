@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Vietnam 2 — ERIC ESCAPES",
 };
 
-const LOCATION_NAME = "Vietnam";
+const LOCATION_NAME = "Vietnam 2";
 
 const images: GalleryImage[] = Array.from({ length: 13 }, (_, i) => {
   const n = i + 1;

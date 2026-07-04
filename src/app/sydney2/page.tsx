@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import GalleryGrid, { type GalleryImage } from "@/components/GalleryGrid";
 
 export const metadata: Metadata = {
-  title: "Sydney — ERIC ESCAPES",
+  title: "Sydney2 — ERIC ESCAPES",
   description: "Street and travel photography from Sydney, Australia.",
 };
 
-const LOCATION = "Sydney";
+const LOCATION = "Sydney2";
 
 const images: GalleryImage[] = Array.from({ length: 69 }, (_, i) => {
   const n = i + 1;

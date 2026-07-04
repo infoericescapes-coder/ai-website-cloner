@@ -1,6 +1,6 @@
 ---
 title: "The Kit Lens Myth: Fujifilm 16-50mm f/2.8-4.8 Review"
-date: "2025-02-23"
+date: "2025-02-24"
 author: "Eric Kowalczyk"
 categories: []
 tags: ["Gear", "Photography"]

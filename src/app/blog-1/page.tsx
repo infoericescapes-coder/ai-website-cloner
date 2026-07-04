@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog — ERIC ESCAPES",
+  title: "Photography Blog — ERIC ESCAPES",
   description:
     "Street and travel photography stories, visual diaries, and gear notes from the road.",
 };

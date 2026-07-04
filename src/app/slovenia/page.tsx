@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import GalleryGrid, { type GalleryImage } from "@/components/GalleryGrid";
+
+export const metadata: Metadata = {
+  title: "Slovenia — ERIC ESCAPES",
+  description: "Street and travel photography from Slovenia.",
+};
 
 const LOCATION = "Slovenia";
 

@@ -1,6 +1,6 @@
 ---
 title: "Visual Diary: Waypoint Nara"
-date: "2025-09-24"
+date: "2025-09-25"
 author: "Eric Kowalczyk"
 categories: ["Diary", "Photography"]
 tags: ["Inspiration", "Photography"]

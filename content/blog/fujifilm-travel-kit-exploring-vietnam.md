@@ -1,6 +1,6 @@
 ---
 title: "Photography Travel Kit - Exploring Vietnam"
-date: "2025-01-17"
+date: "2025-01-18"
 author: "Eric Kowalczyk"
 categories: []
 tags: ["Gear", "Photography"]

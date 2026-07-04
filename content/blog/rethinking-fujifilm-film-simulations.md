@@ -1,6 +1,6 @@
 ---
 title: "Rethinking Fujifilm Film Simulations"
-date: "2026-05-31"
+date: "2026-06-01"
 author: "Eric Kowalczyk"
 categories: ["Film Simulations", "FujiFilm", "Guide", "Photography"]
 tags: ["Film Simulations", "FujiFilm", "Guide", "Photography"]

@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Kosciuszko 25 — ERIC ESCAPES",
 };
 
-const LOCATION_NAME = "Kosciuszko";
+const LOCATION_NAME = "Kosciuszko 25";
 
 const images: GalleryImage[] = Array.from({ length: 52 }, (_, i) => {
   const n = i + 1;
