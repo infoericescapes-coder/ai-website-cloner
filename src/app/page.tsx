@@ -127,7 +127,7 @@ export default function Home() {
                 kicker="EDC Camera"
                 name="Fujifilm X-T5"
                 image="/images/home/camera-xt5.jpg"
-                href="https://amzn.to/4clcQVu"
+                href="https://amzn.to/4u2HNEg"
               />
               <GearCard
                 kicker="Establishing Lens"
@@ -139,7 +139,7 @@ export default function Home() {
                 kicker="Detail Lens"
                 name="Fujifilm XF 50mm F/2"
                 image="/images/home/lens-50f2.jpg"
-                href="https://amzn.to/4u2HNEg"
+                href="https://amzn.to/4clcQVu"
               />
             </div>
 
