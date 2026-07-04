@@ -2,7 +2,8 @@
 title: "Overcoming Creative Burnout"
 date: "2026-03-23"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Inspiration", "Guide"]
+categories: ["Guide", "Inspiration", "Photography"]
+tags: ["Guide", "Inspiration", "Photography"]
 excerpt: "Your camera's charged. Batteries good. SD card formatted. The lens is sitting there sparkling.  And you just... can't be bothered.  Maybe life's been hectic. Maybe you're sick. Maybe that creative fire went out three weeks ago and you've got no idea how to light it again. I've been there. More than"
 featured: "/images/blog/overcoming-creative-burnout/featured.jpg"
 slug: "overcoming-creative-burnout"

@@ -2,7 +2,8 @@
 title: "The Cure to GAS"
 date: "2026-06-25"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Lesson"]
+categories: ["Lesson", "Photography"]
+tags: ["Lesson", "Photography"]
 excerpt: "You know the loop…"
 featured: "/images/blog/the-cure-to-gas/featured.jpg"
 slug: "the-cure-to-gas"

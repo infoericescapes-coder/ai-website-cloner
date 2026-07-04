@@ -3,6 +3,7 @@ title: "Photography in Salzburg"
 date: "2024-04-17"
 author: "Eric Kowalczyk"
 categories: ["Photography"]
+tags: ["Photography"]
 excerpt: "Exploring Salzburg through a photographers eye"
 featured: "/images/blog/photography-in-salzburg/featured.jpg"
 slug: "photography-in-salzburg"

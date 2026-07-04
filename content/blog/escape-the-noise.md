@@ -2,7 +2,8 @@
 title: "Escape the Noise"
 date: "2025-07-21"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Inspiration"]
+categories: ["Inspiration", "Photography"]
+tags: ["Inspiration", "Photography", "Story"]
 excerpt: "When things get hard, we don’t always fight, we disappear. Into work. Into doom scrolling. Into over-researching lenses we don’t need. Anything to avoid sitting with the discomfort. But those distractions? They pile up. And the more you try to outrun the noise, the more it surrounds you. We cloud"
 featured: "/images/blog/escape-the-noise/featured.jpg"
 slug: "escape-the-noise"

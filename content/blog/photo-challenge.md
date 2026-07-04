@@ -2,7 +2,8 @@
 title: "Three Photo Solution"
 date: "2024-08-01"
 author: "Eric Kowalczyk"
-categories: ["Photography"]
+categories: []
+tags: ["Photography"]
 excerpt: "Challenge yourself with Photography"
 featured: "/images/blog/photo-challenge/featured.jpg"
 slug: "photo-challenge"

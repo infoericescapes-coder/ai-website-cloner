@@ -2,7 +2,8 @@
 title: "Process vs Results in Photography"
 date: "2025-08-04"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Inspiration"]
+categories: ["Inspiration", "Photography"]
+tags: ["Inspiration", "Photography"]
 excerpt: "Screw the Results. Follow the Process."
 featured: "/images/blog/screw-the-result-follow-the-process/featured.jpg"
 slug: "screw-the-result-follow-the-process"

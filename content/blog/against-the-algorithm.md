@@ -2,7 +2,8 @@
 title: "Authentic Imperfection"
 date: "2026-03-09"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Inspiration"]
+categories: ["Inspiration", "Photography"]
+tags: ["Inspiration", "Photography"]
 excerpt: "My goal isn’t to \"create\" a masterpiece. It’s to document a life."
 featured: "/images/blog/against-the-algorithm/featured.jpg"
 slug: "against-the-algorithm"

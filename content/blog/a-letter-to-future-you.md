@@ -2,7 +2,8 @@
 title: "A Letter To Future You"
 date: "2024-01-15"
 author: "Eric Kowalczyk"
-categories: []
+categories: ["Travel"]
+tags: []
 excerpt: "What doubt do you want future you to have?"
 featured: "/images/blog/a-letter-to-future-you/featured.jpg"
 slug: "a-letter-to-future-you"

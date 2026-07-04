@@ -2,7 +2,8 @@
 title: "The Dark Side of Photography"
 date: "2025-11-01"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Inspiration", "Story"]
+categories: ["Inspiration", "Photography"]
+tags: ["Inspiration", "Photography", "Story"]
 excerpt: "You know the feeling. Stupid early. Still dark. You stumble out the door half-asleep, backpack digging into your shoulders, but you’re buzzing. Crisp air. No one around. Tripod in the blue hour glow. A little cloud action. Then boom golden light!  One of the most euphoric, surreal things you can do"
 featured: "/images/blog/the-dark-side-of-photography/featured.jpg"
 slug: "the-dark-side-of-photography"

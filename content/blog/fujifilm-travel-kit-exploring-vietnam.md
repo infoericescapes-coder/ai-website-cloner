@@ -2,7 +2,8 @@
 title: "Photography Travel Kit - Exploring Vietnam"
 date: "2025-01-17"
 author: "Eric Kowalczyk"
-categories: ["Gear", "Photography"]
+categories: []
+tags: ["Gear", "Photography"]
 excerpt: "When I’m packing for travel, I aim to stay as lightweight and minimal as possible. I hate lugging around a bunch of bags and avoid checking luggage unless the trip absolutely demands it. Over mid-2024 and into the New Year of 2025, I made two trips to Vietnam. The first trip was about 80% urban expl"
 featured: "/images/blog/fujifilm-travel-kit-exploring-vietnam/featured.jpg"
 slug: "fujifilm-travel-kit-exploring-vietnam"

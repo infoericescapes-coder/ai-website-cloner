@@ -2,7 +2,8 @@
 title: "Visual Diary: Shinjuku to Kamakura"
 date: "2025-04-24"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Diary", "Story"]
+categories: ["Diary", "Photography"]
+tags: ["Photography", "Story"]
 excerpt: "Moody streets, a lucky camera find, and a rainy day from Shinjuku to Kamakura"
 featured: "/images/blog/visual-diary-shinjuku-to-kamakura/featured.jpg"
 slug: "visual-diary-shinjuku-to-kamakura"

@@ -2,7 +2,8 @@
 title: "You’re Using the Wrong Lens"
 date: "2025-04-10"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Story"]
+categories: ["Photography"]
+tags: ["Photography", "Story"]
 excerpt: "When you start researching anything photography gear-related on the internet, you inevitably run into opinions plagued by bias or riddled with emotion. Preference in camera gear is often deeply personal, but people tend to attach emotion to their choices in brand or specific lenses. This creates a n"
 featured: "/images/blog/youre-using-the-wrong-lens/featured.jpg"
 slug: "youre-using-the-wrong-lens"

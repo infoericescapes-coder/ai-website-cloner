@@ -2,7 +2,8 @@
 title: "Influence vs Inspiration"
 date: "2025-03-19"
 author: "Eric Kowalczyk"
-categories: ["Photography"]
+categories: []
+tags: ["Photography"]
 excerpt: "Feeling stuck in your photography?"
 featured: "/images/blog/influence-vs-inspiration-in-photography/featured.jpg"
 slug: "influence-vs-inspiration-in-photography"

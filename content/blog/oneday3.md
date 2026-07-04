@@ -2,7 +2,8 @@
 title: "One Day Three Chimneys"
 date: "2023-10-15"
 author: "Eric Kowalczyk"
-categories: ["Photography"]
+categories: ["Travel"]
+tags: ["Photography"]
 excerpt: "The most important landscape photography skill"
 featured: "/images/blog/oneday3/featured.jpg"
 slug: "oneday3"

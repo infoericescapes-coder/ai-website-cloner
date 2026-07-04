@@ -2,7 +2,8 @@
 title: "Get Frustrated"
 date: "2025-05-06"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Diary", "Story"]
+categories: ["Diary", "Photography"]
+tags: ["Photography", "Story"]
 excerpt: "April was a month of stripping things back, creatively, mentally, and in my gear. I found myself leaning harder into simplicity.  If you’ve been following along, If not welcome! you might’ve noticed this thread running through a few recent posts. Whether I was revisiting the way I shoot street photo"
 featured: "/images/blog/if-youre-not-getting-frustrated-youre-not-being-challenged/featured.jpg"
 slug: "if-youre-not-getting-frustrated-youre-not-being-challenged"

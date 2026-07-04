@@ -2,7 +2,8 @@
 title: "Slicing the Scene"
 date: "2026-03-02"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Guide"]
+categories: ["Guide", "Photography"]
+tags: ["Guide", "Photography"]
 excerpt: "I've been trying to figure out how to explain what the 50mm actually does without it turning into a specs conversation.   Pick up a 50mm after shooting on your phone and your first thought is probably: something is wrong. Too tight. The scene you wanted is cut off at the edges. You move back. Still"
 featured: "/images/blog/slicing-the-scene/featured.jpg"
 slug: "slicing-the-scene"

@@ -2,7 +2,8 @@
 title: "Photo Editing Workflow Guide"
 date: "2024-07-06"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Guide"]
+categories: ["Guide", "Photography"]
+tags: ["Guide"]
 excerpt: "A great way to get better at photo editing is looking how someone else edits Hopefully you find something you can implement into your workflow."
 featured: "/images/blog/photo-editing-workflow/featured.jpg"
 slug: "photo-editing-workflow"

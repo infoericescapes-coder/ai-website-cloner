@@ -2,7 +2,8 @@
 title: "Storytelling in Travel Photography"
 date: "2025-06-20"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Guide", "Inspiration"]
+categories: ["Guide", "Photography"]
+tags: ["Guide", "Inspiration", "Photography"]
 excerpt: "There’s this weird thing that happens when you’re standing in a new place, eager to snap that camera, surrounded by stuff, people, buildings, signs, smells, light, movement.. chaos, and suddenly you have no idea what to photograph.  Like, full sensory overload meets creative panic.  I used to panic"
 featured: "/images/blog/storytelling-in-photography/featured.jpg"
 slug: "storytelling-in-photography"

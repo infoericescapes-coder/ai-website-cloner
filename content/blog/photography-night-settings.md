@@ -2,7 +2,8 @@
 title: "How I Shoot at Night"
 date: "2025-05-15"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Guide"]
+categories: ["Guide", "Photography"]
+tags: ["Guide", "Photography"]
 excerpt: "When the sun goes down and the city lights flicker on, everything just… changes. The mood shifts. The streets start to glow, familiar scenes get a totally different vibe. And personally, I feel way more free to find interesting compositions.   But shooting at night isn’t exactly easy, especially if"
 featured: "/images/blog/photography-night-settings/featured.jpg"
 slug: "photography-night-settings"

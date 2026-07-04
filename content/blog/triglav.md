@@ -2,7 +2,8 @@
 title: "Whispers in Triglav"
 date: "2023-10-27"
 author: "Eric Kowalczyk"
-categories: ["Photography"]
+categories: ["Travel"]
+tags: ["Photography"]
 excerpt: "I was ready to turn back."
 featured: "/images/blog/triglav/featured.jpg"
 slug: "triglav"

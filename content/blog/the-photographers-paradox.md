@@ -2,7 +2,8 @@
 title: "The Photographer’s Paradox"
 date: "2025-12-30"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Lesson", "Guide"]
+categories: ["Guide", "Lesson", "Photography"]
+tags: ["Lesson", "Photography"]
 excerpt: "You know the feeling. The light is doing something weird, something interesting. Instinct kicks in. You raise the camera, fire a few frames…    “Did I get it?”   You look down at the screen. Zoom in. Check sharpness. Check the histogram for some reason. Now you’re not in the moment, you’re performin"
 featured: "/images/blog/the-photographers-paradox/featured.jpg"
 slug: "the-photographers-paradox"

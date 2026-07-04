@@ -3,6 +3,7 @@ title: "Adventure Pie"
 date: "2023-07-25"
 author: "Eric Kowalczyk"
 categories: ["Travel"]
+tags: []
 excerpt: "Bring on adventure"
 featured: "/images/blog/Adventurepie/featured.jpg"
 slug: "Adventurepie"

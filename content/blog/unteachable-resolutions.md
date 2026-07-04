@@ -2,7 +2,8 @@
 title: "Unteachable Photography Resolutions"
 date: "2026-01-17"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Lesson"]
+categories: ["Lesson", "Photography"]
+tags: ["Lesson", "Photography"]
 excerpt: "New year, same brain. This is usually the time where the world collectively decides we’re all going to “completely change our lives.” Join the gym. Travel more. Shoot more. Change careers. Fix everything in twelve weeks and somehow maintain it forever.  I have done versions of that. It never sticks."
 featured: "/images/blog/unteachable-resolutions/featured.jpg"
 slug: "unteachable-resolutions"

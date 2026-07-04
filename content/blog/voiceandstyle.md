@@ -3,6 +3,7 @@ title: "Finding Your Photographic Voice | Authentic, Unbound, & Deeply Human"
 date: "2023-11-19"
 author: "Eric Kowalczyk"
 categories: ["Photography"]
+tags: ["Photography"]
 excerpt: "Those honey pot location aren’t everything."
 featured: "/images/blog/voiceandstyle/featured.jpg"
 slug: "voiceandstyle"

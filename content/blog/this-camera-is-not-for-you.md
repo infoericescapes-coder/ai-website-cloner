@@ -3,6 +3,7 @@ title: "This Camera Is Not for You"
 date: "2025-07-03"
 author: "Eric Kowalczyk"
 categories: ["Gear", "Photography"]
+tags: ["Gear", "Photography"]
 excerpt: "A new camera just dropped. It’s lighter, faster, sharper, more dynamic-rangey than ever. But also, more expensive. Again.  There are so many mirrorless options now, it’s honestly overwhelming. Every brand has a flagship. A compact. A vlogger-friendly model. A retro-inspired one.   Not every camera i"
 featured: "/images/blog/this-camera-is-not-for-you/featured.jpg"
 slug: "this-camera-is-not-for-you"

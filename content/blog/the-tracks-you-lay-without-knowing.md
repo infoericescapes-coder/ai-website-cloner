@@ -2,7 +2,8 @@
 title: "The Tracks You Lay Without Knowing"
 date: "2026-05-09"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Lesson", "Inspiration", "Story"]
+categories: ["Inspiration", "Lesson", "Photography"]
+tags: ["Inspiration", "Lesson", "Photography", "Story"]
 excerpt: "On chipping away at a photo backlog, and what I learned about the space between waypoints"
 featured: "/images/blog/the-tracks-you-lay-without-knowing/featured.jpg"
 slug: "the-tracks-you-lay-without-knowing"

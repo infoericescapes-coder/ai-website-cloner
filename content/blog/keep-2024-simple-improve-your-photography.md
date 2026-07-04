@@ -3,6 +3,7 @@ title: "Keep 2024 Simple | Improve your photography"
 date: "2024-01-04"
 author: "Eric Kowalczyk"
 categories: ["Photography"]
+tags: ["Photography"]
 excerpt: "Improve your Photography"
 featured: "/images/blog/keep-2024-simple-improve-your-photography/featured.jpg"
 slug: "keep-2024-simple-improve-your-photography"

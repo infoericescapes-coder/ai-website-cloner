@@ -3,6 +3,7 @@ title: "Journey to Simplicity in Photography"
 date: "2024-12-25"
 author: "Eric Kowalczyk"
 categories: ["Photography"]
+tags: []
 excerpt: "As they say, less is more."
 featured: "/images/blog/journey-to-simplicity-in-photography/featured.jpg"
 slug: "journey-to-simplicity-in-photography"

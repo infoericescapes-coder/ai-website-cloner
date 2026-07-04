@@ -2,7 +2,8 @@
 title: "Making Sense of Chaos"
 date: "2025-08-19"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Guide"]
+categories: ["Guide", "Photography"]
+tags: ["Guide", "Photography", "Story"]
 excerpt: "When we take photos and throw them online, it could be for anything, just a hobby, a showcase for potential clients, or maybe for reasons we don’t fully understand ourselves. Whatever it is, there’s got to be a why behind it.  Some days I can’t hear mine. My head’s cluttered, ideas, half-formed plan"
 featured: "/images/blog/making-sense-of-chaos-1/featured.jpg"
 slug: "making-sense-of-chaos-1"

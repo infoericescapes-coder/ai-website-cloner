@@ -2,7 +2,8 @@
 title: "Visual Diary: Fujiyoshida Part 1"
 date: "2025-05-22"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Story"]
+categories: ["Diary", "Photography"]
+tags: ["Photography", "Story"]
 excerpt: "Have you ever arrived somewhere that felt oddly familiar… even though you'd never been? Like stepping into a place you might’ve dreamed about. That’s what Fujiyoshida was for me.  I hadn’t done much research, I just knew Mount Fuji loomed over the area. The plan was simple: book a small room, wander"
 featured: "/images/blog/visual-diary-fujiyoshida-part-1/featured.jpg"
 slug: "visual-diary-fujiyoshida-part-1"

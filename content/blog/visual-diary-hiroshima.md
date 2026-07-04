@@ -2,7 +2,8 @@
 title: "Visual Diary: Hiroshima"
 date: "2026-02-14"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Diary"]
+categories: ["Diary", "Photography"]
+tags: ["Photography", "Story"]
 excerpt: "Leaving Osaka is a bit of a trip. You trade that high-voltage, neon CyberPunk chaos for a vibe that’s just… still. The shift is sharp. One minute you’re in the middle of the noise, the next you’re standing in a city that feels totally chill.  Hiroshima has this strange, heavy quiet to it. It’s tucke"
 featured: "/images/blog/visual-diary-hiroshima/featured.jpg"
 slug: "visual-diary-hiroshima"

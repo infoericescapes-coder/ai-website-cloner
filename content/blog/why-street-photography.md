@@ -2,7 +2,8 @@
 title: "Why Street Photography?"
 date: "2025-06-01"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Inspiration"]
+categories: ["Inspiration", "Photography"]
+tags: ["Inspiration", "Photography"]
 excerpt: "The genre that doesn’t care what camera you’re using or if you even know what you’re doing."
 featured: "/images/blog/why-street-photography/featured.jpg"
 slug: "why-street-photography"

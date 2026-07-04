@@ -2,7 +2,8 @@
 title: "Who Did You Make That For?"
 date: "2025-09-10"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Inspiration"]
+categories: ["Inspiration", "Photography"]
+tags: ["Inspiration", "Photography"]
 excerpt: "Who did you make that for? Yourself? Or the algorithm?"
 featured: "/images/blog/who-did-you-make-that-for/featured.jpg"
 slug: "who-did-you-make-that-for"

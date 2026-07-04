@@ -37,7 +37,9 @@ export async function generateMetadata({
   params,
 }: TagPageProps): Promise<Metadata> {
   const { tag } = await params;
-  const name = decodeURIComponent(tag);
+  // '+' in the live URL encodes a space (e.g. Film+Simulations). decodeURIComponent
+  // does NOT convert '+', so normalise it explicitly.
+  const name = decodeURIComponent(tag).replace(/\+/g, " ");
   return {
     title: `${name} — Blog — ERIC ESCAPES`,
     description: `Photography stories and notes tagged ${name}.`,
@@ -46,14 +48,15 @@ export async function generateMetadata({
 
 export default async function TagArchivePage({ params }: TagPageProps) {
   const { tag } = await params;
-  const name = decodeURIComponent(tag);
+  // '+' in the live URL encodes a space (e.g. Film+Simulations); decodeURIComponent
+  // leaves '+' intact, so normalise it before matching/displaying.
+  const name = decodeURIComponent(tag).replace(/\+/g, " ");
 
-  // Matching: post frontmatter categories[] contains the name,
-  // case-insensitively (the scraped categories cover both taxonomies).
+  // Matching: post frontmatter tags[] contains the name, case-insensitively.
   // getAllPosts() is already sorted newest-first.
   const posts = getAllPosts().filter((post) =>
-    post.categories.some(
-      (cat) => cat.toLowerCase() === name.toLowerCase(),
+    post.tags.some(
+      (t) => t.toLowerCase() === name.toLowerCase(),
     ),
   );
 

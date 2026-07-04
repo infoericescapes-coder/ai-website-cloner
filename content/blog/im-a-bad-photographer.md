@@ -2,7 +2,8 @@
 title: "I’m a Bad Photographer"
 date: "2025-07-13"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Inspiration"]
+categories: ["Inspiration", "Photography"]
+tags: ["Inspiration", "Photography"]
 excerpt: "If you’ve been second guessing your process lately, wondering if you’re doing photography wrong, this is for you.  I’ve been there. Caught in the spiral of trying to shoot the “right” way. Chasing settings, techniques, and gear choices that looked good online but didn’t feel natural in practice.  At"
 featured: "/images/blog/im-a-bad-photographer/featured.jpg"
 slug: "im-a-bad-photographer"

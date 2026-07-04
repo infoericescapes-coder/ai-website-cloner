@@ -2,7 +2,8 @@
 title: "Visual Diary: Mount Fuji Part 2"
 date: "2025-06-11"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Story"]
+categories: ["Diary", "Photography"]
+tags: ["Photography", "Story"]
 excerpt: "Following on from Part 1 and that epic sunrise in Fujiyoshida. I'll try not to overuse the word epic, but seriously… the views just kept delivering. Around every turn, it felt like the sleepy town was casually showing off. Rather than jump on a train, I decided to take it slow and walk towards"
 featured: "/images/blog/visual-diary-mount-fuji-part-2/featured.jpg"
 slug: "visual-diary-mount-fuji-part-2"

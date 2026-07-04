@@ -2,7 +2,8 @@
 title: "Growth, Gear, and Getting the Shot"
 date: "2025-02-15"
 author: "Eric Kowalczyk"
-categories: ["Photography"]
+categories: []
+tags: ["Photography"]
 excerpt: "If you’re looking to grow as a photographer, avoid common traps, and just enjoy shooting more, this is for you."
 featured: "/images/blog/growth-gear-and-getting-the-shot/featured.jpg"
 slug: "growth-gear-and-getting-the-shot"

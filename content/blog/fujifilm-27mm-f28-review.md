@@ -2,7 +2,8 @@
 title: "Fujifilm 27mm f2.8 WR Review: Tiny But Mighty"
 date: "2025-01-11"
 author: "Eric Kowalczyk"
-categories: ["Gear"]
+categories: []
+tags: ["Gear"]
 excerpt: "The FujiFilm 27mm f2.8 WR might be tiny but it’s still mighty."
 featured: "/images/blog/fujifilm-27mm-f28-review/featured.jpg"
 slug: "fujifilm-27mm-f28-review"

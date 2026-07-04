@@ -3,6 +3,7 @@ title: "Quantity Leads to Quality Photos"
 date: "2025-02-05"
 author: "Eric Kowalczyk"
 categories: []
+tags: ["Photography"]
 excerpt: "There’s this myth that great photographers just know when to press the shutter. Like some Jedi Master instinct that lets them capture the shot in one go. Even the best photographers miss shots, take duds, and overthink things sometimes. The difference? They don’t let hesitation get in the way.   Sho"
 featured: "/images/blog/quantity-quality/featured.jpg"
 slug: "quantity-quality"

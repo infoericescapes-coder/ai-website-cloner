@@ -2,7 +2,8 @@
 title: "Unteachable Photography Lessons"
 date: "2025-10-23"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Lesson", "Inspiration"]
+categories: ["Lesson", "Photography"]
+tags: ["Inspiration", "Lesson", "Photography"]
 excerpt: "Part Three: Stop Forcing the Shot   You’ve been here, me too: Gear locked & loaded, lenses sorted, locations mapped, spot scouted, light and weather checked. Everything lined up… yet the photos are… fine. Good maybe? but not the thing you chased.  Then another day you’re just out for a walk"
 featured: "/images/blog/unteachable-photography-lessons-1/featured.jpg"
 slug: "unteachable-photography-lessons-1"

@@ -2,7 +2,8 @@
 title: "Visual Diary: Waypoint Nara"
 date: "2025-09-24"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Inspiration"]
+categories: ["Diary", "Photography"]
+tags: ["Inspiration", "Photography"]
 excerpt: "There’s this idea that popular tourist spots suck for photography. The usual argument? They’ve been shot to death. Every angle’s already on Instagram, and you end up recreating someone else’s photo or worse, just following the breadcrumb trail that’s been laid out for you.  Nara, Japan is one of tho"
 featured: "/images/blog/visual-diary-uncovering-nara/featured.jpg"
 slug: "visual-diary-uncovering-nara"

@@ -2,7 +2,8 @@
 title: "Same chaos, different light"
 date: "2026-06-08"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Inspiration"]
+categories: ["Inspiration", "Photography"]
+tags: ["Inspiration", "Photography"]
 excerpt: "I thought I’d finished with Shibuya. I’d shot the crossing, the signs, the shops, the people moving in every direction at once. Then I went back at night.  Same streets. Different problem. It would be easy to turn this into a neat little day versus night comparison. Day is calm. Night is chaos. Nice"
 featured: "/images/blog/same-chaos-different-light/featured.jpg"
 slug: "same-chaos-different-light"

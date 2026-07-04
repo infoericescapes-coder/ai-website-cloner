@@ -2,7 +2,8 @@
 title: "Visual Diary: Kanazawa Nights"
 date: "2025-07-29"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Diary", "Story"]
+categories: ["Diary", "Photography"]
+tags: ["Photography", "Story"]
 excerpt: "When you search for Kanazawa in Japan, you’ll usually see the big-ticket stuff. Edo-era districts, castle walls, manicured gardens. All stunning. All expected.  But what pulled me in wasn’t the postcard-perfect side. It was the retro sprawl of Katamachi–Korinbo. Neon lights, late-night ramen joints,"
 featured: "/images/blog/visual-diary-kanazawa-nights/featured.jpg"
 slug: "visual-diary-kanazawa-nights"

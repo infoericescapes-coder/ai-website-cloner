@@ -2,7 +2,8 @@
 title: "Documenting the Journey: Vietnam"
 date: "2025-01-27"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Diary", "Story"]
+categories: ["Diary", "Photography"]
+tags: ["Photography", "Story"]
 excerpt: "In 2023, I came back from a big trip focused around photographing the Dolomites. When editing the photos, I had this sudden realisation I had very few photos that showed the in-between moments on this trip. The majority of my shots were technically perfect, solid compositions, and epic subjects. But"
 featured: "/images/blog/documenting-the-journey-vietnam/featured.jpg"
 slug: "documenting-the-journey-vietnam"

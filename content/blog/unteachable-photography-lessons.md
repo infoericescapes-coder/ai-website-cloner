@@ -2,7 +2,8 @@
 title: "Unteachable Photography Lessons"
 date: "2025-09-04"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Guide", "Lesson"]
+categories: ["Guide", "Lesson", "Photography"]
+tags: ["Guide", "Lesson", "Photography"]
 excerpt: "Lesson One: The Gear Trap"
 featured: "/images/blog/unteachable-photography-lessons/featured.jpg"
 slug: "unteachable-photography-lessons"

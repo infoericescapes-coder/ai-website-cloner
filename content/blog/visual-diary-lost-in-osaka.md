@@ -2,7 +2,8 @@
 title: "Visual Diary: Lost in Osaka"
 date: "2025-11-20"
 author: "Eric Kowalczyk"
-categories: []
+categories: ["Diary", "Inspiration", "Photography"]
+tags: ["Inspiration", "Photography"]
 excerpt: "After the chaos of Tokyo, the ride through the countryside felt like exhaling. Even Kyoto, tourists and all was calm in comparison.  Osaka? Different story."
 featured: "/images/blog/visual-diary-lost-in-osaka/featured.jpg"
 slug: "visual-diary-lost-in-osaka"

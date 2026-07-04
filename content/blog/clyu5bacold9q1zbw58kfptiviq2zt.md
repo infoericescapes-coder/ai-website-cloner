@@ -2,7 +2,8 @@
 title: "Technical Traps in Photography"
 date: "2024-08-27"
 author: "Eric Kowalczyk"
-categories: ["Photography"]
+categories: []
+tags: ["Photography"]
 excerpt: "Don’t let the technical stuff in photography overshadow your creativity."
 featured: "/images/blog/clyu5bacold9q1zbw58kfptiviq2zt/featured.jpg"
 slug: "clyu5bacold9q1zbw58kfptiviq2zt"

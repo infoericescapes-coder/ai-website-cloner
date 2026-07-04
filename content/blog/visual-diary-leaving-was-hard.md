@@ -2,7 +2,8 @@
 title: "Visual Diary: Leaving was Hard"
 date: "2025-08-27"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Diary", "Inspiration"]
+categories: ["Diary", "Inspiration", "Photography"]
+tags: ["Inspiration", "Photography", "Story"]
 excerpt: "Some places just hit different. Kanazawa was one of them. I can’t give you a bullet-point list of why. It wasn’t the gardens, or the castles, or even the food. It was just the vibe. Slow, calm, a little gritty around the edges. The kind of place that makes you pull your camera out way too often.  A"
 featured: "/images/blog/visual-diary-leaving-was-hard/featured.jpg"
 slug: "visual-diary-leaving-was-hard"

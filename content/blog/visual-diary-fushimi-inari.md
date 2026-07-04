@@ -2,7 +2,8 @@
 title: "Visual Diary: Fushimi Inari"
 date: "2025-10-11"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Inspiration", "Diary", "Story"]
+categories: ["Diary", "Inspiration", "Photography"]
+tags: ["Inspiration", "Photography", "Story"]
 excerpt: "Everything I’d read about this place said the same thing, packed with tourists, shoulder-to-shoulder crowds, impossible to shoot without someone walking into your frame.  And yeah, the main path does get busy later in the day. But Fushimi Inari is huge. Almost labyrinth-like. Take a few turns off th"
 featured: "/images/blog/visual-diary-fushimi-inari/featured.jpg"
 slug: "visual-diary-fushimi-inari"

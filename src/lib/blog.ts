@@ -9,6 +9,7 @@ export type PostFrontmatter = {
   date: string;
   author: string;
   categories: string[];
+  tags: string[];
   excerpt: string;
   featured: string;
   slug: string;
@@ -37,11 +38,12 @@ function normaliseFrontmatter(
   const date = typeof data.date === "string" ? data.date : "";
   const author = typeof data.author === "string" ? data.author : "Eric Kowalczyk";
   const categories = isStringArray(data.categories) ? data.categories : [];
+  const tags = isStringArray(data.tags) ? data.tags : [];
   const excerpt = typeof data.excerpt === "string" ? data.excerpt : "";
   const featured = typeof data.featured === "string" ? data.featured : "";
   const slug = typeof data.slug === "string" ? data.slug : fallbackSlug;
 
-  return { title, date, author, categories, excerpt, featured, slug };
+  return { title, date, author, categories, tags, excerpt, featured, slug };
 }
 
 function readMarkdownFiles(): string[] {

@@ -2,7 +2,8 @@
 title: "Should You Use Presets?"
 date: "2024-11-23"
 author: "Eric Kowalczyk"
-categories: ["Guide", "Photography"]
+categories: []
+tags: ["Guide", "Photography"]
 excerpt: "Presets are saved editing settings that can transform your photos with a single click, offering a consistent look and saving time. While they’re popular for recreating admired styles or learning editing techniques, they aren’t a magic fix. Each photo is unique, so presets often need adjustments to e"
 featured: "/images/blog/should-you-use-presets/featured.jpg"
 slug: "should-you-use-presets"

@@ -2,7 +2,8 @@
 title: "Unteachable Photography Lessons"
 date: "2025-10-01"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Lesson", "Inspiration"]
+categories: ["Lesson", "Photography"]
+tags: ["Inspiration", "Lesson", "Photography"]
 excerpt: "Part Two: Finding your Style"
 featured: "/images/blog/finding-your-style/featured.jpg"
 slug: "finding-your-style"

@@ -3,6 +3,7 @@ title: "Photography and Mental Health"
 date: "2024-07-23"
 author: "Eric Kowalczyk"
 categories: []
+tags: []
 excerpt: "Photography might help"
 featured: "/images/blog/photography-and-mental-health/featured.jpg"
 slug: "photography-and-mental-health"

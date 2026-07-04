@@ -2,7 +2,8 @@
 title: "Visual Diary: Kanazawa Wakes"
 date: "2025-08-12"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Diary", "Story"]
+categories: ["Diary", "Photography"]
+tags: ["Photography", "Story"]
 excerpt: "Fragments from a morning walk, caught before the city realised it was being watched."
 featured: "/images/blog/visual-diary-kanazawa-wakes/featured.jpg"
 slug: "visual-diary-kanazawa-wakes"

@@ -3,6 +3,7 @@ title: "Too Many Open Tabs"
 date: "2026-06-16"
 author: "Eric Kowalczyk"
 categories: []
+tags: []
 excerpt: "On unfinished photos, creative backlog, and making room for the next idea"
 featured: "/images/blog/too-many-open-tabs/featured.jpg"
 slug: "too-many-open-tabs"

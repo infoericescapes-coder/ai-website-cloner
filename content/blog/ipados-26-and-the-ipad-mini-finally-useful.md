@@ -2,7 +2,8 @@
 title: "iPadOS 26 and the iPad Mini - Finally Useful?"
 date: "2025-06-15"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Review", "Gear"]
+categories: ["Gear", "Photography", "Review"]
+tags: ["Gear", "Photography", "Review", "iPad", "iPadOS"]
 excerpt: "I’ve tried. I really have. To make the big iPads work as a travel device, specifically for travel photography.  The specs sound great. High resolution screens. Battery power for days. Supposedly a “laptop replacement.” But once I actually tried doing real work on them, offloading photos, sorting thr"
 featured: "/images/blog/ipados-26-and-the-ipad-mini-finally-useful/featured.jpg"
 slug: "ipados-26-and-the-ipad-mini-finally-useful"

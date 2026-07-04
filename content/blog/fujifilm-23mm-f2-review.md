@@ -2,7 +2,8 @@
 title: "Fujifilm 23mm f2 Review"
 date: "2024-09-19"
 author: "Eric Kowalczyk"
-categories: ["Gear"]
+categories: []
+tags: ["Gear"]
 excerpt: "A review of the FujiFilm 23mm f/2 lens. A great little walk around lens perfect for any style of Photography."
 featured: "/images/blog/fujifilm-23mm-f2-review/featured.jpg"
 slug: "fujifilm-23mm-f2-review"

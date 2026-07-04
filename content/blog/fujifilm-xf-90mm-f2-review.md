@@ -2,7 +2,8 @@
 title: "Fujifilm 90mm f2 Review"
 date: "2025-01-13"
 author: "Eric Kowalczyk"
-categories: ["Gear"]
+categories: []
+tags: ["Gear"]
 excerpt: "It’s been the better part of a year since I picked up the Fujifilm XF 90mm f/2, and I want to share my thoughts and experiences with this telephoto prime. If you’ve done your research on this lens, you’ll already know it’s widely celebrated as a killer portrait lens. But that wasn’t my main reason f"
 featured: "/images/blog/fujifilm-xf-90mm-f2-review/featured.jpg"
 slug: "fujifilm-xf-90mm-f2-review"

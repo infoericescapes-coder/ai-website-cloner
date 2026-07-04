@@ -2,7 +2,8 @@
 title: "Nikon Z6II Long Term Review"
 date: "2024-06-22"
 author: "Eric Kowalczyk"
-categories: ["Gear"]
+categories: []
+tags: ["Gear"]
 excerpt: "With the Nikon Z6III launched recently and there will be an influx of second-hand Z6II devices hitting the market. So, with that and coupled with my extended time using the Z6II, I figured now is a good time to roll up a review for this camera.  I had always shot on Nikon cameras on and off, so the"
 featured: "/images/blog/nikon-z6-ii-long-term-review/featured.jpg"
 slug: "nikon-z6-ii-long-term-review"

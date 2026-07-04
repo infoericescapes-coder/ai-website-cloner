@@ -3,6 +3,7 @@ title: "My Journey with Drone Photography: A Perspective from Above"
 date: "2023-12-14"
 author: "Eric Kowalczyk"
 categories: ["Photography"]
+tags: ["Photography"]
 excerpt: "From Sky-High Enthusiasm to Grounded Realisations"
 featured: "/images/blog/skyhigh/featured.jpg"
 slug: "skyhigh"

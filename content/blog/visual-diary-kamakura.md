@@ -2,7 +2,8 @@
 title: "Visual Diary: Kamakura"
 date: "2026-05-23"
 author: "Eric Kowalczyk"
-categories: ["Diary", "Photography", "Inspiration", "Lesson", "Travel"]
+categories: ["Diary", "Inspiration", "Lesson", "Photography", "Travel"]
+tags: ["Inspiration", "Journal", "Photography", "Story"]
 excerpt: "First week in Japan. Jet lag still doing its thing. I'd planned a day trip down to Kamakura mostly to answer one question: is this place worth staying longer when I circle back to Tokyo later in the trip?  The weather had other ideas. Moody. Rain, overcast, that cool dank that clings to you. I walke"
 featured: "/images/blog/visual-diary-kamakura/featured.jpg"
 slug: "visual-diary-kamakura"

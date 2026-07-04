@@ -2,7 +2,8 @@
 title: "Fujifilm X-T5: Review"
 date: "2024-09-05"
 author: "Eric Kowalczyk"
-categories: ["Gear"]
+categories: []
+tags: ["Gear"]
 excerpt: "After nearly a year with the Fujifilm X-T5, it's clear this camera is a standout for travel, street, and landscape photographers. In my long-term review, I dive into the real-world usability, from its compact retro design to its incredible image quality. Whether you're thinking of upgrading or just"
 featured: "/images/blog/fujifilm-x-t5-review/featured.jpg"
 slug: "fujifilm-x-t5-review"

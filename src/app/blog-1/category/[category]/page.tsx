@@ -34,7 +34,9 @@ export async function generateMetadata({
   params,
 }: CategoryPageProps): Promise<Metadata> {
   const { category } = await params;
-  const name = decodeURIComponent(category);
+  // '+' in the live URL encodes a space (e.g. Film+Simulations). decodeURIComponent
+  // does NOT convert '+', so normalise it explicitly.
+  const name = decodeURIComponent(category).replace(/\+/g, " ");
   return {
     title: `${name} — Blog — ERIC ESCAPES`,
     description: `Photography stories and notes filed under ${name}.`,
@@ -45,11 +47,12 @@ export default async function CategoryArchivePage({
   params,
 }: CategoryPageProps) {
   const { category } = await params;
-  const name = decodeURIComponent(category);
+  // '+' in the live URL encodes a space (e.g. Film+Simulations); decodeURIComponent
+  // leaves '+' intact, so normalise it before matching/displaying.
+  const name = decodeURIComponent(category).replace(/\+/g, " ");
 
   // Matching: post frontmatter categories[] contains the name,
-  // case-insensitively (categories cover both taxonomies). getAllPosts()
-  // is already sorted newest-first.
+  // case-insensitively. getAllPosts() is already sorted newest-first.
   const posts = getAllPosts().filter((post) =>
     post.categories.some(
       (cat) => cat.toLowerCase() === name.toLowerCase(),

@@ -2,7 +2,8 @@
 title: "Visual Diary: Japan - Half Awake, Fully Alive"
 date: "2025-04-04"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Diary"]
+categories: ["Diary", "Photography"]
+tags: ["Photography", "Story"]
 excerpt: "A visual diary for my first few hours in Japan!"
 featured: "/images/blog/visual-diary-japan-half-awake-fully-alive/featured.jpg"
 slug: "visual-diary-japan-half-awake-fully-alive"

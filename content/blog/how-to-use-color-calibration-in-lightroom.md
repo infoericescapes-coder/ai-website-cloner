@@ -2,7 +2,8 @@
 title: "Lightroom's Most Mysterious Tool"
 date: "2024-09-11"
 author: "Eric Kowalczyk"
-categories: ["Guide"]
+categories: []
+tags: ["Guide"]
 excerpt: "Unlock the power of Lightroom's Color Calibration , an often overlooked but essential tool and why its a game-changer for photographers."
 featured: "/images/blog/how-to-use-color-calibration-in-lightroom/featured.jpg"
 slug: "how-to-use-color-calibration-in-lightroom"

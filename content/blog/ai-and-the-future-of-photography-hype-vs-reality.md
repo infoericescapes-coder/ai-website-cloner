@@ -3,6 +3,7 @@ title: "A.I. and Photography: Hype vs. Reality"
 date: "2024-11-28"
 author: "Eric Kowalczyk"
 categories: []
+tags: []
 excerpt: "Artificial Intelligence (AI). It’s the tech world’s new favourite buzzword, stirring up excitement, fear, and everything in between. In 2023, it seemed like AI came out of nowhere and planted itself firmly in our lives. From better written emails to our bosses to art competition submissions, the imp"
 featured: "/images/blog/ai-and-the-future-of-photography-hype-vs-reality/featured.jpg"
 slug: "ai-and-the-future-of-photography-hype-vs-reality"

@@ -2,7 +2,8 @@
 title: "Rethinking Fujifilm Film Simulations"
 date: "2026-05-31"
 author: "Eric Kowalczyk"
-categories: ["Photography", "FujiFilm", "Film Simulations", "Guide"]
+categories: ["Film Simulations", "FujiFilm", "Guide", "Photography"]
+tags: ["Film Simulations", "FujiFilm", "Guide", "Photography"]
 excerpt: "Fuji's having a moment and film simulations are why. People love that you can dial in a look, shoot JPEG, and skip editing completely. Bam, done, straight to the feed. Let’s reframe the use of them."
 featured: "/images/blog/rethinking-fujifilm-film-simulations/featured.jpg"
 slug: "rethinking-fujifilm-film-simulations"

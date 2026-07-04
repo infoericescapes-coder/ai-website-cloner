@@ -2,7 +2,8 @@
 title: "Capturing a Feeling"
 date: "2025-09-18"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Inspiration"]
+categories: ["Inspiration", "Photography"]
+tags: ["Inspiration", "Photography"]
 excerpt: "I’ve been chewing on this idea for a while, how to explain what I mean when I say I try to capture a feeling in my photography. It’s not just a phrase. It’s completely changed the way I shoot and honestly, made me enjoy photography more. Kyoto, more than almost anywhere else I’ve been, forced me to"
 featured: "/images/blog/capturing-a-feeling/featured.jpg"
 slug: "capturing-a-feeling"

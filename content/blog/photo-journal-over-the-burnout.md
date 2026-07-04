@@ -2,7 +2,8 @@
 title: "Photo Journal: Over the Burnout"
 date: "2026-03-31"
 author: "Eric Kowalczyk"
-categories: ["Photography", "Inspiration", "Journal", "Story"]
+categories: ["Inspiration", "Photography"]
+tags: ["Journal", "Photography", "Story"]
 excerpt: "I walked through Newtown last month lifting my camera at things I'd normally stop dead for. The gritty walls. The weird shopfronts. The light cutting between terraces. I was shooting out of pure muscle memory, forcing frames at scenes I felt absolutely nothing about.  The habit was still there. The"
 featured: "/images/blog/photo-journal-over-the-burnout/featured.jpg"
 slug: "photo-journal-over-the-burnout"
