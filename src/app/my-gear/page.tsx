@@ -80,9 +80,9 @@ const OTHER_CAMERA_GEAR: SimpleLinkItem[] = [
 
 const TRAVEL_TECH: SimpleLinkItem[] = [
   {
-    label: "iPad Pro",
-    name: "Apple 2022 11-inch iPad Pro",
-    href: "https://amzn.to/3JITo5G",
+    label: "iPad Mini",
+    name: "Apple iPad mini (A17 Pro)",
+    href: "https://www.amazon.com.au/dp/B0DK416M98?tag=ericescapes-22&linkCode=sl1&language=en_AU",
   },
   {
     label: "Portable SSD",
@@ -103,6 +103,11 @@ const TRAVEL_TECH: SimpleLinkItem[] = [
     label: "Power bank",
     name: "Mini Power bank",
     href: "https://amzn.to/3PKpdPC",
+  },
+  {
+    label: "Earphones",
+    name: "AirPods Pro 3",
+    href: "https://www.amazon.com.au/dp/B0FQDRMVFV?tag=ericescapes-22&linkCode=sl1&language=en_AU",
   },
 ];
 
@@ -183,14 +188,6 @@ function LinkRow({ label, name, href }: SimpleLinkItem) {
   );
 }
 
-function PlainRow({ label, name }: { label: string; name: string }) {
-  return (
-    <p className="text-left font-sans text-[20px] font-normal leading-[30px] text-black">
-      {label} — {name}
-    </p>
-  );
-}
-
 export default function MyGearPage() {
   return (
     <>
@@ -244,22 +241,6 @@ export default function MyGearPage() {
               <GearItemCard key={item.href + item.name} {...item} />
             ))}
           </div>
-
-          {/* Image-block clickthrough (X-T5 photo → live parity) */}
-          <a
-            href="https://amzn.to/4u2HNEg"
-            target="_blank"
-            rel="noopener"
-            className="relative mx-auto block aspect-[679/494] w-full max-w-2xl overflow-hidden"
-          >
-            <Image
-              src="/images/my-gear/camera-xt5.jpg"
-              alt=""
-              fill
-              sizes="(max-width: 768px) 100vw, 672px"
-              className="object-contain"
-            />
-          </a>
         </div>
       </section>
 
@@ -291,22 +272,6 @@ export default function MyGearPage() {
               />
             </div>
           </div>
-
-          {/* Image-block clickthrough (drone photo → live parity) */}
-          <a
-            href="https://amzn.to/47wxcoN"
-            target="_blank"
-            rel="noopener"
-            className="relative mx-auto block aspect-[1388/1157] w-full max-w-2xl overflow-hidden"
-          >
-            <Image
-              src="/images/my-gear/drone-mini4pro.jpg"
-              alt=""
-              fill
-              sizes="(max-width: 768px) 100vw, 672px"
-              className="object-contain"
-            />
-          </a>
         </div>
       </section>
 
@@ -328,11 +293,18 @@ export default function MyGearPage() {
           <IntroParagraph>
             The items below are my main travel items. This setup helps me do
             editing on the go. Recently I have changed to traveling with a iPad
-            Pro. The advancements in Apple Silicon has meant very powerful
-            computing in a lightweight form factor. When traveling, having a
-            tablet and not a full computer forces me to not get bogged down with
-            larger projects. If I was doing longer travel I would go with a full
-            computer system like a MacBook.
+            Mini. When traveling, having a tablet and not a full computer helps
+            me to not get bogged down with larger projects. If I was doing
+            longer travel I would go with a full computer system like a{" "}
+            <a
+              href="https://www.amazon.com.au/dp/B0GR1Q4452?tag=ericescapes-22&linkCode=sl1&language=en_AU"
+              target="_blank"
+              rel="noopener"
+              className="underline transition-opacity hover:opacity-60"
+            >
+              MacBook Air
+            </a>
+            .
           </IntroParagraph>
         </div>
       </section>
@@ -355,8 +327,6 @@ export default function MyGearPage() {
               {TRAVEL_TECH.map((item) => (
                 <LinkRow key={item.href + item.name} {...item} />
               ))}
-              {/* TODO: owner to supply AirPods Pro 2 affiliate link — previous link pointed at the power bank */}
-              <PlainRow label="Earphones" name="AirPods Pro 2" />
             </div>
           </div>
         </div>
