@@ -43,32 +43,14 @@ Spoiler: you’ll probably learn something. Even if the photos suck. And that’
 
 **A round-up of Aprils Blogs:**
 
-[
-
-### Visual Diary: Shinjuku to Kamakura
+[Visual Diary: Shinjuku to Kamakura](/blog-1/visual-diary-shinjuku-to-kamakura)
 
 A moody wander from Tokyo’s concrete intensity to the calm coast of Kamakura.
 
-Read more →
-
-](/blog-1/visual-diary-shinjuku-to-kamakura)
-
-[
-
-### You’re Using the Wrong Lens
+[You’re Using the Wrong Lens](/blog-1/youre-using-the-wrong-lens)
 
 A rant-turned-photo-journal about ignoring the rules, using what you’ve got, and getting the shot anyway.
 
-Read more →
-
-](/blog-1/youre-using-the-wrong-lens)
-
-[
-
-### Visual Diary: Japan — Half Awake, Fully Alive
+[Visual Diary: Japan — Half Awake, Fully Alive](/blog-1/visual-diary-japan-half-awake-fully-alive)
 
 Dive into this photo story from Asakusa.
-
-Read more →
-
-](/blog-1/visual-diary-japan-half-awake-fully-alive)

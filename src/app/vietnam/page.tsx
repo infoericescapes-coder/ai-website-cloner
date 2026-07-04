@@ -20,7 +20,6 @@ export default function VietnamPage() {
   return (
     <div className="mx-auto w-full max-w-[1800px] px-[4vw] py-16 sm:py-20">
       <div className="mb-10 text-center sm:mb-14">
-        <p className="eyebrow mb-4 text-black/70">Gallery</p>
         <h1 className="font-heading text-3xl font-normal sm:text-4xl">
           {LOCATION_NAME}
         </h1>

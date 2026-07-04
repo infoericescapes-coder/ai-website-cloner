@@ -114,20 +114,8 @@ I am not interested in that version of me anymore.
 
 With that frame in mind, I want to look back at the Unteachable Photography Lessons from 2025 and see how they feed into this year. Some of them I handled well, others I ignored and paid for, and a few are still very much “work in progress.”
 
-[
+[Lesson One: The Gear Trap](/blog-1/unteachable-photography-lessons)
 
-### Lesson One: The Gear Trap
+[Lesson Two: Finding your Style](/blog-1/finding-your-style)
 
-](/blog-1/unteachable-photography-lessons)
-
-[
-
-### Lesson Two: Finding your Style
-
-](/blog-1/finding-your-style)
-
-[
-
-### Lesson Three: Stop Forcing the Shot
-
-](/blog-1/unteachable-photography-lessons-1)
+[Lesson Three: Stop Forcing the Shot](/blog-1/unteachable-photography-lessons-1)

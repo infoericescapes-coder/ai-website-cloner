@@ -22,7 +22,6 @@ export default function JapanPage() {
   return (
     <section className="w-full px-6 py-16 md:py-24">
       <div className="mx-auto mb-12 flex max-w-6xl flex-col items-center gap-4 text-center md:mb-16">
-        <span className="eyebrow text-black/70">Travel &amp; Street Photography</span>
         <h1 className="font-heading text-[30px] font-normal text-black">Japan</h1>
       </div>
       <div className="mx-auto max-w-6xl">
