@@ -1,0 +1,343 @@
+/*
+ * Chaos to Calm — ported 1:1 from the owner's hand-built code block on
+ * https://www.ericescapes.com/chaostocalm
+ *
+ * The original lived inside a Squarespace code block as `#ctc-page { ... }`.
+ * Values (colours, radii, font stacks, sizes, spacing) are kept verbatim.
+ * The original loaded DM Mono via Google Fonts; here it maps to the project's
+ * already-loaded --font-dm-mono variable (same typeface). The original ID
+ * selector `#ctc-page` is replaced by the `.page` module class; every rule is
+ * scoped under `.page` exactly as the original scoped under `#ctc-page`.
+ */
+
+.page {
+  --bg: #0a0a0a;
+  --surface: #151515;
+  --surface-2: #1c1c1c;
+  --text: #f4f4f4;
+  --muted: #8f8f8f;
+  --line: #2a2a2a;
+  --hair: rgba(255, 255, 255, 0.18);
+  --cta: #ffffff;
+  --cta-text: #0a0a0a;
+  --mono: var(--font-dm-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.7;
+  padding: 40px 20px 56px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page *,
+.page *::before,
+.page *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.wrap {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.eyebrow,
+.sectionLabel,
+.tag,
+.badge,
+.btn,
+.page h1,
+.page h2,
+.presetTitle,
+.price,
+.qa .q {
+  font-family: var(--mono);
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.page h1 {
+  font-size: 2.1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.subtitle {
+  font-family: var(--sans);
+  color: var(--text);
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+}
+
+.lede {
+  color: var(--muted);
+  font-size: 0.98rem;
+  margin-bottom: 36px;
+  max-width: 58ch;
+}
+
+.sectionLabel {
+  font-size: 0.68rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  margin: 44px 0 16px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px;
+  margin-bottom: 16px;
+}
+
+.presetTitle {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  letter-spacing: 0.01em;
+  color: var(--text);
+}
+
+.tag {
+  font-size: 0.6rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text);
+  border: 1px solid var(--hair);
+  padding: 3px 9px;
+  border-radius: 99px;
+}
+
+.presetDesc {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.ba {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.shot {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.shot figcaption {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 99px;
+}
+
+.shotcap {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.offer {
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  margin-bottom: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.offer h2 {
+  font-size: 1.35rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.price {
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: var(--text);
+  margin: 10px 0 4px;
+}
+
+.price small {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.offer p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 4px 11px;
+  border-radius: 99px;
+  margin-bottom: 14px;
+  color: var(--text);
+  border: 1px solid var(--hair);
+}
+
+.btn {
+  display: inline-block;
+  background: var(--cta);
+  color: var(--cta-text);
+  font-weight: 500;
+  padding: 14px 26px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.incl {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+}
+
+.incl li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.incl li::before {
+  content: "+";
+  font-family: var(--mono);
+  position: absolute;
+  left: 0;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.finePrint {
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.about {
+  margin-top: 48px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.about p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.faq {
+  margin-top: 44px;
+}
+
+.qa {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.qa:last-child {
+  border-bottom: none;
+}
+
+.qa .q {
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.qa .a {
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.sitefoot {
+  margin-top: 48px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 2;
+}
+
+.sitefoot a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 28px 14px 44px;
+  }
+
+  .page h1 {
+    font-size: 1.7rem;
+  }
+
+  .card,
+  .offer {
+    padding: 22px;
+  }
+}
