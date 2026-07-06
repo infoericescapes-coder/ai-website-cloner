@@ -4,7 +4,7 @@ Generated 2026-07-05 by script from the repo (zero-transcription). Companion: `d
 
 ## 1. Site map
 
-### Core pages (11)
+### Core pages (10 live + 1 retired)
 
 | Route | Source |
 |---|---|
@@ -17,13 +17,14 @@ Generated 2026-07-05 by script from the repo (zero-transcription). Companion: `d
 | `/prints-1` | src/app/prints-1/page.tsx |
 | `/social-lander` | src/app/social-lander/page.tsx |
 | `/special` | src/app/special/page.tsx |
-| `/store/p/visual-diary-collection-lightroom-presets` | src/app/store/p/visual-diary-collection-lightroom-presets/page.tsx |
 | `/store` | src/app/store/page.tsx |
+| ~~`/store/p/visual-diary-collection-lightroom-presets`~~ **RETIRED** | ~~src/app/store/p/…/page.tsx~~ — redirected **308 permanent → `/store`** in `next.config.ts` (v2 Shop migration). Old Squarespace product URL; not a live surface. See `docs/design-v2/ia-map.md` + `docs/research/redirect-map.md`. |
 
-### Galleries (17) — images live in `public/images/gallery/<route>/`
+### Galleries (17 existing + 1 new) — images live in `public/images/gallery/<route>/`
 
 | Route | Photos |
 |---|---|
+| `/hongkong` **NEW** | 18 — **new gallery, absent from the live Squarespace site** (18 frames). Net-new for the v2 redesign, not a migrated URL. Referenced as the 6th featured tile candidate in `docs/design-v2/ia-map.md` (which had earlier recommended `/kosciuszko-25` as a substitute because Hong Kong had no gallery — that gap is now filled). Confirm image assets land under `public/images/gallery/hongkong/` at build. |
 | `/austria` | 58 |
 | `/cenycoast` | 57 |
 | `/dolomites` | 17 |

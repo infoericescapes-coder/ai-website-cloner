@@ -2,6 +2,8 @@
 
 Prototype view `preset` (`isPreset`), lines 427–523. Reference: `shop-preset-chaos-to-calm.png`. Maps to existing `/chaostocalm`.
 
+> **OVERRIDE — Eric standard, B3 (clean photos everywhere).** No mount boxes or hairline borders around the preview photos. The **before/after cells** (§3) stay clean-edged (the `BEFORE`/`AFTER` chips are functional look labels, not decorative mounts — keep them; do not wrap the images in a mount/border). The single per-look **caption line** below each pair (§3, e.g. "Shinjuku, after dark…") is real, hand-written copy — it is NOT an auto-generated `Frame NN/total` caption, so it stays. The §4 pack-panel **corner brackets** frame a text panel, not a photo, so they're unaffected by the no-mount-on-photos rule.
+
 Container: `position:relative;z-index:1;animation:eeViewIn 0.3s ease both`. Mixed max-width-860 sections; the before/after grids go full-container.
 
 ---

@@ -20,9 +20,12 @@ redirects.
 
 ## In-app redirects (shipped in `next.config.ts` `redirects()`)
 
-| From    | To  | Type          | Why |
-|---------|-----|---------------|-----|
-| `/home` | `/` | 301 permanent | Squarespace exposes the homepage at both `/home` (listed in the live sitemap) and `/`. The clone canonicalises on `/`. |
+Both rows use `permanent: true` in `next.config.ts`. **Next.js serves `permanent: true` as HTTP `308` (Permanent Redirect), not `301`.** A 308 is SEO-equivalent to a 301: both are permanent, both pass link equity, and search engines (Google included) treat them the same for indexing/canonicalisation. The method is also preserved on a 308 (irrelevant here since these are GETs). "301" in older notes is shorthand for "permanent redirect"; the wire status is 308.
+
+| From    | To  | Type (wire status)      | Why |
+|---------|-----|-------------------------|-----|
+| `/home` | `/` | 308 permanent (`permanent: true`) | Squarespace exposes the homepage at both `/home` (listed in the live sitemap) and `/`. The clone canonicalises on `/`. |
+| `/store/p/visual-diary-collection-lightroom-presets` | `/store` | 308 permanent (`permanent: true`) | Old Squarespace product URL retired with the (v2) Shop migration; Shop (`/store`) is the single digital surface. See `docs/design-v2/ia-map.md`. |
 
 ## Host / edge-level rewrites & redirects needed at deploy
 

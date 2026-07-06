@@ -29,20 +29,20 @@ Nav = **Home · Visual Diaries · Shop · About** (4 links, prototype `navDefs`)
 
 Active state = text `#F2EFE6` + 1px `--ee-accent` bottom border; inactive = `#8B8F86`, transparent border; hover → text colour, 120ms. (Prototype `navLinks` in `renderVals()`: `active` derived from a `match` array — replicate the grouping above so a gallery page lights "Home" and a preset page lights "Shop".)
 
-## Redirects to add to `next.config` (DO NOT edit next.config in this task — list only)
+## Redirects in `next.config`
 
-Per the locked decision, `/store/p/visual-diary-collection-lightroom-presets` 301s to `/store`. Full existing redirect set lives in `docs/research/redirect-map.md`; the redesign adds/confirms:
+Per the locked decision, `/store/p/visual-diary-collection-lightroom-presets` → `/store` is **SHIPPED** in `next.config.ts` `redirects()` with `permanent: true`. Next.js serves `permanent: true` as **HTTP 308 permanent** (not 301); 308 is SEO-equivalent to a 301 (both are permanent redirects that pass link equity, and Google treats them the same). Full existing redirect set lives in `docs/research/redirect-map.md`; the redesign adds/confirms:
 
 | From | To | Type | Reason |
 |---|---|---|---|
-| `/store/p/visual-diary-collection-lightroom-presets` | `/store` | 301 | Old Squarespace product URL; Shop is now the single digital surface. |
+| `/store/p/visual-diary-collection-lightroom-presets` | `/store` | 308 permanent (SHIPPED, `permanent: true`) | Old Squarespace product URL; Shop is now the single digital surface. |
 | `/places/:slug` | `/:slug` | 301 (defensive) | Prototype used `/places/`; if any external link/preview used it, redirect to the real gallery slug. Optional — only if such links exist. |
 | `/diaries` | `/blog-1` | 301 (defensive) | Same — prototype `/diaries` → real Visual Diaries index. Optional. |
 | `/shop` | `/store` | 301 (defensive) | Prototype `/shop` label → real `/store`. Optional; only if `/shop` was ever public. |
 | `/shop/chaos-to-calm` | `/chaostocalm` | 301 (defensive) | Prototype preset path → real route. Optional. |
 | `/home` → `/` | (already exists, keep) | 301 | Pre-existing per SITE-INVENTORY. |
 
-The first row (`/store/p/...` → `/store`) is the one confirmed-required addition. The `/places/`, `/diaries/`, `/shop*` rows are defensive only — add solely if those prototype paths were ever exposed publicly; otherwise skip (no dangling inbound links = no redirect needed).
+The first row (`/store/p/...` → `/store`) is the one confirmed-required redirect and is already shipped (308 permanent, above). The `/places/`, `/diaries/`, `/shop*` rows are defensive only — add solely if those prototype paths were ever exposed publicly; otherwise skip (no dangling inbound links = no redirect needed).
 
 ## Gallery slug note
 

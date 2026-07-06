@@ -2,6 +2,8 @@
 
 Prototype view `article` (`isArticle`), lines 223–277. Reference: `article-01-top.png`, `article-02-photo-break.png`. Maps to existing 70 posts at `/blog-1/[slug]` via `getPostBySlug()`.
 
+> **OVERRIDE — Eric standard, B3 (beats this spec's image treatment below).** On content pages, body images render **inside the prose panel at the text-column width** (≤ 860px). **No** full-bleed 70/66vh photo breaks, **no** mount boxes or hairline borders around photos, and **no** auto-generated `Frame NN/total · caption · time` captions. A body image = a clean `<img>` at column width, sitting in the reading flow. §3 below (full-bleed breaks + frame-number captions) is the prototype's placeholder treatment and is **superseded**: keep the markdown-segmentation idea (prose runs between images) but drop the full-bleed promotion and the fabricated caption line. Likewise §1's "N frames" data-line token does not apply to the shipped build.
+
 Container: `position:relative;z-index:1;animation:eeViewIn 0.3s ease both`. The article alternates **centered prose panels** (max-width 860px) with **full-bleed photo breaks** (100% width).
 
 ---

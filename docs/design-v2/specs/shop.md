@@ -2,6 +2,8 @@
 
 Prototype view `shop` (`isShop`), lines 396–425. Reference: `shop.png`. Maps to existing `/store` (nav label "Shop"). Digital only.
 
+> **OVERRIDE — Eric standard, B3 (clean photos everywhere).** If any product row ever carries a thumbnail/preview image, it renders clean at column width — **no** mount box, **no** hairline border, **no** auto caption. (The current Shop rows are text + arrow only, so there's nothing to mount today; this pins the standard for any future imagery.)
+
 Container: `position:relative;z-index:1;animation:eeViewIn 0.3s ease both;max-width:860px;margin:0 auto;padding:88px {gutter} 150px`.
 
 ---
@@ -26,7 +28,7 @@ Container: `position:relative;z-index:1;animation:eeViewIn 0.3s ease both;max-wi
 
 ## 4. Data / wiring (ours)
 - Chaos to Calm is real → row 1 links to `/chaostocalm` (existing route, restyled per `preset-detail.md`). Price "A$5+" pay-what-you-want (Gumroad `/l/avcmj`).
-- **Redirect:** the old product URL `/store/p/visual-diary-collection-lightroom-presets` 301s → `/store` (see `ia-map.md`; add to next.config in a later task, not now).
+- **Redirect (SHIPPED):** the old product URL `/store/p/visual-diary-collection-lightroom-presets` → `/store` is live in `next.config.ts` `redirects()` as `permanent: true`, which Next.js serves as **HTTP 308 permanent** (SEO-equivalent to a 301). See `ia-map.md` / `docs/research/redirect-map.md`.
 - The existing `/store` page may currently list the Visual Diary preset collection (Gumroad `/l/jetyik`). Reconcile: the prototype's Shop shows ONLY Chaos to Calm as the live product. Decision for Eric — does the redesigned Shop surface (a) Chaos to Calm only (prototype-faithful), or (b) both Chaos to Calm AND the Visual Diary collection as a second live row? The prototype design supports one live row + one "Soon" row; a second live product would take the "Soon" slot's grid. Flag as a tap decision; default = prototype-faithful (Chaos to Calm only, Guides "Soon").
 
 ## Responsive summary

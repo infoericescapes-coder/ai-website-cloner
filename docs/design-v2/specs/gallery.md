@@ -2,6 +2,8 @@
 
 Prototype view `gallery` (`isGallery`), lines 149–188; lightbox `lbOpen`, lines 578–592. Reference: `gallery-01-header.png`, `gallery-02-masonry.png`. Applies to ALL 17 existing gallery routes (see `ia-map.md`), not just the 6 featured tiles.
 
+> **OVERRIDE — Eric standard, B3 (clean photos everywhere).** The masonry ships in the **full-bleed frame default only** (`mountBg=transparent`, `border=transparent`, `mountPad=0`). The **"Mounted mode"** described in §4 (grey `#2B2D2C` mount, `10px` padding, hairline border) is **NOT used** — no mount boxes, no hairline borders on photos. Ignore the mounted-mode branch when building.
+
 Container: `position:relative;z-index:1;animation:eeViewIn 0.3s ease both;max-width:1560px;margin:0 auto;padding:52px {gutter} 110px`.
 
 ---
