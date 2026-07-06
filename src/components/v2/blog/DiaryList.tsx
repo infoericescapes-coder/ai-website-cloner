@@ -117,11 +117,8 @@ function DiaryRow({ post }: { post: PostSummary }) {
           →
         </span>
 
-        {/* Col 4 — thumbnail (mounted) */}
-        <div
-          className="ee-diarylist-thumb"
-          style={{ background: "var(--ee-mount)", padding: 6 }}
-        >
+        {/* Col 4 — thumbnail, clean (Eric, B3 round 4: no mount box) */}
+        <div className="ee-diarylist-thumb">
           {post.featured ? (
             <Image
               src={post.featured}

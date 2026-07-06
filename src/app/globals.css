@@ -642,13 +642,7 @@
 .ee-diarylist-row:hover .ee-diarylist-title {
   color: var(--ee-accent);
 }
-.ee-diarylist-thumb {
-  border: 1px solid rgba(242, 239, 230, 0.16);
-  transition: border-color 120ms ease;
-}
-.ee-diarylist-row:hover .ee-diarylist-thumb {
-  border-color: rgba(242, 239, 230, 0.45);
-}
+/* Diary thumbs are clean images — no mount border (Eric, B3 round 4). */
 @media (max-width: 760px) {
   .ee-diarylist-row {
     --diarylist-cols: 1fr;

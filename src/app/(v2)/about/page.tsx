@@ -21,11 +21,6 @@ const TEXT = "#F2EFE6";
 
 const CONTACT_LINKS = [
   {
-    label: "info.ericescapes@gmail.com ↗",
-    href: "mailto:info.ericescapes@gmail.com",
-    external: false,
-  },
-  {
     label: "Instagram ↗",
     href: "https://www.instagram.com/ericescapes",
     external: true,
