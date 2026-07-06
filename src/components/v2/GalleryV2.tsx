@@ -9,6 +9,7 @@ import {
   useState,
   type CSSProperties,
 } from "react";
+import { createPortal } from "react-dom";
 
 /**
  * GalleryV2 — design-v2 location gallery (specs/gallery.md).
@@ -277,8 +278,13 @@ export default function GalleryV2({
         </div>
       </div>
 
-      {/* 6 · Lightbox */}
-      {open && active && lb !== null && (
+      {/* 6 · Lightbox — PORTALED to <body>: the masonry sits inside an
+          .ee-reveal wrapper whose eeReveal animation leaves a computed
+          transform on it, which makes it the containing block for
+          position:fixed descendants (dialog stretched over the 6500px
+          section instead of the viewport = "blank lightbox"). A portal
+          escapes any transformed ancestor for good. */}
+      {open && active && lb !== null && createPortal(
         <div
           ref={overlayRef}
           role="dialog"
@@ -413,7 +419,8 @@ export default function GalleryV2({
             {place.toUpperCase()}
             {years ? ` · ${years}` : ""}
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );

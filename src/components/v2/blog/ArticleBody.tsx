@@ -1,7 +1,7 @@
 import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Reveal from "@/components/v2/chrome/Reveal";
-import { segmentArticle, countImages, type ArticleSegment } from "@/lib/article-segments";
+import { segmentArticle, type ArticleSegment } from "@/lib/article-segments";
 
 /**
  * Diary article body — ONE continuous lifted panel (#0B0D0B, max-width 860,
@@ -26,7 +26,6 @@ import { segmentArticle, countImages, type ArticleSegment } from "@/lib/article-
  */
 
 const MUTED = "#8B8F86";
-const HAIRLINE = "1px solid rgba(242,239,230,0.16)";
 
 /** Gap above a segment, given what precedes it. */
 function gapAbove(segments: ArticleSegment[], i: number): number {
@@ -57,9 +56,6 @@ const proseComponents: Components = {
           width: "100%",
           height: "auto",
           margin: "26px 0",
-          background: "var(--ee-mount)",
-          border: HAIRLINE,
-          padding: 10,
         }}
       />
     );
@@ -76,56 +72,49 @@ function ProseBlock({ markdown, marginTop }: { markdown: string; marginTop: numb
   );
 }
 
-function MountedPhoto({
+function ArticlePhoto({
   src,
   alt,
-  index,
-  total,
   marginTop,
 }: {
   src: string;
   alt: string;
-  index: number;
-  total: number;
   marginTop: number;
 }) {
-  // Caption: use alt text when the author supplied it, else a simple frame
-  // index. Never fabricate times/locations (article.md §3 data note).
-  const label =
-    alt.trim().length > 0 ? alt.trim() : `Frame ${String(index).padStart(2, "0")}/${total}`;
+  // Eric (B3 round 3): clean photos — no mount box, no hairline, and no
+  // auto "Frame NN/NN" caption. A caption renders ONLY when the author
+  // supplied alt text; never fabricate (article.md §3 data note).
+  const label = alt.trim();
 
   return (
     <Reveal className="ee-article-photo" style={{ marginTop }}>
-      {/* Mount: #2B2D2C bed + 1px hairline, image at natural aspect, full
-          column width — aligned with the prose either side of it. */}
-      <div style={{ background: "var(--ee-mount)", border: HAIRLINE, padding: 10 }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={src}
-          alt={alt}
-          loading="lazy"
-          style={{ display: "block", width: "100%", height: "auto" }}
-        />
-      </div>
-      <div
-        style={{
-          marginTop: 12,
-          textAlign: "center",
-          fontSize: 11,
-          letterSpacing: "0.18em",
-          textTransform: "uppercase",
-          color: MUTED,
-        }}
-      >
-        {label}
-      </div>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        style={{ display: "block", width: "100%", height: "auto" }}
+      />
+      {label.length > 0 && (
+        <div
+          style={{
+            marginTop: 12,
+            textAlign: "center",
+            fontSize: 11,
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: MUTED,
+          }}
+        >
+          {label}
+        </div>
+      )}
     </Reveal>
   );
 }
 
 export default function ArticleBody({ content }: { content: string }) {
   const segments = segmentArticle(content);
-  const total = countImages(segments);
 
   return (
     <div
@@ -151,12 +140,10 @@ export default function ArticleBody({ content }: { content: string }) {
           const marginTop = gapAbove(segments, i);
           if (seg.kind === "image") {
             return (
-              <MountedPhoto
+              <ArticlePhoto
                 key={`img-${i}`}
                 src={seg.src}
                 alt={seg.alt}
-                index={seg.index}
-                total={total}
                 marginTop={marginTop}
               />
             );

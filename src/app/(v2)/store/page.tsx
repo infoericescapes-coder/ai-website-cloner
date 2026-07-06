@@ -85,31 +85,23 @@ function ProductCardBody({ product }: { product: Product }) {
         height: "100%",
       }}
     >
-      {/* Mount treatment (about.md portrait frame: mount grey / 12px / 0.16) */}
+      {/* Clean image, no mount box (Eric, B3 round 3) */}
       <div
         style={{
-          background: "#2B2D2C",
-          border: "1px solid rgba(242,239,230,0.16)",
-          padding: 12,
+          position: "relative",
+          width: "100%",
+          aspectRatio: "4 / 5",
+          overflow: "hidden",
         }}
       >
-        <div
-          style={{
-            position: "relative",
-            width: "100%",
-            aspectRatio: "4 / 5",
-            overflow: "hidden",
-          }}
-        >
-          <Image
-            src={product.image.src}
-            alt={product.image.alt}
-            fill
-            sizes="(min-width: 768px) 390px, 100vw"
-            className="transition-transform duration-[600ms] ease-linear group-hover:scale-[1.02]"
-            style={{ objectFit: "cover" }}
-          />
-        </div>
+        <Image
+          src={product.image.src}
+          alt={product.image.alt}
+          fill
+          sizes="(min-width: 768px) 390px, 100vw"
+          className="transition-transform duration-[600ms] ease-linear group-hover:scale-[1.02]"
+          style={{ objectFit: "cover" }}
+        />
       </div>
 
       {/* Mono data line + index */}
