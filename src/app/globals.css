@@ -405,6 +405,35 @@
   filter: brightness(1.7);
 }
 
+/* Masonry frame hover/focus — mirrors the home-tile pattern (.ee-tile-fx).
+   CRT tint + caption are INVISIBLE at rest, revealed only on frame
+   hover/focus (spec §4). The gate lives on the wrapper so the inner span's
+   eeCrt animation can't override the rest opacity; :focus-visible keeps it
+   keyboard-accessible. */
+.ee-frame[data-mounted]:hover,
+.ee-frame[data-mounted]:focus-visible {
+  border-color: rgba(242, 239, 230, 0.45) !important;
+}
+.ee-frame-fx {
+  opacity: 0;
+  transition: opacity 120ms ease;
+  /* Never a pointer target: clicks/right-clicks pass through to the frame
+     button + image (matches the pre-split overlay's pointerEvents none). */
+  pointer-events: none;
+}
+.ee-frame:hover .ee-frame-fx,
+.ee-frame:focus-visible .ee-frame-fx {
+  opacity: 1;
+}
+.ee-frame-cap {
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+.ee-frame:hover .ee-frame-cap,
+.ee-frame:focus-visible .ee-frame-cap {
+  opacity: 1;
+}
+
 @media (max-width: 759px) {
   .ee-root {
     --ee-gallery-title: 42px;
@@ -658,37 +687,28 @@
   }
 }
 
-/* ── Diary article layout vars + full-bleed escape (article.md) ─────────────
+/* ── Diary article layout vars (article.md + Eric override 2026-07-06) ──────
    Gutter + panel padding respond at the 760px mobile breakpoint; the article
-   page reads --ee-gutter / --ee-panelpad. The full-bleed escape lets photo
-   breaks span the whole canvas (100vw) from inside the 860px prose column. */
+   page reads --ee-gutter / --ee-panelpad. The old .ee-article-fullbleed
+   escape is RETIRED: Eric's live-review override keeps article images inside
+   the lifted panel at text-column width (see ArticleBody.tsx). */
 .ee-article {
   --ee-gutter: 40px;
   --ee-panelpad: 56px 72px;
-}
-.ee-article-fullbleed {
-  position: relative;
-  width: 100vw;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
 }
 @media (max-width: 760px) {
   .ee-article {
     --ee-gutter: 20px;
     --ee-panelpad: 30px 22px;
   }
-  .ee-article-fullbleed img {
-    height: 66vh !important;
-  }
 }
 
-/* ── Diary article prose panels (article.md) ────────────────────────────────
-   The prose panels host rendered markdown; these rules style the descendant
-   markdown nodes (headings/links/lists/quotes) to the token system so
-   inline styles on <p> don't have to reach into ReactMarkdown output.
-   Full-bleed photo breaks are styled inline in ArticleBody. */
+/* ── Diary article panel (article.md + Eric override 2026-07-06) ────────────
+   .ee-article-panel is now ONE continuous lifted panel holding prose blocks
+   (.ee-article-prose, rendered markdown) and mounted photos inline. These
+   descendant rules style the markdown nodes (headings/links/lists/quotes) to
+   the token system so inline styles on <p> don't have to reach into
+   ReactMarkdown output. Mounted photos are styled inline in ArticleBody. */
 .ee-article-panel p {
   margin: 0 0 26px;
   font-size: 17.5px;
@@ -722,10 +742,12 @@
 .ee-article-panel h3 {
   font-size: 21px;
 }
-.ee-article-panel > *:first-child {
+/* Segment-edge balance: the panel padding owns the vertical rhythm at the
+   top/bottom of every prose block; markdown edge margins would double it. */
+.ee-article-prose > *:first-child {
   margin-top: 0;
 }
-.ee-article-panel > *:last-child {
+.ee-article-prose > *:last-child {
   margin-bottom: 0;
 }
 .ee-article-panel ul,

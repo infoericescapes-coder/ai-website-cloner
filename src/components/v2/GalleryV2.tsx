@@ -435,7 +435,6 @@ function Frame({
   frames: "full-bleed" | "mounted";
   onOpen: () => void;
 }) {
-  const [hover, setHover] = useState(false);
   const mounted = frames === "mounted";
 
   // Caption: "{NN} · {PLACE} · {YEAR}" — index-based, no fabricated
@@ -449,11 +448,9 @@ function Frame({
     <button
       type="button"
       onClick={onOpen}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
-      onFocus={() => setHover(true)}
-      onBlur={() => setHover(false)}
       aria-label={`Open frame ${index + 1}: ${image.alt}`}
+      className="ee-frame"
+      data-mounted={mounted ? "" : undefined}
       style={{
         display: "block",
         width: "100%",
@@ -461,8 +458,9 @@ function Frame({
         breakInside: "avoid",
         margin: "0 0 18px",
         background: mounted ? MOUNT_BG : "transparent",
+        // Rest hairline; hover/focus accent handled by the .ee-frame CSS rule.
         border: mounted
-          ? `1px solid rgba(242,239,230,${hover ? 0.45 : 0.16})`
+          ? "1px solid rgba(242,239,230,0.16)"
           : "1px solid transparent",
         padding: mounted ? 10 : 0,
         cursor: "pointer",
@@ -486,24 +484,31 @@ function Frame({
             objectFit: "cover",
           }}
         />
-        {/* CRT hover overlay — accent tint 0.10 + eeCrt flicker inside. */}
-        <span
-          aria-hidden
-          style={{
-            position: "absolute",
-            inset: 0,
-            opacity: hover ? 1 : 0,
-            transition: "opacity 120ms ease",
-            pointerEvents: "none",
-            background:
-              "linear-gradient(rgba(var(--ee-accent-rgb),0.10), rgba(var(--ee-accent-rgb),0.10))",
-            animation: "eeCrt 2.6s linear infinite",
-          }}
-        />
+        {/*
+          CRT hover overlay — mirrors the home-tile pattern (.ee-tile-fx).
+          The OUTER wrapper carries the hover/focus opacity gate; the INNER
+          span carries the eeCrt flicker animation. This split is load-bearing:
+          a CSS animation's keyframes set `opacity` and would OVERRIDE an inline
+          `opacity:0` on the same element, so gating and animating the same node
+          leaks the tint at rest (the original bug). Wrapper stays fully
+          pointer-events:none so it never intercepts the frame click.
+        */}
+        <span aria-hidden className="ee-frame-fx" style={{ position: "absolute", inset: 0 }}>
+          <span
+            style={{
+              position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(rgba(var(--ee-accent-rgb),0.10), rgba(var(--ee-accent-rgb),0.10))",
+              animation: "eeCrt 2.6s linear infinite",
+            }}
+          />
+        </span>
       </span>
 
-      {/* Caption row */}
+      {/* Caption row — reveals on frame hover/focus (CSS-gated, .ee-frame-cap). */}
       <span
+        className="ee-frame-cap"
         style={{
           display: "flex",
           justifyContent: "space-between",
@@ -512,8 +517,6 @@ function Frame({
           letterSpacing: "0.13em",
           textTransform: "uppercase",
           color: MUTED,
-          opacity: hover ? 1 : 0,
-          transition: "opacity 120ms ease",
         }}
       >
         <span>{caption}</span>
