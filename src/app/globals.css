@@ -822,4 +822,10 @@
     animation: none !important;
     transition: none !important;
   }
+  /* Reveal-gated content starts at opacity 0 and relies on eeReveal to
+     become visible; with animations killed it must be shown outright. */
+  .ee-root .ee-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
