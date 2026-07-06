@@ -373,6 +373,216 @@
   color: var(--ee-accent) !important;
 }
 
+/* ── Location gallery (specs/gallery.md) ─────────────────────────────────── */
+
+/* Responsive gallery header sizing via CSS vars the component reads.
+   Desktop: 72px title, 40px gutter. Mobile (<760px): 42px title, 20px gutter. */
+.ee-root {
+  --ee-gallery-title: 72px;
+  --ee-gallery-gutter: 40px;
+}
+
+/* Masonry column-count — data-cols sets desktop; mobile forces 2 (spec §4). */
+.ee-masonry {
+  column-count: 3;
+}
+.ee-masonry[data-cols="2"] {
+  column-count: 2;
+}
+.ee-masonry[data-cols="3"] {
+  column-count: 3;
+}
+.ee-masonry[data-cols="4"] {
+  column-count: 4;
+}
+
+/* Back link + lightbox control hovers — color/filter only, 120ms (spec §1,§6). */
+.ee-back:hover,
+.ee-lb-btn:hover {
+  color: var(--ee-accent);
+}
+.ee-lb-arrow:hover {
+  filter: brightness(1.7);
+}
+
+@media (max-width: 759px) {
+  .ee-root {
+    --ee-gallery-title: 42px;
+    --ee-gallery-gutter: 20px;
+  }
+  .ee-masonry,
+  .ee-masonry[data-cols="3"],
+  .ee-masonry[data-cols="4"] {
+    column-count: 2;
+  }
+}
+
+/* ── Home · The Archive layout (home-archive.md) ─────────────────────────── */
+
+/* Section gutter: 20px mobile → 40px desktop (tokens.md §3). Applied on the
+   max-width content wrappers so inline shorthands don't fight Tailwind. */
+.ee-gutter {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: 768px) {
+  .ee-gutter {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* Hero wrapper padding: heroPad 96px 20px 72px mobile → 190px 40px 130px (§1). */
+.ee-hero {
+  padding: 96px 20px 72px;
+}
+@media (min-width: 768px) {
+  .ee-hero {
+    padding: 190px 40px 130px;
+  }
+}
+
+/* Hero background photo width + opacity: 100%/0.5 mobile → 62%/0.85 desktop. */
+.ee-hero-photo {
+  width: 100%;
+  opacity: 0.5;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    rgba(0, 0, 0, 1) 85%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    rgba(0, 0, 0, 1) 85%
+  );
+}
+@media (min-width: 768px) {
+  .ee-hero-photo {
+    width: 62%;
+    opacity: 0.85;
+  }
+}
+
+/* Hero statement + tile name font-size: mobile → desktop (§1, §3). */
+.ee-hero-statement {
+  font-size: 30px;
+}
+.ee-tile-name {
+  font-size: 32px;
+}
+@media (min-width: 768px) {
+  .ee-hero-statement {
+    font-size: 44px;
+  }
+  .ee-tile-name {
+    font-size: 44px;
+  }
+}
+
+/* Bar horizontal padding matches the gutter (index / status bars). */
+.ee-bar {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: 768px) {
+  .ee-bar {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* Place tile column span: span 6 mobile (2-col) → span 4 desktop (3-col). */
+.ee-tile-span {
+  grid-column: span 6;
+}
+@media (min-width: 768px) {
+  .ee-tile-span {
+    grid-column: span 4;
+  }
+}
+
+/* Latest-diary row columns: 1fr mobile → 340px 1fr 48px desktop (§5). */
+.ee-diary-cols {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .ee-diary-cols {
+    grid-template-columns: 340px 1fr 48px;
+  }
+}
+
+/* ── Home · The Archive interactions (home-archive.md) ───────────────────── */
+
+/* @ericescapes strip tile — hover inset accent hairline, 120ms (§6). */
+.ee-insta-tile {
+  box-shadow: inset 0 0 0 1px transparent;
+  transition: box-shadow 120ms ease;
+}
+.ee-insta-tile:hover {
+  box-shadow: inset 0 0 0 1px rgba(242, 239, 230, 0.45);
+}
+
+/* Place tile (§3) — image scale, CRT tint, corner brackets + arrow reveal.
+   All hover-driven so the grid can stay a server component. */
+.ee-tile-img {
+  transition: transform 600ms ease;
+  transform: scale(1);
+}
+.ee-tile:hover .ee-tile-img {
+  transform: scale(1.02);
+}
+.ee-tile-fx {
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+.ee-tile:hover .ee-tile-fx {
+  opacity: 1;
+}
+.ee-tile-bracket {
+  opacity: 0;
+  border-color: var(--ee-hairline-rest);
+  transition:
+    opacity 120ms ease,
+    border-color 120ms ease;
+}
+.ee-tile:hover .ee-tile-bracket {
+  opacity: 1;
+  border-color: var(--ee-accent);
+}
+.ee-tile-arrow {
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+.ee-tile:hover .ee-tile-arrow {
+  opacity: 1;
+}
+
+/* Latest-diaries row (§5) — arrow reveals on row hover. */
+.ee-diary-arrow {
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+.ee-diary-row:hover .ee-diary-arrow {
+  opacity: 1;
+}
+.ee-diary-row:hover .ee-diary-title {
+  color: var(--ee-text);
+}
+
+/* Subscribe bar (§7 / shell §4) — email focus underline + control hover. */
+.ee-sub-input::placeholder {
+  color: var(--ee-muted);
+}
+.ee-sub-input:focus {
+  border-bottom-color: var(--ee-accent) !important;
+}
+.ee-sub-submit:hover {
+  filter: brightness(1.6);
+}
+
 /* LED dot — two-layer glow no single Tailwind token expresses cleanly. */
 .ee-led {
   border-radius: 9999px;
@@ -381,6 +591,203 @@
     0 0 16px rgba(var(--ee-live-rgb), 0.7),
     0 0 4px rgba(var(--ee-live-rgb), 0.95);
   animation: eePulse 2.4s ease-in-out infinite;
+}
+
+/* ── Visual Diaries index / archives — editorial row list (diaries-index.md) ─
+   Distinct from the home "Latest diaries" row above; scoped to .ee-diarylist-*.
+   Desktop cols 230px 1fr 44px 168px; mobile (<=760px) stacks to a single
+   column (kicker, title+excerpt, thumb) and hides the arrow. */
+.ee-diarylist-row {
+  --diarylist-cols: 230px 1fr 44px 168px;
+}
+.ee-diarylist-arrow {
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+.ee-diarylist-row:hover .ee-diarylist-arrow {
+  opacity: 1;
+}
+.ee-diarylist-title {
+  transition: color 120ms ease;
+}
+.ee-diarylist-row:hover .ee-diarylist-title {
+  color: var(--ee-accent);
+}
+.ee-diarylist-thumb {
+  border: 1px solid rgba(242, 239, 230, 0.16);
+  transition: border-color 120ms ease;
+}
+.ee-diarylist-row:hover .ee-diarylist-thumb {
+  border-color: rgba(242, 239, 230, 0.45);
+}
+@media (max-width: 760px) {
+  .ee-diarylist-row {
+    --diarylist-cols: 1fr;
+    gap: 16px !important;
+  }
+  .ee-diarylist-arrow {
+    display: none;
+  }
+  .ee-diarylist-thumb {
+    max-width: 260px;
+  }
+}
+
+/* ── Visual Diaries index header + pager (diaries-index.md §1/§4) ────────────
+   Gutter 20->40, bigTitleFs 34->56 at the 760px mobile breakpoint. */
+.ee-diaries {
+  --ee-diaries-gutter: 40px;
+}
+.ee-diaries-title {
+  font-size: 56px;
+}
+.ee-diaries-pagelink:hover {
+  color: var(--ee-accent) !important;
+}
+@media (max-width: 760px) {
+  .ee-diaries {
+    --ee-diaries-gutter: 20px;
+  }
+  .ee-diaries-title {
+    font-size: 34px;
+  }
+  .ee-diaries-titlerow {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+}
+
+/* ── Diary article layout vars + full-bleed escape (article.md) ─────────────
+   Gutter + panel padding respond at the 760px mobile breakpoint; the article
+   page reads --ee-gutter / --ee-panelpad. The full-bleed escape lets photo
+   breaks span the whole canvas (100vw) from inside the 860px prose column. */
+.ee-article {
+  --ee-gutter: 40px;
+  --ee-panelpad: 56px 72px;
+}
+.ee-article-fullbleed {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+@media (max-width: 760px) {
+  .ee-article {
+    --ee-gutter: 20px;
+    --ee-panelpad: 30px 22px;
+  }
+  .ee-article-fullbleed img {
+    height: 66vh !important;
+  }
+}
+
+/* ── Diary article prose panels (article.md) ────────────────────────────────
+   The prose panels host rendered markdown; these rules style the descendant
+   markdown nodes (headings/links/lists/quotes) to the token system so
+   inline styles on <p> don't have to reach into ReactMarkdown output.
+   Full-bleed photo breaks are styled inline in ArticleBody. */
+.ee-article-panel p {
+  margin: 0 0 26px;
+  font-size: 17.5px;
+  line-height: 1.75;
+  color: var(--ee-text);
+}
+.ee-article-panel a {
+  color: var(--ee-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(242, 239, 230, 0.35);
+  transition: text-decoration-color 120ms ease;
+}
+.ee-article-panel a:hover {
+  text-decoration-color: var(--ee-accent);
+}
+.ee-article-panel h1,
+.ee-article-panel h2,
+.ee-article-panel h3 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 40px 0 16px;
+}
+.ee-article-panel h1 {
+  font-size: 30px;
+}
+.ee-article-panel h2 {
+  font-size: 26px;
+}
+.ee-article-panel h3 {
+  font-size: 21px;
+}
+.ee-article-panel > *:first-child {
+  margin-top: 0;
+}
+.ee-article-panel > *:last-child {
+  margin-bottom: 0;
+}
+.ee-article-panel ul,
+.ee-article-panel ol {
+  margin: 0 0 26px;
+  padding-left: 24px;
+  font-size: 17.5px;
+  line-height: 1.75;
+  color: var(--ee-text);
+}
+.ee-article-panel li {
+  margin: 6px 0;
+}
+.ee-article-panel blockquote {
+  margin: 0 0 26px;
+  padding-left: 22px;
+  border-left: 2px solid rgba(242, 239, 230, 0.2);
+  color: var(--ee-muted);
+  font-style: italic;
+}
+.ee-article-panel hr {
+  margin: 34px 0;
+  border: 0;
+  border-top: 1px solid rgba(242, 239, 230, 0.13);
+}
+.ee-article-panel strong {
+  font-weight: 600;
+}
+.ee-article-panel em {
+  font-style: italic;
+}
+
+/* Article title — bigTitleFs 34->56 at the 760px mobile breakpoint. */
+.ee-article-title {
+  font-size: 56px;
+}
+
+/* Prev/next mono links (article.md §5) — label colour on hover. */
+.ee-artnav-cell:hover .ee-artnav-label {
+  color: var(--ee-accent);
+}
+.ee-artnav-back:hover {
+  color: var(--ee-accent) !important;
+}
+
+@media (max-width: 760px) {
+  .ee-article-title {
+    font-size: 34px;
+  }
+  /* Prev/next stacks to a single column; drop the vertical divider. */
+  .ee-artnav-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .ee-artnav-prev {
+    padding: 26px 0 !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(242, 239, 230, 0.09);
+  }
+  .ee-artnav-next {
+    padding: 26px 0 !important;
+    text-align: left !important;
+  }
 }
 
 /* Reduced-motion kill switch — verbatim, scoped so it can't disable any

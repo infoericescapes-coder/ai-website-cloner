@@ -16,7 +16,7 @@
       { "id": "austria",  "name": "AUSTRIA",   "code": "AUT", "coords": "47.56°N 13.65°E",  "years": "2022–2024", "frames": 58, "img": "uploads/reference-pack/photo-austria.jpg",        "pos": "82% 40%", "col": "span 4", "h": "430px" }
     ],
     "grid_order": ["SYDNEY", "JAPAN", "HONG KONG", "VIETNAM", "ITALY", "AUSTRIA"],
-    "index_bar_totals": { "places": 6, "frames": 263, "note": "'06 places · 263 frames' — 69+43+12+21+60+58 = 263. Recompute from the reconciled list, do NOT hardcode 263." },
+    "index_bar_totals": { "places": 6, "frames": 263, "note": "'06 places · 263 frames' is the PROTOTYPE placeholder — 69+43+12+21+60+58 = 263. Recompute from the reconciled list, do NOT hardcode 263. RECONCILED FINAL (with HONG KONG slot 06): 69+43+21+58+59+18 = 268 frames across 6 places." },
     "insta_thumbs_order": ["sydney", "japan", "vietnam", "austria", "italy", "dark"],
     "DIARIES": [
       { "kicker": "DIARY · GEAR",   "date": "23 MAY 2026", "title": "The Cure to GAS",                    "excerpt": "Gear Acquisition Syndrome, and how one battered 35mm finally cured mine.",        "img": "photo-mood-afterdark.jpg", "pos": "30% 45%", "yearBreak": "2026" },
@@ -36,7 +36,7 @@
       { "slot": "03", "name": "VIETNAM", "route": "/vietnam", "code": "VNM", "coords": "10.78°N 106.70°E", "years": "2024–2025", "frames": 21, "pos": "72% 55%", "source": "prototype VIETNAM frames=21 EXACTLY matches /vietnam (21). Confident map." },
       { "slot": "04", "name": "AUSTRIA", "route": "/austria", "code": "AUT", "coords": "47.56°N 13.65°E",  "years": "2022–2024", "frames": 58, "pos": "82% 40%", "source": "prototype AUSTRIA frames=58 EXACTLY matches /austria (58). Confident map." },
       { "slot": "05", "name": "ITALY",   "route": "/italy1",  "code": "ITA", "coords": "45.44°N 12.33°E",  "years": "2022–2025", "frames": 59, "pos": "50% 42%", "source": "prototype ITALY frames=60 ~ /italy1 (59). Count corrected to real 59." },
-      { "slot": "06", "name": "__DECISION_PENDING__", "route": "__DECISION_PENDING__", "code": "TBD", "coords": "TBD", "years": "TBD", "frames": 0, "pos": "50% 45%", "source": "Prototype slot 06 = HONG KONG, but we have NO hongkong gallery. See hong_kong_flag below. Larry to get Eric tap before build." }
+      { "slot": "06", "name": "HONG KONG", "route": "/hongkong", "code": "HKG", "coords": "22.28°N 114.16°E", "years": "2025", "frames": 18, "pos": "50% 42%", "source": "Eric decision (locked 2026-07-06): 6th tile = HONG KONG. New gallery imported at public/images/gallery/hongkong/ (cover.jpg + 01-18.jpg, 18 frames). Tile cover uses gallery/hongkong/cover.jpg." }
     ],
     "secondary_more_places": [
       { "name": "KOSCIUSZKO",  "route": "/kosciuszko-25",  "frames": 52 },
@@ -57,6 +57,7 @@
   },
 
   "hong_kong_flag": {
+    "RESOLVED": "Eric decision locked 2026-07-06: 6th tile = HONG KONG → /hongkong. A new gallery was imported at public/images/gallery/hongkong/ (cover.jpg + 01-18.jpg = 18 frames, 2025, coords 22.28°N 114.16°E, code HKG). slot 06 in reconciled_final.primary_tiles is now HONG KONG. The concern below (no gallery) no longer applies; retained for history. The /hongkong route itself is built in a later phase (F1).",
     "issue": "The prototype's 6th primary tile (grid slot 03 in prototype order, remapped to slot 06 here) is HONG KONG. The reference pack ships photo-hongkong.jpg and a full 6-frame HONG KONG gallery in the prototype. BUT the real repo has NO /hongkong gallery (not in the 17 galleries in SITE-INVENTORY). We cannot ship a Hong Kong tile that links nowhere.",
     "options_for_eric": [
       { "id": "A", "label": "KOSCIUSZKO (/kosciuszko-25, 52 frames)", "rationale": "Strongest real gallery not already a primary tile (52 frames). A distinct, striking alpine place; fills the 6th tile with real depth. RECOMMENDED — biggest archive, reads as a real 'place' chapter.", "recommended": true },
