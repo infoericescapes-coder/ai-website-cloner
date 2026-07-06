@@ -142,3 +142,255 @@
     text-transform: uppercase;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Eric Escapes design-v2 (dark shell)
+   Additive. The shadcn @theme inline + light :root above are UNTOUCHED so
+   not-yet-migrated (old) pages keep working. See shell.md §7.
+
+   SCOPING RESOLUTION (shell.md §7 conflict): the old base layer sets
+   `html { font-size: 20px }` and a light body bg. v2 pages must NOT inherit
+   either. Rather than fight the base layer globally, the (v2) route-group
+   layout wraps its tree in `.ee-root`, which resets font-size to 16px, paints
+   the canvas bg, and applies Space Grotesk. Old pages never render `.ee-root`,
+   so they keep the 20px root + light theme. New pages live under `.ee-root`,
+   so their rem units and colours are correct in isolation.
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* Tailwind v4 tokens — generate bg-ee-*, text-ee-*, border-ee-*, font-grotesk */
+@theme {
+  /* Surfaces */
+  --color-ee-canvas: #050605;
+  --color-ee-panel: #0b0d0b;
+  --color-ee-mount: #2b2d2c;
+  --color-ee-black: #000000;
+
+  /* Ink */
+  --color-ee-text: #f2efe6;
+  --color-ee-muted: #8b8f86;
+
+  /* Accent system (SPLIT — do not collapse) */
+  --color-ee-accent: #5fb53c; /* UI: hovers, arrows, active nav, CTA fill */
+  --color-ee-live: #6bff4a; /* pulsing LED dots ONLY, always glowing */
+  --color-ee-pressed: #1f7a2e; /* pressed, tag fill, ::selection bg */
+
+  /* Hairlines (rgba, never solid grey) */
+  --color-ee-hairline: rgba(242, 239, 230, 0.09);
+  --color-ee-hairline-strong: rgba(242, 239, 230, 0.13);
+  --color-ee-hairline-rest: rgba(242, 239, 230, 0.35);
+
+  /* Accent rgb triplets for arbitrary rgba() glows */
+  --ee-accent-rgb: 95 181 60;
+  --ee-live-rgb: 107 255 74;
+
+  /* Font family — wired to the next/font var from src/lib/fonts.ts */
+  --font-grotesk: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+
+  /* Motion */
+  --ease-ee: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration-ee-hover: 120ms;
+}
+
+/* Plain CSS custom props (inline styles / non-utility use, mirrors tokens.css).
+   Attached to :root so inline-style var() lookups resolve on any v2 node. The
+   comma-form rgb triplets are for `rgba(var(--ee-accent-rgb), a)`. */
+:root {
+  --ee-canvas: #050605;
+  --ee-panel: #0b0d0b;
+  --ee-mount: #2b2d2c;
+  --ee-black: #000;
+  --ee-text: #f2efe6;
+  --ee-muted: #8b8f86;
+  --ee-accent: #5fb53c;
+  --ee-accent-rgb: 95, 181, 60;
+  --ee-live: #6bff4a;
+  --ee-live-rgb: 107, 255, 74;
+  --ee-pressed: #1f7a2e;
+  --ee-hairline: rgba(242, 239, 230, 0.09);
+  --ee-hairline-strong: rgba(242, 239, 230, 0.13);
+  --ee-hairline-rest: rgba(242, 239, 230, 0.35);
+  --ee-hover: 120ms ease;
+}
+
+/* v2 scope wrapper — resets the old 20px root, paints canvas, sets the font. */
+.ee-root {
+  font-size: 16px;
+  background: var(--ee-canvas);
+  color: var(--ee-text);
+  font-family: var(--font-grotesk);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+.ee-root ::selection {
+  background: var(--ee-pressed);
+  color: var(--ee-text);
+}
+.ee-root input::placeholder {
+  color: var(--ee-muted);
+}
+
+/* ── design-v2 keyframes (verbatim from motion.md) ──────────────────────── */
+@keyframes eePulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+@keyframes eeFlicker {
+  0% {
+    opacity: 1;
+  }
+  7% {
+    opacity: 0.1;
+  }
+  11% {
+    opacity: 1;
+  }
+  16% {
+    opacity: 0.35;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes eeReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes eeViewIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes eeCrt {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  6% {
+    opacity: 0.62;
+  }
+  8% {
+    opacity: 0.95;
+  }
+  46% {
+    opacity: 0.82;
+  }
+  52% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 0.68;
+  }
+  91% {
+    opacity: 0.95;
+  }
+}
+@keyframes eeBlink {
+  0%,
+  48% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes eeScan {
+  0% {
+    transform: translateY(-3vh);
+  }
+  100% {
+    transform: translateY(103vh);
+  }
+}
+@keyframes eeGlitch {
+  0%,
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+  8% {
+    opacity: 0.25;
+    transform: translateX(0.7px);
+  }
+  12% {
+    opacity: 1;
+    transform: none;
+  }
+  20% {
+    opacity: 0.55;
+    transform: translateX(-0.7px);
+  }
+  24% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Scroll-reveal: view-timeline where supported. The IntersectionObserver
+   fallback in Reveal.tsx adds `.is-revealed`; base state hides until revealed. */
+.ee-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.ee-reveal.is-revealed {
+  animation: eeReveal 0.75s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@supports (animation-timeline: view()) {
+  .ee-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: eeReveal 0.75s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+}
+
+/* Nav + social hover — color-only, 120ms (motion.md §13). */
+.ee-navlink:hover {
+  color: var(--ee-text) !important;
+}
+.ee-social:hover {
+  color: var(--ee-accent) !important;
+}
+
+/* LED dot — two-layer glow no single Tailwind token expresses cleanly. */
+.ee-led {
+  border-radius: 9999px;
+  background: var(--ee-live);
+  box-shadow:
+    0 0 16px rgba(var(--ee-live-rgb), 0.7),
+    0 0 4px rgba(var(--ee-live-rgb), 0.95);
+  animation: eePulse 2.4s ease-in-out infinite;
+}
+
+/* Reduced-motion kill switch — verbatim, scoped so it can't disable any
+   motion the old shadcn pages rely on outside the v2 tree. JS effects
+   (canvas rAF, flicker, glitch) additionally gate in their own components. */
+@media (prefers-reduced-motion: reduce) {
+  .ee-root *,
+  .ee-root *::before,
+  .ee-root *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
