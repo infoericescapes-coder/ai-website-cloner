@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { spaceGrotesk } from "@/lib/fonts";
 import { designConfig } from "@/lib/design-config";
 import Nav from "@/components/v2/Nav";
 import Footer from "@/components/v2/Footer";
@@ -33,8 +32,14 @@ import BackdropDust from "@/components/v2/chrome/BackdropDust";
  * <html>/<body> tags; this group layout renders a scoped `.ee-root` wrapper
  * INSIDE that body (it does NOT emit its own <html>/<body>). The wrapper resets
  * font-size to 16px and paints the canvas bg (see globals.css .ee-root), so v2
- * pages don't inherit the 20px light base. The Space Grotesk variable is
- * applied on the wrapper so the font is available to the whole v2 subtree.
+ * pages don't inherit the 20px light base.
+ *
+ * FONT BINDING: the Space Grotesk `.variable` class lives on <html> in the
+ * ROOT layout, NOT here. Tailwind emits the `@theme` token `--font-grotesk`
+ * on `:root`, and its inner `var(--font-space-grotesk)` substitutes at `:root`
+ * computed-value time — declaring the variable on this wrapper leaves the
+ * `:root` token guaranteed-invalid and the font silently never applies
+ * (`.ee-root` then inherits the old Open Sans). See the root layout comment.
  */
 
 const OG = "/brand-v2/social/og-image-1200x630.png";
@@ -59,7 +64,7 @@ export const metadata: Metadata = {
 
 export default function V2Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`ee-root ${spaceGrotesk.variable}`}>
+    <div className="ee-root">
       {/* Backdrop canvas z-0 (gated: mobile + reduced-motion static) */}
       <BackdropDust mode={designConfig.backdrop} atmosphere={designConfig.atmosphere} />
       {/* Scroll progress z-45 */}

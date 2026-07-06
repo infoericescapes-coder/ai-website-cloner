@@ -1,13 +1,20 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import V1Shell from "@/components/V1Shell";
 
 export const metadata: Metadata = {
   title: "Page not found — ERIC ESCAPES",
 };
 
+/**
+ * Global 404. Renders under the BARE root layout (unmatched URLs never enter
+ * a route group), so it wraps itself in V1Shell to keep the old-site chrome
+ * it had before the layout-group separation.
+ */
 export default function NotFound() {
   return (
-    <section className="bg-white text-black">
+    <V1Shell>
+      <section className="bg-white text-black">
       <div className="mx-auto flex min-h-[60vh] max-w-[720px] flex-col justify-center px-6 py-24 md:py-32">
         <p className="eyebrow mb-6">404</p>
         <h1 className="font-heading text-4xl font-semibold leading-tight md:text-6xl">
@@ -32,6 +39,7 @@ export default function NotFound() {
           </Link>
         </div>
       </div>
-    </section>
+      </section>
+    </V1Shell>
   );
 }
