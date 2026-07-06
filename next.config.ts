@@ -2,7 +2,22 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  output: "standalone",
+  // NOTE: `output: "standalone"` intentionally removed for the Netlify deploy —
+  // the @netlify/plugin-nextjs (OpenNext) adapter provides its own serverless
+  // packaging and standalone output conflicts with it. Next.js is supported
+  // natively on Netlify, so no `output` mode is set.
+  images: {
+    remotePatterns: [
+      // Forward-compat for the planned Cloudflare R2 image offload. Harmless
+      // while unused (no <Image> currently references this host); pre-authorising
+      // it now avoids a build-time change when the R2 cutover lands.
+      {
+        protocol: "https",
+        hostname: "images.ericescapes.com",
+        pathname: "/**",
+      },
+    ],
+  },
   async redirects() {
     return [
       // Legacy Squarespace home alias -> canonical root. The live sitemap

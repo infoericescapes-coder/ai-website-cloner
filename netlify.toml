@@ -1,0 +1,47 @@
+# Netlify configuration — ericescapes.com (Next.js 16 App Router on the
+# @netlify/plugin-nextjs / OpenNext runtime).
+#
+# No [[plugins]] block: the Next.js Runtime is auto-detected and installed for
+# Next.js sites on Netlify (per the current @netlify/plugin-nextjs README —
+# explicit declaration is only needed to pin a version via `npm install -D`).
+# No `publish` key: the Next runtime owns the publish directory; setting it
+# manually breaks the adapter. Keep this file to build command + edge redirects.
+
+[build]
+  command = "npm run build"
+
+# ─── Edge redirects — DNS cutover rules from docs/research/redirect-map.md ───
+# These are host/edge-level rules, NOT in-app Next redirects (the two in-app
+# 308s — /home and the retired product URL — stay in next.config.ts).
+#
+# ORDERING CAVEAT for S2: Next.js on Netlify routes many framework requests
+# before these [[redirects]] rules. Each rule below has a stated intent so S2
+# can verify BEHAVIOURALLY (curl the real URL) rather than assume file order wins.
+
+# (a) Legacy Squarespace RSS feed. Squarespace served the feed via the
+#     ?format=rss query param on /blog-1; the clone serves a static feed at
+#     /blog-1/rss.xml. The `query` condition means this ONLY fires when
+#     ?format=rss is present — a plain /blog-1 request is untouched and still
+#     renders the real blog index page (no shadowing). `force = true` lets the
+#     redirect win over any framework handling of the query-string variant.
+[[redirects]]
+  from = "/blog-1"
+  to = "/blog-1/rss.xml"
+  status = 301
+  force = true
+  query = { format = "rss" }
+
+# (b) Squarespace system /cart page — the clone has no cart; send to home.
+#     No force flag: there is no real /cart route in the app, so nothing to
+#     shadow; the redirect applies cleanly.
+[[redirects]]
+  from = "/cart"
+  to = "/"
+  status = 301
+
+# (c) Squarespace system /search page — the clone has no search; send to home.
+#     No force flag: no real /search route exists to shadow.
+[[redirects]]
+  from = "/search"
+  to = "/"
+  status = 301

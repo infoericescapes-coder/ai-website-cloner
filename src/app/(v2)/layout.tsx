@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { designConfig } from "@/lib/design-config";
 import Nav from "@/components/v2/Nav";
 import Footer from "@/components/v2/Footer";
@@ -63,8 +64,23 @@ export const metadata: Metadata = {
 };
 
 export default function V2Layout({ children }: { children: React.ReactNode }) {
+  // Cloudflare Web Analytics beacon — env-gated so localhost / dev stays clean.
+  // The token arrives in S4; until NEXT_PUBLIC_CF_BEACON_TOKEN is set, no beacon
+  // renders (and no analytics request fires). `afterInteractive` is the Next 16
+  // strategy for third-party beacons: loads after hydration, off the critical path.
+  const cfBeaconToken = process.env.NEXT_PUBLIC_CF_BEACON_TOKEN;
+
   return (
     <div className="ee-root">
+      {cfBeaconToken && (
+        <Script
+          id="cf-web-analytics"
+          strategy="afterInteractive"
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({ token: cfBeaconToken, spa: true })}
+        />
+      )}
       {/* Backdrop canvas z-0 (gated: mobile + reduced-motion static) */}
       <BackdropDust mode={designConfig.backdrop} atmosphere={designConfig.atmosphere} />
       {/* Scroll progress z-45 */}
