@@ -24,7 +24,7 @@ Generated 2026-07-05 by script from the repo (zero-transcription). Companion: `d
 
 | Route | Photos |
 |---|---|
-| `/hongkong` **NEW** | 18 — **new gallery, absent from the live Squarespace site** (18 frames). Net-new for the v2 redesign, not a migrated URL. Referenced as the 6th featured tile candidate in `docs/design-v2/ia-map.md` (which had earlier recommended `/kosciuszko-25` as a substitute because Hong Kong had no gallery — that gap is now filled). Confirm image assets land under `public/images/gallery/hongkong/` at build. |
+| `/hongkong` **NEW** | 18 — **new gallery, absent from the live Squarespace site** (18 frames). Net-new for the v2 redesign, not a migrated URL. Referenced as the 6th featured tile candidate in `docs/design-v2/ia-map.md` (which had earlier recommended `/kosciuszko-25` as a substitute because Hong Kong had no gallery — that gap is now filled). Image assets CONFIRMED present (2026-07-07 judge pass): `public/images/gallery/hongkong/01.jpg`–`18.jpg` + `cover.jpg`; note `docs/image-manifest.txt` (generated 2026-07-05) predates them and is stale for this gallery. |
 | `/austria` | 58 |
 | `/cenycoast` | 57 |
 | `/dolomites` | 17 |
@@ -48,7 +48,7 @@ Generated 2026-07-05 by script from the repo (zero-transcription). Companion: `d
 - `/blog-1/<slug>` — 70 posts (table below)
 - `/blog-1/category/<Name>` — 10 categories: Diary, Film Simulations, FujiFilm, Gear, Guide, Inspiration, Lesson, Photography, Review, Travel
 - `/blog-1/tag/<Name>` — 12 tags: Film Simulations, FujiFilm, Gear, Guide, Inspiration, Journal, Lesson, Photography, Review, Story, iPad, iPadOS
-- Meta: `/sitemap.xml` (120 URLs, live parity), `/robots.txt`, `/blog-1/rss.xml` (all 70 posts), custom 404, `/home` → `/` 301
+- Meta: `/sitemap.xml` (120 URLs, live parity), `/robots.txt`, `/blog-1/rss.xml` (all 70 posts), custom 404, `/home` → `/` 308 permanent (`permanent: true` in `next.config.ts`; SEO-equivalent to 301 — see `docs/research/redirect-map.md`)
 
 ## 2. Blog posts (70) — newest first
 
