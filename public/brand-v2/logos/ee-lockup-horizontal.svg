@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="230" height="30" viewBox="0 0 230 30" fill="none">
+  
+  <g transform="translate(2,4) scale(0.46)">
+    <path d="M14 4 H4 V14 M34 4 H44 V14 M44 34 V44 H34 M14 44 H4 V34" stroke="#F2EFE6" stroke-width="3.2"></path>
+    <path d="M21 16 H13 V32 H21 M13 24 H19" stroke="#F2EFE6" stroke-width="3.2"></path>
+    <path d="M27 16 H35 V32 H27 M35 24 H29" stroke="#F2EFE6" stroke-width="3.2"></path>
+  </g>
+  <text x="34" y="20" font-family="&#39;Space Grotesk&#39;, sans-serif" font-size="14" font-weight="600" letter-spacing="3.4" fill="#F2EFE6">ERIC ESCAPES</text>
+</svg>
