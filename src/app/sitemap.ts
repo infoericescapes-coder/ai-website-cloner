@@ -32,7 +32,8 @@ const STATIC_ROUTES = [
   "/social-lander",
   "/special",
   "/store",
-  "/store/p/visual-diary-collection-lightroom-presets",
+  // /store/p/visual-diary-collection-lightroom-presets 301s to /store
+  // (next.config.ts) — redirecting URLs stay out of the sitemap.
   "/sydney",
   "/sydney2",
   "/verona",

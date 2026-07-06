@@ -4,7 +4,7 @@ Generated 2026-07-05 by script from the repo (zero-transcription). Companion: `d
 
 ## 1. Site map
 
-### Core pages (11)
+### Core pages (10 live + 1 retired)
 
 | Route | Source |
 |---|---|
@@ -17,13 +17,14 @@ Generated 2026-07-05 by script from the repo (zero-transcription). Companion: `d
 | `/prints-1` | src/app/prints-1/page.tsx |
 | `/social-lander` | src/app/social-lander/page.tsx |
 | `/special` | src/app/special/page.tsx |
-| `/store/p/visual-diary-collection-lightroom-presets` | src/app/store/p/visual-diary-collection-lightroom-presets/page.tsx |
 | `/store` | src/app/store/page.tsx |
+| ~~`/store/p/visual-diary-collection-lightroom-presets`~~ **RETIRED** | ~~src/app/store/p/…/page.tsx~~ — redirected **308 permanent → `/store`** in `next.config.ts` (v2 Shop migration). Old Squarespace product URL; not a live surface. See `docs/design-v2/ia-map.md` + `docs/research/redirect-map.md`. |
 
-### Galleries (17) — images live in `public/images/gallery/<route>/`
+### Galleries (17 existing + 1 new) — images live in `public/images/gallery/<route>/`
 
 | Route | Photos |
 |---|---|
+| `/hongkong` **NEW** | 18 — **new gallery, absent from the live Squarespace site** (18 frames). Net-new for the v2 redesign, not a migrated URL. Referenced as the 6th featured tile candidate in `docs/design-v2/ia-map.md` (which had earlier recommended `/kosciuszko-25` as a substitute because Hong Kong had no gallery — that gap is now filled). Image assets CONFIRMED present (2026-07-07 judge pass): `public/images/gallery/hongkong/01.jpg`–`18.jpg` + `cover.jpg`; note `docs/image-manifest.txt` (generated 2026-07-05) predates them and is stale for this gallery. |
 | `/austria` | 58 |
 | `/cenycoast` | 57 |
 | `/dolomites` | 17 |
@@ -47,7 +48,7 @@ Generated 2026-07-05 by script from the repo (zero-transcription). Companion: `d
 - `/blog-1/<slug>` — 70 posts (table below)
 - `/blog-1/category/<Name>` — 10 categories: Diary, Film Simulations, FujiFilm, Gear, Guide, Inspiration, Lesson, Photography, Review, Travel
 - `/blog-1/tag/<Name>` — 12 tags: Film Simulations, FujiFilm, Gear, Guide, Inspiration, Journal, Lesson, Photography, Review, Story, iPad, iPadOS
-- Meta: `/sitemap.xml` (120 URLs, live parity), `/robots.txt`, `/blog-1/rss.xml` (all 70 posts), custom 404, `/home` → `/` 301
+- Meta: `/sitemap.xml` (120 URLs, live parity), `/robots.txt`, `/blog-1/rss.xml` (all 70 posts), custom 404, `/home` → `/` 308 permanent (`permanent: true` in `next.config.ts`; SEO-equivalent to 301 — see `docs/research/redirect-map.md`)
 
 ## 2. Blog posts (70) — newest first
 

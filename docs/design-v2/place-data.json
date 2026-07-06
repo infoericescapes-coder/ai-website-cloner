@@ -1,0 +1,70 @@
+{
+  "_meta": {
+    "purpose": "Place / frame / diary data extracted VERBATIM from the Claude Design prototype (support.js / DCLogic in 'Eric Escapes.dc.html' lines 620-703), then RECONCILED against the real repo inventory (docs/SITE-INVENTORY.md, 17 galleries). The prototype numbers are DESIGN PLACEHOLDERS; the reconciled block is what the build should actually render.",
+    "source_prototype": "Design Folder/.../eric-escapes-photography-archive/project/Eric Escapes.dc.html",
+    "extracted": "2026-07-06",
+    "rule": "Where prototype and real inventory disagree, real inventory wins for DATA (routes, counts). Prototype wins for LAYOUT/type/motion."
+  },
+
+  "prototype_verbatim": {
+    "PLACES": [
+      { "id": "sydney",   "name": "SYDNEY",    "code": "SYD", "coords": "33.87°S 151.21°E", "years": "2023–2026", "frames": 69, "img": "uploads/reference-pack/photo-sydney.jpg",         "pos": "50% 35%", "col": "span 4", "h": "430px" },
+      { "id": "japan",    "name": "JAPAN",     "code": "JPN", "coords": "35.68°N 139.69°E", "years": "2023–2026", "frames": 43, "img": "uploads/reference-pack/photo-japan-night.jpg",     "pos": "50% 45%", "col": "span 4", "h": "430px" },
+      { "id": "hongkong", "name": "HONG KONG", "code": "HKG", "coords": "22.32°N 114.17°E", "years": "2025–2026", "frames": 12, "img": "uploads/reference-pack/photo-hongkong.jpg",       "pos": "50% 45%", "col": "span 4", "h": "430px" },
+      { "id": "vietnam",  "name": "VIETNAM",   "code": "VNM", "coords": "10.78°N 106.70°E", "years": "2024–2025", "frames": 21, "img": "uploads/reference-pack/photo-vietnam.jpg",        "pos": "72% 55%", "col": "span 4", "h": "430px" },
+      { "id": "italy",    "name": "ITALY",     "code": "ITA", "coords": "45.44°N 12.33°E",  "years": "2022–2025", "frames": 60, "img": "uploads/reference-pack/photo-italy.jpg",          "pos": "50% 42%", "col": "span 4", "h": "430px" },
+      { "id": "austria",  "name": "AUSTRIA",   "code": "AUT", "coords": "47.56°N 13.65°E",  "years": "2022–2024", "frames": 58, "img": "uploads/reference-pack/photo-austria.jpg",        "pos": "82% 40%", "col": "span 4", "h": "430px" }
+    ],
+    "grid_order": ["SYDNEY", "JAPAN", "HONG KONG", "VIETNAM", "ITALY", "AUSTRIA"],
+    "index_bar_totals": { "places": 6, "frames": 263, "note": "'06 places · 263 frames' is the PROTOTYPE placeholder — 69+43+12+21+60+58 = 263. Recompute from the reconciled list, do NOT hardcode 263. RECONCILED FINAL (with HONG KONG slot 06): 69+43+21+58+59+18 = 268 frames across 6 places." },
+    "insta_thumbs_order": ["sydney", "japan", "vietnam", "austria", "italy", "dark"],
+    "DIARIES": [
+      { "kicker": "DIARY · GEAR",   "date": "23 MAY 2026", "title": "The Cure to GAS",                    "excerpt": "Gear Acquisition Syndrome, and how one battered 35mm finally cured mine.",        "img": "photo-mood-afterdark.jpg", "pos": "30% 45%", "yearBreak": "2026" },
+      { "kicker": "DIARY · STREET", "date": "04 APR 2026", "title": "Same chaos, different light",        "excerpt": "Two cities, one intersection logic: what stays the same when everything moves.",   "img": "photo-japan-night.jpg",    "pos": "50% 40%", "yearBreak": "" },
+      { "kicker": "DIARY · TRAVEL", "date": "12 JAN 2026", "title": "Visual Diary: Kamakura",             "excerpt": "A winter day on the Enoden line: thirty-one frames and one grey sea.",             "img": "photo-mood-afterdark.jpg", "pos": "72% 45%", "yearBreak": "" },
+      { "kicker": "DIARY · TRAVEL", "date": "09 NOV 2025", "title": "Night bus to Đà Lạt",                "excerpt": "Twelve hours, three stops, one roll pushed two stops past sensible.",              "img": "photo-vietnam.jpg",        "pos": "45% 55%", "yearBreak": "2025" },
+      { "kicker": "DIARY · CRAFT",  "date": "14 AUG 2025", "title": "Negative space, taught by mountains","excerpt": "What the Alps keep saying about leaving room in the frame.",                       "img": "photo-austria.jpg",        "pos": "50% 45%", "yearBreak": "" }
+    ],
+    "note_diaries": "These 5 diary rows are prototype placeholders. The REAL Visual Diaries index is driven by src/lib/blog.ts getAllPosts() (70 posts). The prototype titles happen to match real posts: 'The Cure to GAS' (the-cure-to-gas), 'Same chaos, different light' (same-chaos-different-light), 'Visual Diary: Kamakura' (visual-diary-kamakura) all exist. Use real posts, not this array."
+  },
+
+  "reconciled_final": {
+    "_note": "This is the list the Archive home place grid and gallery routes should actually use. Coords/years/code carried from the prototype where the place matches; frame counts are REAL from SITE-INVENTORY. Slug is the real existing route (IA decision: keep existing URLs).",
+    "primary_tiles": [
+      { "slot": "01", "name": "SYDNEY",  "route": "/sydney2", "code": "SYD", "coords": "33.87°S 151.21°E", "years": "2023–2026", "frames": 69, "pos": "50% 35%", "source": "prototype SYDNEY frames=69 EXACTLY matches /sydney2 (69). Confident map." },
+      { "slot": "02", "name": "JAPAN",   "route": "/japan",   "code": "JPN", "coords": "35.68°N 139.69°E", "years": "2023–2026", "frames": 43, "pos": "50% 45%", "source": "prototype JAPAN frames=43 EXACTLY matches /japan (43). Confident map." },
+      { "slot": "03", "name": "VIETNAM", "route": "/vietnam", "code": "VNM", "coords": "10.78°N 106.70°E", "years": "2024–2025", "frames": 21, "pos": "72% 55%", "source": "prototype VIETNAM frames=21 EXACTLY matches /vietnam (21). Confident map." },
+      { "slot": "04", "name": "AUSTRIA", "route": "/austria", "code": "AUT", "coords": "47.56°N 13.65°E",  "years": "2022–2024", "frames": 58, "pos": "82% 40%", "source": "prototype AUSTRIA frames=58 EXACTLY matches /austria (58). Confident map." },
+      { "slot": "05", "name": "ITALY",   "route": "/italy1",  "code": "ITA", "coords": "45.44°N 12.33°E",  "years": "2022–2025", "frames": 59, "pos": "50% 42%", "source": "prototype ITALY frames=60 ~ /italy1 (59). Count corrected to real 59." },
+      { "slot": "06", "name": "HONG KONG", "route": "/hongkong", "code": "HKG", "coords": "22.28°N 114.16°E", "years": "2025", "frames": 18, "pos": "50% 42%", "source": "Eric decision (locked 2026-07-06): 6th tile = HONG KONG. New gallery imported at public/images/gallery/hongkong/ (cover.jpg + 01-18.jpg, 18 frames). Tile cover uses gallery/hongkong/cover.jpg." }
+    ],
+    "secondary_more_places": [
+      { "name": "KOSCIUSZKO",  "route": "/kosciuszko-25",  "frames": 52 },
+      { "name": "CENY COAST",  "route": "/cenycoast",      "frames": 57 },
+      { "name": "SYDNEY (I)",  "route": "/sydney",         "frames": 51 },
+      { "name": "SALZBURG",    "route": "/salzburg",       "frames": 29 },
+      { "name": "HALLSTATT",   "route": "/hallstatt",      "frames": 28 },
+      { "name": "SLOVENIA",    "route": "/slovenia",       "frames": 26 },
+      { "name": "VERONA",      "route": "/verona",         "frames": 21 },
+      { "name": "SAPPHIRE COAST", "route": "/sapphirecoast","frames": 18 },
+      { "name": "DOLOMITES",   "route": "/dolomites",      "frames": 17 },
+      { "name": "MELBOURNE",   "route": "/melbourne",      "frames": 13 },
+      { "name": "VIETNAM (II)","route": "/vietnam2",       "frames": 13 }
+    ],
+    "excluded": [
+      { "route": "/gallery-1-1", "frames": 1, "reason": "1 photo, placeholder/orphan gallery — never surface as a tile." }
+    ]
+  },
+
+  "hong_kong_flag": {
+    "RESOLVED": "Eric decision locked 2026-07-06: 6th tile = HONG KONG → /hongkong. A new gallery was imported at public/images/gallery/hongkong/ (cover.jpg + 01-18.jpg = 18 frames, 2025, coords 22.28°N 114.16°E, code HKG). slot 06 in reconciled_final.primary_tiles is now HONG KONG. The concern below (no gallery) no longer applies; retained for history. The /hongkong route itself is built in a later phase (F1).",
+    "issue": "The prototype's 6th primary tile (grid slot 03 in prototype order, remapped to slot 06 here) is HONG KONG. The reference pack ships photo-hongkong.jpg and a full 6-frame HONG KONG gallery in the prototype. BUT the real repo has NO /hongkong gallery (not in the 17 galleries in SITE-INVENTORY). We cannot ship a Hong Kong tile that links nowhere.",
+    "options_for_eric": [
+      { "id": "A", "label": "KOSCIUSZKO (/kosciuszko-25, 52 frames)", "rationale": "Strongest real gallery not already a primary tile (52 frames). A distinct, striking alpine place; fills the 6th tile with real depth. RECOMMENDED — biggest archive, reads as a real 'place' chapter.", "recommended": true },
+      { "id": "B", "label": "SLOVENIA (/slovenia, 26 frames)", "rationale": "Keeps the international / world-tour feel of the prototype's 6-country grid (Slovenia is a distinct European country, unlike Kosciuszko which doubles up on Australia). Fewer frames." },
+      { "id": "C", "label": "CENY COAST (/cenycoast, 57 frames)", "rationale": "Highest frame count of the unused galleries (57), but it is a NSW coastal region — reads as landscape/nature rather than the street/travel identity, and doubles up on Australia." },
+      { "id": "D", "label": "Ship 5 primary tiles, drop the 6th", "rationale": "Prototype grid is 3x2 = 6 tiles; a 5-tile grid breaks the 12-col span-4 rhythm (would need span-4 x5 leaving a gap, or a re-layout). NOT recommended without a design revisit — prototype is locked at 6." }
+    ],
+    "larry_recommendation": "A — KOSCIUSZKO. Fills slot 06 with the deepest unused archive (52 frames), keeps the 6-tile 3x2 grid intact per the locked prototype. Needs coords/years/cover-image object-position supplied (not in prototype). Present as a tap decision to Eric before the builder wires slot 06."
+  }
+}

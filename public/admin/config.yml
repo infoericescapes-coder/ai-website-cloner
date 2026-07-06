@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+#
+# Sveltia CMS configuration for ericescapes.com (Next.js clone).
+# Edits commit straight to the GitHub repo; the site rebuilds from content/blog/*.md.
+# See docs/research/sveltia-setup.md for auth + day-to-day editing (mobile included).
+
+backend:
+  name: github
+  repo: infoericescapes-coder/ai-website-cloner
+  branch: main
+
+# Blog post images. media_folder is the repo path Sveltia writes uploads to;
+# public_folder is the URL those images resolve to in the built site.
+# This matches the existing convention: featured/body images live under
+# public/images/blog/<slug>/ and are referenced as /images/blog/<slug>/NN.jpg.
+media_folder: "public/images/blog"
+public_folder: "/images/blog"
+
+collections:
+  - name: blog
+    label: "Blog"
+    label_singular: "Blog post"
+    folder: "content/blog"
+    # New posts are created as content/blog/<slug>.md — matches every existing
+    # filename (filename === the `slug` frontmatter field, verified across all 70).
+    slug: "{{fields.slug}}"
+    extension: md
+    format: yaml-frontmatter
+    create: true
+    # Newest-first in the CMS list, mirroring the site's date ordering.
+    sortable_fields: ["date", "title"]
+    identifier_field: title
+    summary: "{{fields.date}} · {{fields.title}}"
+    fields:
+      # --- Frontmatter, mapping the EXACT existing fields (order preserved) ---
+      - { name: title, label: "Title", widget: string }
+      # date is a quoted YYYY-MM-DD string in every source file. A string widget
+      # with a pattern preserves that exact shape (a datetime widget would risk
+      # re-serialising the value / dropping the quotes → frontmatter drift).
+      - name: date
+        label: "Date"
+        widget: string
+        hint: "YYYY-MM-DD (e.g. 2026-06-25)"
+        pattern: ['^\d{4}-\d{2}-\d{2}$', "Use YYYY-MM-DD"]
+      - { name: author, label: "Author", widget: string, default: "Eric Kowalczyk" }
+      # categories + tags are string lists (["Diary", "Photography"]). Empty tags
+      # lists ([]) are common and allowed.
+      - name: categories
+        label: "Categories"
+        widget: list
+        field: { name: category, label: "Category", widget: string }
+        default: []
+      - name: tags
+        label: "Tags"
+        widget: list
+        required: false
+        field: { name: tag, label: "Tag", widget: string }
+        default: []
+      - { name: excerpt, label: "Excerpt", widget: string, required: false }
+      # featured is the featured-image PATH (a string like
+      # /images/blog/<slug>/featured.jpg), NOT a boolean flag. The image widget
+      # stores the chosen file's path; it uploads into public/images/blog/<slug>/.
+      - name: featured
+        label: "Featured image"
+        widget: image
+        hint: "Cover image path, e.g. /images/blog/<slug>/featured.jpg"
+        required: false
+      # slug drives the filename; keep it in sync with the post's URL. Lowercase
+      # kebab-case matches the existing filenames.
+      - name: slug
+        label: "Slug (URL + filename)"
+        widget: string
+        hint: "Lowercase, words-separated-by-hyphens. Becomes /blog-1/<slug>."
+      # --- Post body (markdown after the frontmatter) ---
+      - { name: body, label: "Body", widget: markdown }

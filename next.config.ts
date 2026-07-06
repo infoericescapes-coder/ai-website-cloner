@@ -13,6 +13,14 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
+      // Old Squarespace product URL -> Shop. The redesigned /store is the
+      // single digital surface; the product page was retired with the (v2)
+      // Shop migration (docs/design-v2/ia-map.md, confirmed-required row).
+      {
+        source: "/store/p/visual-diary-collection-lightroom-presets",
+        destination: "/store",
+        permanent: true,
+      },
     ];
   },
 };

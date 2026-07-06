@@ -142,3 +142,684 @@
     text-transform: uppercase;
   }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Eric Escapes design-v2 (dark shell)
+   Additive. The shadcn @theme inline + light :root above are UNTOUCHED so
+   not-yet-migrated (old) pages keep working. See shell.md §7.
+
+   SCOPING RESOLUTION (shell.md §7 conflict): the old base layer sets
+   `html { font-size: 20px }` and a light body bg. v2 pages must NOT inherit
+   either. Rather than fight the base layer globally, the (v2) route-group
+   layout wraps its tree in `.ee-root`, which resets font-size to 16px, paints
+   the canvas bg, and applies Space Grotesk. Old pages never render `.ee-root`,
+   so they keep the 20px root + light theme. New pages live under `.ee-root`,
+   so their rem units and colours are correct in isolation.
+   ────────────────────────────────────────────────────────────────────────── */
+
+/* Tailwind v4 tokens — generate bg-ee-*, text-ee-*, border-ee-*, font-grotesk */
+@theme {
+  /* Surfaces */
+  --color-ee-canvas: #050605;
+  --color-ee-panel: #0b0d0b;
+  --color-ee-mount: #2b2d2c;
+  --color-ee-black: #000000;
+
+  /* Ink */
+  --color-ee-text: #f2efe6;
+  --color-ee-muted: #8b8f86;
+
+  /* Accent system (SPLIT — do not collapse) */
+  --color-ee-accent: #5fb53c; /* UI: hovers, arrows, active nav, CTA fill */
+  --color-ee-live: #6bff4a; /* pulsing LED dots ONLY, always glowing */
+  --color-ee-pressed: #1f7a2e; /* pressed, tag fill, ::selection bg */
+
+  /* Hairlines (rgba, never solid grey) */
+  --color-ee-hairline: rgba(242, 239, 230, 0.09);
+  --color-ee-hairline-strong: rgba(242, 239, 230, 0.13);
+  --color-ee-hairline-rest: rgba(242, 239, 230, 0.35);
+
+  /* Accent rgb triplets for arbitrary rgba() glows */
+  --ee-accent-rgb: 95 181 60;
+  --ee-live-rgb: 107 255 74;
+
+  /* Font family — wired to the next/font var from src/lib/fonts.ts */
+  --font-grotesk: var(--font-space-grotesk), "Space Grotesk", sans-serif;
+
+  /* Motion */
+  --ease-ee: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --duration-ee-hover: 120ms;
+}
+
+/* Plain CSS custom props (inline styles / non-utility use, mirrors tokens.css).
+   Attached to :root so inline-style var() lookups resolve on any v2 node. The
+   comma-form rgb triplets are for `rgba(var(--ee-accent-rgb), a)`. */
+:root {
+  --ee-canvas: #050605;
+  --ee-panel: #0b0d0b;
+  --ee-mount: #2b2d2c;
+  --ee-black: #000;
+  --ee-text: #f2efe6;
+  --ee-muted: #8b8f86;
+  --ee-accent: #5fb53c;
+  --ee-accent-rgb: 95, 181, 60;
+  --ee-live: #6bff4a;
+  --ee-live-rgb: 107, 255, 74;
+  --ee-pressed: #1f7a2e;
+  --ee-hairline: rgba(242, 239, 230, 0.09);
+  --ee-hairline-strong: rgba(242, 239, 230, 0.13);
+  --ee-hairline-rest: rgba(242, 239, 230, 0.35);
+  --ee-hover: 120ms ease;
+}
+
+/* v2 scope wrapper — resets the old 20px root, paints canvas, sets the font. */
+.ee-root {
+  font-size: 16px;
+  background: var(--ee-canvas);
+  color: var(--ee-text);
+  font-family: var(--font-grotesk);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+.ee-root ::selection {
+  background: var(--ee-pressed);
+  color: var(--ee-text);
+}
+.ee-root input::placeholder {
+  color: var(--ee-muted);
+}
+
+/* ── design-v2 keyframes (verbatim from motion.md) ──────────────────────── */
+@keyframes eePulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+@keyframes eeFlicker {
+  0% {
+    opacity: 1;
+  }
+  7% {
+    opacity: 0.1;
+  }
+  11% {
+    opacity: 1;
+  }
+  16% {
+    opacity: 0.35;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes eeReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes eeViewIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes eeCrt {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  6% {
+    opacity: 0.62;
+  }
+  8% {
+    opacity: 0.95;
+  }
+  46% {
+    opacity: 0.82;
+  }
+  52% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 0.68;
+  }
+  91% {
+    opacity: 0.95;
+  }
+}
+@keyframes eeBlink {
+  0%,
+  48% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes eeScan {
+  0% {
+    transform: translateY(-3vh);
+  }
+  100% {
+    transform: translateY(103vh);
+  }
+}
+@keyframes eeGlitch {
+  0%,
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+  8% {
+    opacity: 0.25;
+    transform: translateX(0.7px);
+  }
+  12% {
+    opacity: 1;
+    transform: none;
+  }
+  20% {
+    opacity: 0.55;
+    transform: translateX(-0.7px);
+  }
+  24% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Scroll-reveal: view-timeline where supported. The IntersectionObserver
+   fallback in Reveal.tsx adds `.is-revealed`; base state hides until revealed. */
+.ee-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.ee-reveal.is-revealed {
+  animation: eeReveal 0.75s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@supports (animation-timeline: view()) {
+  .ee-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: eeReveal 0.75s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+}
+
+/* Nav + social hover — color-only, 120ms (motion.md §13). */
+.ee-navlink:hover {
+  color: var(--ee-text) !important;
+}
+.ee-social:hover {
+  color: var(--ee-accent) !important;
+}
+
+/* ── Location gallery (specs/gallery.md) ─────────────────────────────────── */
+
+/* Responsive gallery header sizing via CSS vars the component reads.
+   Desktop: 72px title, 40px gutter. Mobile (<760px): 42px title, 20px gutter. */
+.ee-root {
+  --ee-gallery-title: 72px;
+  --ee-gallery-gutter: 40px;
+}
+
+/* Masonry column-count — data-cols sets desktop; mobile forces 2 (spec §4). */
+.ee-masonry {
+  column-count: 3;
+}
+.ee-masonry[data-cols="2"] {
+  column-count: 2;
+}
+.ee-masonry[data-cols="3"] {
+  column-count: 3;
+}
+.ee-masonry[data-cols="4"] {
+  column-count: 4;
+}
+
+/* Back link + lightbox control hovers — color/filter only, 120ms (spec §1,§6). */
+.ee-back:hover,
+.ee-lb-btn:hover {
+  color: var(--ee-accent);
+}
+.ee-lb-arrow:hover {
+  filter: brightness(1.7);
+}
+
+/* Masonry frame hover/focus — mirrors the home-tile pattern (.ee-tile-fx).
+   CRT tint + caption are INVISIBLE at rest, revealed only on frame
+   hover/focus (spec §4). The gate lives on the wrapper so the inner span's
+   eeCrt animation can't override the rest opacity; :focus-visible keeps it
+   keyboard-accessible. */
+.ee-frame[data-mounted]:hover,
+.ee-frame[data-mounted]:focus-visible {
+  border-color: rgba(242, 239, 230, 0.45) !important;
+}
+.ee-frame-fx {
+  opacity: 0;
+  transition: opacity 120ms ease;
+  /* Never a pointer target: clicks/right-clicks pass through to the frame
+     button + image (matches the pre-split overlay's pointerEvents none). */
+  pointer-events: none;
+}
+.ee-frame:hover .ee-frame-fx,
+.ee-frame:focus-visible .ee-frame-fx {
+  opacity: 1;
+}
+.ee-frame-cap {
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+.ee-frame:hover .ee-frame-cap,
+.ee-frame:focus-visible .ee-frame-cap {
+  opacity: 1;
+}
+
+@media (max-width: 759px) {
+  .ee-root {
+    --ee-gallery-title: 42px;
+    --ee-gallery-gutter: 20px;
+  }
+  .ee-masonry,
+  .ee-masonry[data-cols="3"],
+  .ee-masonry[data-cols="4"] {
+    column-count: 2;
+  }
+}
+
+/* ── Home · The Archive layout (home-archive.md) ─────────────────────────── */
+
+/* Section gutter: 20px mobile → 40px desktop (tokens.md §3). Applied on the
+   max-width content wrappers so inline shorthands don't fight Tailwind. */
+.ee-gutter {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: 768px) {
+  .ee-gutter {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* Hero wrapper padding: heroPad 96px 20px 72px mobile → 190px 40px 130px (§1). */
+.ee-hero {
+  padding: 96px 20px 72px;
+}
+@media (min-width: 768px) {
+  .ee-hero {
+    padding: 190px 40px 130px;
+  }
+}
+
+/* Hero background photo width + opacity: 100%/0.5 mobile → 62%/0.85 desktop. */
+.ee-hero-photo {
+  width: 100%;
+  opacity: 0.5;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    rgba(0, 0, 0, 1) 85%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    rgba(0, 0, 0, 1) 85%
+  );
+}
+@media (min-width: 768px) {
+  .ee-hero-photo {
+    width: 62%;
+    opacity: 0.85;
+  }
+}
+
+/* Hero statement + tile name font-size: mobile → desktop (§1, §3). */
+.ee-hero-statement {
+  font-size: 30px;
+}
+.ee-tile-name {
+  font-size: 32px;
+}
+@media (min-width: 768px) {
+  .ee-hero-statement {
+    font-size: 44px;
+  }
+  .ee-tile-name {
+    font-size: 44px;
+  }
+}
+
+/* Bar horizontal padding matches the gutter (index / status bars). */
+.ee-bar {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+@media (min-width: 768px) {
+  .ee-bar {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* Place tile column span: span 6 mobile (2-col) → span 4 desktop (3-col). */
+.ee-tile-span {
+  grid-column: span 6;
+}
+@media (min-width: 768px) {
+  .ee-tile-span {
+    grid-column: span 4;
+  }
+}
+
+/* Latest-diary row columns: 1fr mobile → 340px 1fr 48px desktop (§5). */
+.ee-diary-cols {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .ee-diary-cols {
+    grid-template-columns: 340px 1fr 48px;
+  }
+}
+
+/* ── Home · The Archive interactions (home-archive.md) ───────────────────── */
+
+/* @ericescapes strip tile — hover inset accent hairline, 120ms (§6). */
+.ee-insta-tile {
+  box-shadow: inset 0 0 0 1px transparent;
+  transition: box-shadow 120ms ease;
+}
+.ee-insta-tile:hover {
+  box-shadow: inset 0 0 0 1px rgba(242, 239, 230, 0.45);
+}
+
+/* Place tile (§3) — image scale, CRT tint, corner brackets + arrow reveal.
+   All hover-driven so the grid can stay a server component. */
+.ee-tile-img {
+  transition: transform 600ms ease;
+  transform: scale(1);
+}
+.ee-tile:hover .ee-tile-img {
+  transform: scale(1.02);
+}
+.ee-tile-fx {
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+.ee-tile:hover .ee-tile-fx {
+  opacity: 1;
+}
+.ee-tile-bracket {
+  opacity: 0;
+  border-color: var(--ee-hairline-rest);
+  transition:
+    opacity 120ms ease,
+    border-color 120ms ease;
+}
+.ee-tile:hover .ee-tile-bracket {
+  opacity: 1;
+  border-color: var(--ee-accent);
+}
+.ee-tile-arrow {
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+.ee-tile:hover .ee-tile-arrow {
+  opacity: 1;
+}
+
+/* Latest-diaries row (§5) — arrow reveals on row hover. */
+.ee-diary-arrow {
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+.ee-diary-row:hover .ee-diary-arrow {
+  opacity: 1;
+}
+.ee-diary-row:hover .ee-diary-title {
+  color: var(--ee-text);
+}
+
+/* Subscribe bar (§7 / shell §4) — email focus underline + control hover. */
+.ee-sub-input::placeholder {
+  color: var(--ee-muted);
+}
+.ee-sub-input:focus {
+  border-bottom-color: var(--ee-accent) !important;
+}
+.ee-sub-submit:hover {
+  filter: brightness(1.6);
+}
+
+/* LED dot — two-layer glow no single Tailwind token expresses cleanly. */
+.ee-led {
+  border-radius: 9999px;
+  background: var(--ee-live);
+  box-shadow:
+    0 0 16px rgba(var(--ee-live-rgb), 0.7),
+    0 0 4px rgba(var(--ee-live-rgb), 0.95);
+  animation: eePulse 2.4s ease-in-out infinite;
+}
+
+/* ── Visual Diaries index / archives — editorial row list (diaries-index.md) ─
+   Distinct from the home "Latest diaries" row above; scoped to .ee-diarylist-*.
+   Desktop cols 230px 1fr 44px 168px; mobile (<=760px) stacks to a single
+   column (kicker, title+excerpt, thumb) and hides the arrow. */
+.ee-diarylist-row {
+  --diarylist-cols: 230px 1fr 44px 168px;
+}
+.ee-diarylist-arrow {
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+.ee-diarylist-row:hover .ee-diarylist-arrow {
+  opacity: 1;
+}
+.ee-diarylist-title {
+  transition: color 120ms ease;
+}
+.ee-diarylist-row:hover .ee-diarylist-title {
+  color: var(--ee-accent);
+}
+/* Diary thumbs are clean images — no mount border (Eric, B3 round 4). */
+@media (max-width: 760px) {
+  .ee-diarylist-row {
+    --diarylist-cols: 1fr;
+    gap: 16px !important;
+  }
+  .ee-diarylist-arrow {
+    display: none;
+  }
+  .ee-diarylist-thumb {
+    max-width: 260px;
+  }
+}
+
+/* ── Visual Diaries index header + pager (diaries-index.md §1/§4) ────────────
+   Gutter 20->40, bigTitleFs 34->56 at the 760px mobile breakpoint. */
+.ee-diaries {
+  --ee-diaries-gutter: 40px;
+}
+.ee-diaries-title {
+  font-size: 56px;
+}
+.ee-diaries-pagelink:hover {
+  color: var(--ee-accent) !important;
+}
+@media (max-width: 760px) {
+  .ee-diaries {
+    --ee-diaries-gutter: 20px;
+  }
+  .ee-diaries-title {
+    font-size: 34px;
+  }
+  .ee-diaries-titlerow {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+}
+
+/* ── Diary article layout vars (article.md + Eric override 2026-07-06) ──────
+   Gutter + panel padding respond at the 760px mobile breakpoint; the article
+   page reads --ee-gutter / --ee-panelpad. The old .ee-article-fullbleed
+   escape is RETIRED: Eric's live-review override keeps article images inside
+   the lifted panel at text-column width (see ArticleBody.tsx). */
+.ee-article {
+  --ee-gutter: 40px;
+  --ee-panelpad: 56px 72px;
+}
+@media (max-width: 760px) {
+  .ee-article {
+    --ee-gutter: 20px;
+    --ee-panelpad: 30px 22px;
+  }
+}
+
+/* ── Diary article panel (article.md + Eric override 2026-07-06) ────────────
+   .ee-article-panel is now ONE continuous lifted panel holding prose blocks
+   (.ee-article-prose, rendered markdown) and mounted photos inline. These
+   descendant rules style the markdown nodes (headings/links/lists/quotes) to
+   the token system so inline styles on <p> don't have to reach into
+   ReactMarkdown output. Mounted photos are styled inline in ArticleBody. */
+.ee-article-panel p {
+  margin: 0 0 26px;
+  font-size: 17.5px;
+  line-height: 1.75;
+  color: var(--ee-text);
+}
+.ee-article-panel a {
+  color: var(--ee-text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(242, 239, 230, 0.35);
+  transition: text-decoration-color 120ms ease;
+}
+.ee-article-panel a:hover {
+  text-decoration-color: var(--ee-accent);
+}
+.ee-article-panel h1,
+.ee-article-panel h2,
+.ee-article-panel h3 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 40px 0 16px;
+}
+.ee-article-panel h1 {
+  font-size: 30px;
+}
+.ee-article-panel h2 {
+  font-size: 26px;
+}
+.ee-article-panel h3 {
+  font-size: 21px;
+}
+/* Segment-edge balance: the panel padding owns the vertical rhythm at the
+   top/bottom of every prose block; markdown edge margins would double it. */
+.ee-article-prose > *:first-child {
+  margin-top: 0;
+}
+.ee-article-prose > *:last-child {
+  margin-bottom: 0;
+}
+.ee-article-panel ul,
+.ee-article-panel ol {
+  margin: 0 0 26px;
+  padding-left: 24px;
+  font-size: 17.5px;
+  line-height: 1.75;
+  color: var(--ee-text);
+}
+.ee-article-panel li {
+  margin: 6px 0;
+}
+.ee-article-panel blockquote {
+  margin: 0 0 26px;
+  padding-left: 22px;
+  border-left: 2px solid rgba(242, 239, 230, 0.2);
+  color: var(--ee-muted);
+  font-style: italic;
+}
+.ee-article-panel hr {
+  margin: 34px 0;
+  border: 0;
+  border-top: 1px solid rgba(242, 239, 230, 0.13);
+}
+.ee-article-panel strong {
+  font-weight: 600;
+}
+.ee-article-panel em {
+  font-style: italic;
+}
+
+/* Article title — bigTitleFs 34->56 at the 760px mobile breakpoint. */
+.ee-article-title {
+  font-size: 56px;
+}
+
+/* Prev/next mono links (article.md §5) — label colour on hover. */
+.ee-artnav-cell:hover .ee-artnav-label {
+  color: var(--ee-accent);
+}
+.ee-artnav-back:hover {
+  color: var(--ee-accent) !important;
+}
+
+@media (max-width: 760px) {
+  .ee-article-title {
+    font-size: 34px;
+  }
+  /* Prev/next stacks to a single column; drop the vertical divider. */
+  .ee-artnav-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .ee-artnav-prev {
+    padding: 26px 0 !important;
+    border-right: 0 !important;
+    border-bottom: 1px solid rgba(242, 239, 230, 0.09);
+  }
+  .ee-artnav-next {
+    padding: 26px 0 !important;
+    text-align: left !important;
+  }
+}
+
+/* Reduced-motion kill switch — verbatim, scoped so it can't disable any
+   motion the old shadcn pages rely on outside the v2 tree. JS effects
+   (canvas rAF, flicker, glitch) additionally gate in their own components. */
+@media (prefers-reduced-motion: reduce) {
+  .ee-root *,
+  .ee-root *::before,
+  .ee-root *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  /* Reveal-gated content starts at opacity 0 and relies on eeReveal to
+     become visible; with animations killed it must be shown outright. */
+  .ee-root .ee-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
