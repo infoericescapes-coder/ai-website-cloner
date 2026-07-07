@@ -213,6 +213,21 @@ export default function BackdropDust({
     };
     raf = requestAnimationFrame(frame);
 
+    // Pause the rAF loop while the tab is hidden — a backgrounded tab keeps
+    // burning CPU/battery on an invisible canvas otherwise. On return, reset
+    // `last` so the first frame's dt is ~0 (a stale timestamp would produce one
+    // huge dt and jump the rain/code positions).
+    const onVisibility = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(raf);
+        raf = 0;
+      } else if (raf === 0) {
+        last = performance.now();
+        raf = requestAnimationFrame(frame);
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
     const onResize = () => {
       resize();
       if (mode === "dust") buildDust();
@@ -223,6 +238,7 @@ export default function BackdropDust({
 
     return () => {
       cancelAnimationFrame(raf);
+      document.removeEventListener("visibilitychange", onVisibility);
       window.removeEventListener("resize", onResize);
       window.removeEventListener("scroll", onScroll);
     };

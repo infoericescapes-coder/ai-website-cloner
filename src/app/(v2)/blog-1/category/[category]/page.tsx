@@ -29,8 +29,18 @@ type CategoryPageProps = {
   params: Promise<{ category: string }>;
 };
 
+// Off-list category slugs 404 instead of rendering a thin empty archive.
+// Safe because generateStaticParams below enumerates every real archive.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
-  return CATEGORY_ARCHIVES.map((category) => ({ category }));
+  // The live sitemap encodes spaces as "+" (e.g. Film+Simulations). With
+  // dynamicParams=false only these exact params resolve, so emit the "+" form
+  // to match the sitemap 1:1 — otherwise the sitemap's multi-word archive URLs
+  // 404. The page normalises "+" back to a space for matching/display.
+  return CATEGORY_ARCHIVES.map((category) => ({
+    category: category.replace(/ /g, "+"),
+  }));
 }
 
 export async function generateMetadata({

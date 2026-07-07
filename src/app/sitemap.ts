@@ -18,7 +18,9 @@ const STATIC_ROUTES = [
   "/chaostocalm",
   "/dolomites",
   "/free-1",
-  "/gallery-1-1",
+  // /gallery-1-1 is an unpopulated placeholder stub — kept reachable by URL but
+  // excluded from the sitemap + marked noindex (see its page metadata) until
+  // real gallery content lands.
   "/hallstatt",
   "/italy1",
   "/japan",

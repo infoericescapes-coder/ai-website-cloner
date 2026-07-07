@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "Gallery 1 — ERIC ESCAPES",
   description:
     "It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into something more.",
+  // Placeholder stub with no real gallery content — stays reachable by URL but
+  // kept out of search indexes (and the sitemap) until Eric populates it.
+  robots: { index: false, follow: true },
 };
 
 const MUTED = "#8B8F86";

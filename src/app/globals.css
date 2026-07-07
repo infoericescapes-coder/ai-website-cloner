@@ -7,12 +7,16 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-dm-mono), ui-monospace, monospace;
-  --font-heading: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-nav: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
-  --font-eyebrow: var(--font-dm-mono), ui-monospace, monospace;
+  /* NOTE: the old Poppins / Open Sans / DM Mono Google fonts were removed with
+     the (v1) route group (src/app/layout.tsx). These theme tokens now fall back
+     to system stacks so the shadcn font-sans / font-mono utilities stay valid;
+     no v2 surface consumes them (v2 text is Space Grotesk via .ee-root). */
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-heading: ui-sans-serif, system-ui, sans-serif;
+  --font-body: ui-sans-serif, system-ui, sans-serif;
+  --font-nav: ui-sans-serif, system-ui, sans-serif;
+  --font-eyebrow: ui-monospace, SFMono-Regular, Menlo, monospace;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -373,6 +377,52 @@
   color: var(--ee-accent) !important;
 }
 
+/* ── Keyboard focus-visible parity (Track C a11y) ────────────────────────────
+   Every :hover affordance below is mirrored for :focus-visible so keyboard
+   users get the same reveal/colour cue as mouse users. Kept color/filter-only
+   to match Eric's mono vocabulary; no new box/outline chrome. The row-level
+   selectors also cover the More-places rows track A adds — those must use the
+   `.ee-morerow` class (with an inner `.ee-morerow-arrow` / `.ee-morerow-title`)
+   OR reuse the existing `.ee-diary-row*` pattern; either matches here.
+   NOTE for verify agent: if track A named its More-places rows something other
+   than `.ee-morerow`, add that class to the selector lists below. */
+.ee-navlink:focus-visible {
+  color: var(--ee-text) !important;
+}
+.ee-social:focus-visible {
+  color: var(--ee-accent) !important;
+}
+.ee-back:focus-visible,
+.ee-lb-btn:focus-visible {
+  color: var(--ee-accent);
+}
+.ee-lb-arrow:focus-visible {
+  filter: brightness(1.7);
+}
+.ee-diaries-pagelink:focus-visible {
+  color: var(--ee-accent) !important;
+}
+/* Latest-diaries + More-places rows — reveal arrow + title colour on focus. */
+.ee-diary-row:focus-visible .ee-diary-arrow,
+.ee-morerow:focus-visible .ee-morerow-arrow {
+  opacity: 1;
+}
+.ee-diary-row:focus-visible .ee-diary-title,
+.ee-morerow:focus-visible .ee-morerow-title {
+  color: var(--ee-text);
+}
+/* Focusable rows that are themselves links get the title/accent cue directly. */
+.ee-morerow:focus-visible {
+  color: var(--ee-accent);
+}
+/* Diaries-index editorial rows. */
+.ee-diarylist-row:focus-visible .ee-diarylist-arrow {
+  opacity: 1;
+}
+.ee-diarylist-row:focus-visible .ee-diarylist-title {
+  color: var(--ee-accent);
+}
+
 /* ── Location gallery (specs/gallery.md) ─────────────────────────────────── */
 
 /* Responsive gallery header sizing via CSS vars the component reads.
@@ -432,6 +482,19 @@
 .ee-frame:hover .ee-frame-cap,
 .ee-frame:focus-visible .ee-frame-cap {
   opacity: 1;
+}
+/* eeCrt flicker GATE (perf): the CRT tint span carries the eeCrt animation but
+   it is PAUSED at rest, so a gallery of 43 frames runs ZERO animations idle
+   (the header LED dot is the single sanctioned exception). The animation only
+   runs while the frame is hovered/focused — i.e. only when .ee-frame-fx is
+   actually visible. Rest state = no compositor churn. */
+.ee-frame-crt {
+  animation: eeCrt 2.6s linear infinite;
+  animation-play-state: paused;
+}
+.ee-frame:hover .ee-frame-crt,
+.ee-frame:focus-visible .ee-frame-crt {
+  animation-play-state: running;
 }
 
 @media (max-width: 759px) {
@@ -599,6 +662,73 @@
 }
 .ee-diary-row:hover .ee-diary-title {
   color: var(--ee-text);
+}
+
+/* ── "More places" archive ledger (Track A · archive IA) ─────────────────────
+   Mono ledger rows below the tile grid — index number + place name (Space
+   Grotesk via --font-grotesk, modest size, NOT tile-scale) + mono FRAMES data
+   line + accent arrow. Hairline dividers between rows; whole row is the Link.
+   Desktop cols: 44px index / 1fr name / auto frames / 28px arrow. Mobile
+   (<760px) collapses to index+name on one line, frames under, arrow hidden. */
+.ee-morerow-cols {
+  grid-template-columns: 44px 1fr auto 28px;
+  gap: 18px;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--ee-hairline);
+  text-decoration: none;
+  transition: background-color 120ms ease;
+}
+.ee-morerow-index {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--ee-muted);
+  transition: color 120ms ease;
+}
+.ee-morerow-title {
+  font-family: var(--font-grotesk);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--ee-text);
+  transition: color 120ms ease;
+}
+.ee-morerow-frames {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ee-muted);
+  justify-self: end;
+  white-space: nowrap;
+}
+.ee-morerow-arrow {
+  font-size: 15px;
+  line-height: 1;
+  color: var(--ee-accent);
+  justify-self: end;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+.ee-morerow:hover .ee-morerow-index {
+  color: var(--ee-accent);
+}
+.ee-morerow:hover .ee-morerow-arrow {
+  opacity: 1;
+}
+@media (max-width: 760px) {
+  .ee-morerow-cols {
+    grid-template-columns: 32px 1fr;
+    gap: 4px 14px;
+  }
+  .ee-morerow-frames {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 4px;
+  }
+  .ee-morerow-arrow {
+    display: none;
+  }
 }
 
 /* Subscribe bar (§7 / shell §4) — email focus underline + control hover. */

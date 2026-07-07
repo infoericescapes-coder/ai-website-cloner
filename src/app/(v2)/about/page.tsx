@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import Reveal from "@/components/v2/chrome/Reveal";
 import { designConfig } from "@/lib/design-config";
 
@@ -11,7 +12,7 @@ import { designConfig } from "@/lib/design-config";
  * page; OG inherits from the (v2) layout.
  */
 export const metadata: Metadata = {
-  title: "About — Eric Escapes",
+  title: "About — ERIC ESCAPES",
   description:
     "Travel and street photographer from Sydney. About Eric Escapes, this visual diary, and why the camera came back out.",
 };
@@ -29,6 +30,11 @@ const CONTACT_LINKS = [
     label: "Substack ↗",
     href: "https://ericescapes.substack.com",
     external: true,
+  },
+  {
+    label: "My gear ↗",
+    href: "/my-gear",
+    external: false,
   },
 ] as const;
 
@@ -127,23 +133,34 @@ export default function AboutPage() {
               textTransform: "uppercase",
             }}
           >
-            {CONTACT_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="ee-social"
-                style={{
-                  color: MUTED,
-                  textDecoration: "none",
-                  transition: "color 120ms ease",
-                }}
-                {...(link.external
-                  ? { target: "_blank", rel: "noopener noreferrer" }
-                  : {})}
-              >
-                {link.label}
-              </a>
-            ))}
+            {CONTACT_LINKS.map((link) => {
+              const linkStyle = {
+                color: MUTED,
+                textDecoration: "none",
+                transition: "color 120ms ease",
+              } as const;
+              return link.external ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="ee-social"
+                  style={linkStyle}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="ee-social"
+                  style={linkStyle}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
         </div>
 

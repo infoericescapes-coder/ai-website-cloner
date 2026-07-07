@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import LedDot from "@/components/v2/chrome/LedDot";
 
 /**
@@ -22,12 +22,21 @@ export default function PresetPackFormV2() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  // Synchronous re-entrancy guard: state updates are async, so a fast second
+  // submit (Enter + click) could fire the native POST twice before `submitted`
+  // flips. The ref is set inline and blocks the second pass immediately.
+  const submittingRef = useRef(false);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     if (!email) {
       e.preventDefault();
       return;
     }
+    if (submittingRef.current) {
+      e.preventDefault();
+      return;
+    }
+    submittingRef.current = true;
     // Native cross-origin POST goes to the hidden iframe; flip UI + redirect.
     setSubmitted(true);
     window.setTimeout(() => {
@@ -118,6 +127,7 @@ export default function PresetPackFormV2() {
 
         <button
           type="submit"
+          disabled={submitted}
           className="ee-sub-submit flex items-center self-start"
           style={{
             marginTop: 6,
@@ -128,7 +138,8 @@ export default function PresetPackFormV2() {
             color: "var(--ee-accent)",
             background: "transparent",
             border: "none",
-            cursor: "pointer",
+            cursor: submitted ? "default" : "pointer",
+            opacity: submitted ? 0.5 : 1,
             transition: "filter 120ms ease",
           }}
         >

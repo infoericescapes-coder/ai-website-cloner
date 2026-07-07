@@ -59,7 +59,14 @@ export default function InstaStrip() {
 
   useEffect(() => {
     let active = true;
+    let timedOut = false;
     const controller = new AbortController();
+    // 6s hard cap: if the feed hangs, abort and show the error/fallback state
+    // instead of leaving skeletons spinning forever.
+    const timeout = window.setTimeout(() => {
+      timedOut = true;
+      controller.abort();
+    }, 6000);
 
     fetch(BEHOLD_FEED_URL, { signal: controller.signal })
       .then((res) => {
@@ -68,11 +75,20 @@ export default function InstaStrip() {
       })
       .then((data) => {
         if (!active) return;
+        window.clearTimeout(timeout);
         const next = Array.isArray(data.posts) ? data.posts.slice(0, 6) : [];
         setPosts(next);
       })
       .catch((err: unknown) => {
-        if (!active || (err instanceof DOMException && err.name === "AbortError")) {
+        if (!active) return;
+        window.clearTimeout(timeout);
+        // An abort we triggered on timeout becomes the error state; an abort
+        // from unmount (timedOut === false) is ignored.
+        if (
+          err instanceof DOMException &&
+          err.name === "AbortError" &&
+          !timedOut
+        ) {
           return;
         }
         setErrored(true);
@@ -80,6 +96,7 @@ export default function InstaStrip() {
 
     return () => {
       active = false;
+      window.clearTimeout(timeout);
       controller.abort();
     };
   }, []);
