@@ -26,6 +26,23 @@ function isStringArray(value: unknown): value is string[] {
 }
 
 /**
+ * Normalise a frontmatter date to a "YYYY-MM-DD" string.
+ *
+ * Existing posts quote the date (`date: "2026-06-25"`) so YAML parses a string.
+ * Sveltia CMS's date picker writes it UNQUOTED (`date: 2026-07-08`), which YAML
+ * parses as a Date object — accepting only strings dropped those posts to the
+ * bottom of the sort with no visible date. Handle both. The value is date-only
+ * (UTC midnight), so slicing the ISO string is shift-safe (no timezone offset).
+ */
+function normaliseDate(value: unknown): string {
+  if (typeof value === "string") return value;
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    return value.toISOString().slice(0, 10);
+  }
+  return "";
+}
+
+/**
  * Normalise gray-matter's loosely-typed `data` blob into a strict
  * PostFrontmatter, filling in safe defaults for anything missing or
  * malformed rather than throwing at build time.
@@ -35,7 +52,7 @@ function normaliseFrontmatter(
   fallbackSlug: string,
 ): PostFrontmatter {
   const title = typeof data.title === "string" ? data.title : fallbackSlug;
-  const date = typeof data.date === "string" ? data.date : "";
+  const date = normaliseDate(data.date);
   const author = typeof data.author === "string" ? data.author : "Eric Kowalczyk";
   const categories = isStringArray(data.categories) ? data.categories : [];
   const tags = isStringArray(data.tags) ? data.tags : [];
