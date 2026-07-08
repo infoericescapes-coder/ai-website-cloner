@@ -1,9 +1,26 @@
-import Link from "next/link";
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { getAllPosts } from "@/lib/blog";
 import Reveal from "@/components/v2/chrome/Reveal";
 import LedDot from "@/components/v2/chrome/LedDot";
 import DiaryList from "@/components/v2/blog/DiaryList";
+import DiaryPaged from "@/components/v2/blog/DiaryPaged";
+
+/**
+ * Visual Diaries index — STATICALLY generated (force-static below).
+ *
+ * getAllPosts() runs at BUILD time, when every content/blog/*.md file is
+ * present, so a rebuild always reflects the current post set and newly
+ * published posts appear immediately (same guarantee the [slug] pages have).
+ *
+ * HISTORY (2026-07-08): this route was previously dynamic because it read
+ * `?page=` from server `searchParams`. On Netlify's serverless runtime the
+ * dynamic function served a STALE post list — its filesystem snapshot lagged
+ * behind newly-committed posts (a Sveltia CMS post rendered at its own URL but
+ * never appeared in the index). Fix: keep the index static and move pagination
+ * to a client component (DiaryPaged) that reads `?page=` from the URL.
+ */
+export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   title: "Photography Blog — ERIC ESCAPES",
@@ -14,10 +31,6 @@ export const metadata: Metadata = {
 const POSTS_PER_PAGE = 9;
 const MUTED = "#8B8F86";
 
-type BlogIndexPageProps = {
-  searchParams: Promise<{ page?: string }>;
-};
-
 /** Year (number) of a post date, or null when unparseable. */
 function yearOf(dateString: string): number | null {
   if (!dateString) return null;
@@ -26,18 +39,8 @@ function yearOf(dateString: string): number | null {
   return date.getFullYear();
 }
 
-export default async function BlogIndexPage({ searchParams }: BlogIndexPageProps) {
-  const { page: pageParam } = await searchParams;
+export default function BlogIndexPage() {
   const posts = getAllPosts();
-
-  const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
-  const currentPage = Math.min(
-    Math.max(1, Number.parseInt(pageParam ?? "1", 10) || 1),
-    totalPages,
-  );
-
-  const start = (currentPage - 1) * POSTS_PER_PAGE;
-  const pagePosts = posts.slice(start, start + POSTS_PER_PAGE);
 
   // Meta line: "{N} entries · {min}–{max}" computed from the full post set.
   const years = posts.map((p) => yearOf(p.date)).filter((y): y is number => y !== null);
@@ -109,77 +112,19 @@ export default async function BlogIndexPage({ searchParams }: BlogIndexPageProps
         </div>
       </Reveal>
 
-      {/* Rows */}
-      {pagePosts.length === 0 ? (
-        <p style={{ marginTop: 48, color: MUTED, fontSize: 15 }}>
-          No entries yet — check back soon.
-        </p>
-      ) : (
-        <div style={{ marginTop: 20 }}>
-          <DiaryList posts={pagePosts} />
-        </div>
-      )}
-
-      {/* Pager — restyled to the token system (11px uppercase, accent hover). */}
-      {totalPages > 1 ? (
-        <nav
-          aria-label="Blog pagination"
-          style={{
-            marginTop: 56,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 32,
-          }}
-        >
-          {currentPage > 1 ? (
-            <Link
-              href={
-                currentPage - 1 === 1 ? "/blog-1" : `/blog-1?page=${currentPage - 1}`
-              }
-              className="ee-diaries-pagelink"
-              style={{
-                fontSize: 11,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: MUTED,
-                textDecoration: "none",
-                transition: "color 120ms ease",
-              }}
-            >
-              ← Newer
-            </Link>
-          ) : null}
-
-          <span
-            style={{
-              fontSize: 11,
-              letterSpacing: "0.18em",
-              textTransform: "uppercase",
-              color: "rgba(139,143,134,0.6)",
-            }}
-          >
-            Page {currentPage} / {totalPages}
-          </span>
-
-          {currentPage < totalPages ? (
-            <Link
-              href={`/blog-1?page=${currentPage + 1}`}
-              className="ee-diaries-pagelink"
-              style={{
-                fontSize: 11,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: MUTED,
-                textDecoration: "none",
-                transition: "color 120ms ease",
-              }}
-            >
-              Older →
-            </Link>
-          ) : null}
-        </nav>
-      ) : null}
+      {/* Rows + pager — client component reads ?page= via useSearchParams,
+          wrapped in Suspense (required for useSearchParams under static
+          rendering). The fallback renders the first page's rows so the static
+          HTML is non-empty and looks right before hydration. */}
+      <Suspense
+        fallback={
+          <div style={{ marginTop: 20 }}>
+            <DiaryList posts={posts.slice(0, POSTS_PER_PAGE)} />
+          </div>
+        }
+      >
+        <DiaryPaged posts={posts} postsPerPage={POSTS_PER_PAGE} />
+      </Suspense>
     </div>
   );
 }
