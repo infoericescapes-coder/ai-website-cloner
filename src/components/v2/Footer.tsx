@@ -69,15 +69,6 @@ export default function Footer() {
               MY GEAR
             </span>
           </Link>
-          <Link
-            href="/prints-1"
-            className="ee-social flex items-center"
-            style={{ color: "var(--ee-muted)", transition: "color 120ms ease" }}
-          >
-            <span style={{ fontSize: 11, fontWeight: 500, letterSpacing: "0.2em" }}>
-              PRINTS
-            </span>
-          </Link>
           <a
             href="https://www.instagram.com/ericescapes"
             target="_blank"

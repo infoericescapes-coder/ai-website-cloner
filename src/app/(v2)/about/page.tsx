@@ -76,8 +76,7 @@ export default function AboutPage() {
               textWrap: "pretty",
             }}
           >
-            I photograph the version of a city that exists just before everyone
-            looks up.
+            I photograph how places feel.
           </h1>
           <p
             style={{

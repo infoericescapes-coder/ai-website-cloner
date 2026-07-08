@@ -42,18 +42,6 @@ type PrimaryTile = {
 
 const PRIMARY_TILES = placeData.reconciled_final.primary_tiles as PrimaryTile[];
 
-// ── "More places" archive index (secondary galleries) ──────────────────────
-// The 12-galleries-unreachable fix: the reconciled secondary list rendered as a
-// mono ledger below the tile grid. gallery-1-1 is a flagged stub and is
-// excluded defensively (it isn't in the data today, but never surface it here).
-type SecondaryPlace = { name: string; route: string; frames: number };
-
-const SECONDARY_PLACES = (
-  placeData.reconciled_final.secondary_more_places as SecondaryPlace[]
-).filter((p) => p.route !== "/gallery-1-1" && p.route !== "gallery-1-1");
-
-const TOTAL_MORE_PLACES = SECONDARY_PLACES.length;
-
 // Tile cover images. Home tiles reuse the existing homepage covers where they
 // exist; HONG KONG uses its new gallery cover.
 const TILE_COVER: Record<string, string> = {
@@ -357,56 +345,6 @@ export default function Home() {
           Currently filing · Sydney
         </span>
       </div>
-
-      {/* ═══════════════════ 4b · MORE PLACES ledger ═══════════════════ */}
-      <Reveal
-        as="section"
-        className="ee-gutter"
-        style={{ maxWidth: 1560, margin: "0 auto", paddingTop: 84 }}
-      >
-        {/* Header row — matches the INDEX · BY PLACE bar language */}
-        <div
-          className="flex items-center justify-between"
-          style={{
-            paddingBottom: 15,
-            borderBottom: "1px solid var(--ee-hairline-strong)",
-            fontSize: 11,
-            letterSpacing: "0.18em",
-            textTransform: "uppercase",
-            color: "#8B8F86",
-          }}
-        >
-          <span>
-            More places ·{" "}
-            <span style={{ color: "var(--ee-accent)" }}>
-              {String(TOTAL_MORE_PLACES).padStart(2, "0")}
-            </span>
-          </span>
-          <span>The rest of the index</span>
-        </div>
-
-        {/* Ledger rows */}
-        <div>
-          {SECONDARY_PLACES.map((place, i) => {
-            const index = String(i + 1).padStart(2, "0");
-            return (
-              <Link
-                key={place.route}
-                href={place.route}
-                className="ee-morerow ee-morerow-cols grid items-baseline"
-                aria-label={`${place.name} · ${place.frames} frames`}
-              >
-                <span className="ee-morerow-index">{index}</span>
-                <span className="ee-morerow-title">{place.name}</span>
-                <span className="ee-morerow-frames">{place.frames} FRAMES</span>
-                <span aria-hidden className="ee-morerow-arrow">
-                  →
-                </span>
-              </Link>
-            );
-          })}
-        </div>
-      </Reveal>
 
       {/* ═══════════════════ 5 · LATEST DIARIES ═══════════════════ */}
       <Reveal
