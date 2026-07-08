@@ -13,3 +13,7 @@ slug: Test2
 ---
 
 This is a test number two with a image.
+
+![](/images/blog/escape-the-noise/01.jpg)
+
+Will this work? Title image uploaded and body image from library.
