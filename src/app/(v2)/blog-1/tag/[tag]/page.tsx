@@ -32,8 +32,16 @@ type TagPageProps = {
   params: Promise<{ tag: string }>;
 };
 
+// Off-list tag slugs 404 instead of rendering a thin empty archive.
+// Safe because generateStaticParams below enumerates every real archive.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
-  return TAG_ARCHIVES.map((tag) => ({ tag }));
+  // The live sitemap encodes spaces as "+" (e.g. Film+Simulations). With
+  // dynamicParams=false only these exact params resolve, so emit the "+" form
+  // to match the sitemap 1:1 — otherwise the sitemap's multi-word archive URLs
+  // 404. The page normalises "+" back to a space for matching/display.
+  return TAG_ARCHIVES.map((tag) => ({ tag: tag.replace(/ /g, "+") }));
 }
 
 export async function generateMetadata({

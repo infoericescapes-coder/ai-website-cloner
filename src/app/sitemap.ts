@@ -9,36 +9,34 @@ const BASE_URL = "https://www.ericescapes.com";
  * from the content layer below. "/" replaces the live site's /home
  * (see docs/research/redirect-map.md — /home -> / alias).
  */
+// Only the six primary place galleries are surfaced (home tiles + sitemap):
+// SYDNEY (/sydney2), JAPAN, VIETNAM, AUSTRIA, ITALY (/italy1), HONG KONG.
+// The former "secondary" galleries (Kosciuszko, Ceny Coast, Salzburg,
+// Hallstatt, Slovenia, Verona, Sapphire Coast, Dolomites, Melbourne,
+// Vietnam2, the standalone /sydney) were removed from the site per Eric
+// (2026-07-08) — their route files remain but are unlinked + unindexed.
+// /prints-1 removed too — no print shop (Eric, 2026-07-08).
 const STATIC_ROUTES = [
   "/",
   "/about",
   "/austria",
   "/blog-1",
-  "/cenycoast",
   "/chaostocalm",
-  "/dolomites",
   "/free-1",
-  "/gallery-1-1",
-  "/hallstatt",
+  // /gallery-1-1 is an unpopulated placeholder stub — kept reachable by URL but
+  // excluded from the sitemap + marked noindex (see its page metadata) until
+  // real gallery content lands.
+  "/hongkong",
   "/italy1",
   "/japan",
-  "/kosciuszko-25",
-  "/melbourne",
   "/my-gear",
-  "/prints-1",
-  "/salzburg",
-  "/sapphirecoast",
-  "/slovenia",
   "/social-lander",
   "/special",
   "/store",
   // /store/p/visual-diary-collection-lightroom-presets 301s to /store
   // (next.config.ts) — redirecting URLs stay out of the sitemap.
-  "/sydney",
   "/sydney2",
-  "/verona",
   "/vietnam",
-  "/vietnam2",
 ] as const;
 
 /**

@@ -502,12 +502,16 @@ function Frame({
         */}
         <span aria-hidden className="ee-frame-fx" style={{ position: "absolute", inset: 0 }}>
           <span
+            className="ee-frame-crt"
             style={{
               position: "absolute",
               inset: 0,
               background:
                 "linear-gradient(rgba(var(--ee-accent-rgb),0.10), rgba(var(--ee-accent-rgb),0.10))",
-              animation: "eeCrt 2.6s linear infinite",
+              // eeCrt flicker is PAUSED at rest and only runs on frame
+              // hover/focus (see .ee-frame-crt in globals.css). Declaring the
+              // animation inline but leaving it play-state:paused kept 43 frames
+              // spinning the compositor at rest behind an opacity-0 wrapper.
             }}
           />
         </span>

@@ -104,6 +104,7 @@ export default function Home() {
             alt=""
             fill
             priority
+            fetchPriority="high"
             sizes="(max-width: 768px) 100vw, 62vw"
             style={{ objectFit: "cover", objectPosition: "76% 56%" }}
           />
@@ -218,13 +219,16 @@ export default function Home() {
                 <span className="sr-only">{tile.name}</span>
               </Link>
 
-              {/* Cover image */}
+              {/* Cover image — below the fold, so plain lazy. These 3 tiles
+                  used to emit priority (rel=preload as=image) and competed with
+                  the hero for the LCP connection budget. The hero <Image> above
+                  is the SOLE priority image (fetchpriority=high). */}
               {cover && (
                 <Image
                   src={cover}
                   alt={`${tile.name} — ${tile.frames} frames`}
                   fill
-                  priority={i < 3}
+                  loading="lazy"
                   sizes="(max-width: 768px) 50vw, 33vw"
                   className="ee-tile-img"
                   style={{ objectFit: "cover", objectPosition: tile.pos }}

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import Link from "next/link";
+import { useRef, useState, type FormEvent } from "react";
 import Reveal from "@/components/v2/chrome/Reveal";
 import LedDot from "@/components/v2/chrome/LedDot";
 
@@ -22,12 +23,21 @@ const REDIRECT_DELAY_MS = 1800;
 export default function SubscribeBar() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  // Synchronous re-entrancy guard: state updates are async, so a fast second
+  // submit (Enter + click) could fire the native POST twice before `submitted`
+  // flips. The ref is set inline and blocks the second pass immediately.
+  const submittingRef = useRef(false);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     if (!email) {
       e.preventDefault();
       return;
     }
+    if (submittingRef.current) {
+      e.preventDefault();
+      return;
+    }
+    submittingRef.current = true;
     // Native cross-origin POST goes to the hidden iframe; we flip UI + redirect.
     setSubmitted(true);
     window.setTimeout(() => {
@@ -70,7 +80,15 @@ export default function SubscribeBar() {
           <span
             style={{ fontSize: 12.5, letterSpacing: "0.06em", lineHeight: 1.75, color: "var(--ee-muted)" }}
           >
-            Drop your email, get the Visual Diary preset pack free.
+            Drop your email, get{" "}
+            <Link
+              href="/free-1"
+              className="ee-social"
+              style={{ color: "var(--ee-text)", transition: "color 120ms ease" }}
+            >
+              the free preset pack
+            </Link>
+            .
             <br />
             Plus stories from the road. No spam. Just photography.
           </span>
@@ -126,6 +144,7 @@ export default function SubscribeBar() {
               />
               <button
                 type="submit"
+                disabled={submitted}
                 className="ee-sub-submit flex items-center"
                 style={{
                   paddingBottom: 9,
@@ -136,7 +155,8 @@ export default function SubscribeBar() {
                   color: "var(--ee-accent)",
                   background: "transparent",
                   border: "none",
-                  cursor: "pointer",
+                  cursor: submitted ? "default" : "pointer",
+                  opacity: submitted ? 0.5 : 1,
                   transition: "filter 120ms ease",
                 }}
               >
