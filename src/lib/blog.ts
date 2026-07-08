@@ -58,7 +58,14 @@ function normaliseFrontmatter(
   const tags = isStringArray(data.tags) ? data.tags : [];
   const excerpt = typeof data.excerpt === "string" ? data.excerpt : "";
   const featured = typeof data.featured === "string" ? data.featured : "";
-  const slug = typeof data.slug === "string" ? data.slug : fallbackSlug;
+  // Slug is ALWAYS the filename, never the frontmatter `slug` field. Routing is
+  // built from filenames (getAllSlugs → generateStaticParams; getPostBySlug
+  // reads `${slug}.md`), so index links must use the filename too. Sveltia can
+  // write a frontmatter `slug` that differs from the (sanitised, lowercased)
+  // filename — e.g. `slug: Test2` in test2.md — which produced index links to a
+  // /blog-1/Test2 route that doesn't exist. Filename is the single source of
+  // truth; the frontmatter slug field is ignored for routing.
+  const slug = fallbackSlug;
 
   return { title, date, author, categories, tags, excerpt, featured, slug };
 }
