@@ -49,8 +49,8 @@ const PRODUCTS: readonly Product[] = [
     price: "A$5+",
     action: "VIEW →",
     image: {
-      src: "/images/chaostocalm/neon-grey-after.jpg",
-      alt: "Chaos to Calm preset pack — Neon & Grey look, Shinjuku after dark",
+      src: "/images/store/chaos-to-calm-cover.jpg",
+      alt: "Chaos to Calm — Lightroom preset pack, Eric Escapes archive cover",
     },
     href: "/chaostocalm",
     external: false,
@@ -65,7 +65,7 @@ const PRODUCTS: readonly Product[] = [
     action: "GUMROAD ↗",
     image: {
       src: "/images/store/visual-diary-cover.jpg",
-      alt: "Visual Diary Collection preset pack cover",
+      alt: "Visual Diary Collection — Lightroom preset pack, Eric Escapes archive cover",
     },
     href: VISUAL_DIARY_GUMROAD,
     external: true,
@@ -90,7 +90,7 @@ function ProductCardBody({ product }: { product: Product }) {
         style={{
           position: "relative",
           width: "100%",
-          aspectRatio: "4 / 5",
+          aspectRatio: "2 / 3",
           overflow: "hidden",
         }}
       >
