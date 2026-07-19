@@ -29,16 +29,27 @@ export default function SubscribeBar() {
   const submittingRef = useRef(false);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    if (!email) {
-      e.preventDefault();
-      return;
-    }
-    if (submittingRef.current) {
-      e.preventDefault();
-      return;
-    }
+    // Always intercept: the old native-POST-to-hidden-iframe path silently
+    // dropped every submission (flipping to the subscribed state unmounted
+    // the target iframe before the browser dispatched the POST). fetch with
+    // keepalive survives both the re-render and the Gumroad navigation; the
+    // ML jsonp endpoint takes a urlencoded body and no-cors is fine because
+    // the response is never read.
+    e.preventDefault();
+    if (!email || submittingRef.current) return;
     submittingRef.current = true;
-    // Native cross-origin POST goes to the hidden iframe; we flip UI + redirect.
+    const body = new URLSearchParams({
+      "fields[email]": email,
+      "ml-submit": "1",
+      anticsrf: "true",
+    });
+    void fetch(MAILERLITE_ACTION, {
+      method: "POST",
+      mode: "no-cors",
+      keepalive: true,
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: body.toString(),
+    });
     setSubmitted(true);
     window.setTimeout(() => {
       window.location.href = GUMROAD_REDIRECT_URL;
