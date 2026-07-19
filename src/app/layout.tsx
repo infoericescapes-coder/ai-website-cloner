@@ -40,7 +40,12 @@ export const metadata: Metadata = {
   description:
     "Street and travel photography from Eric Escapes — full-bleed frames, presets, and gear notes from the road.",
   icons: {
-    icon: "/seo/favicon.ico",
+    icon: [
+      { url: "/seo/favicon.ico", sizes: "48x48" },
+      { url: "/seo/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/seo/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/seo/apple-touch-icon.png",
   },
 };
 
