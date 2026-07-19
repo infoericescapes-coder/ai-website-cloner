@@ -39,13 +39,16 @@ export const metadata: Metadata = {
   title: "ERIC ESCAPES",
   description:
     "Street and travel photography from Eric Escapes — full-bleed frames, presets, and gear notes from the road.",
+  // Same brand-kit icon set as the (v2) layout, which overrides this on all
+  // (v2) routes anyway. The real tab icon is src/app/favicon.ico (Next file
+  // convention, served at /favicon.ico) — rebuilt from the brand kit; the old
+  // clone-era file shadowed the kit in most browsers.
   icons: {
     icon: [
-      { url: "/seo/favicon.ico", sizes: "48x48" },
-      { url: "/seo/favicon-32.png", type: "image/png", sizes: "32x32" },
-      { url: "/seo/icon.svg", type: "image/svg+xml" },
+      { url: "/brand-v2/logos/ee-favicon.svg", type: "image/svg+xml" },
+      { url: "/brand-v2/logos/png/favicon-32.png", sizes: "32x32", type: "image/png" },
     ],
-    apple: "/seo/apple-touch-icon.png",
+    apple: "/brand-v2/logos/png/favicon-180.png",
   },
 };
 
