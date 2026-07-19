@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const SLUG = "hongkong";
-const IMAGE_COUNT = 18;
+const IMAGE_COUNT = 24;
 
 const images: GalleryImage[] = Array.from({ length: IMAGE_COUNT }, (_, i) => {
   const n = i + 1;

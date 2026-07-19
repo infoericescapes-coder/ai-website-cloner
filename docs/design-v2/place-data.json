@@ -91,7 +91,7 @@
     "index_bar_totals": {
       "places": 6,
       "frames": 263,
-      "note": "'06 places · 263 frames' is the PROTOTYPE placeholder — 69+43+12+21+60+58 = 263. Recompute from the reconciled list, do NOT hardcode 263. RECONCILED FINAL (with HONG KONG slot 06): 69+43+21+58+59+18 = 268 frames across 6 places."
+      "note": "'06 places · 263 frames' is the PROTOTYPE placeholder — 69+43+12+21+60+58 = 263. Recompute from the reconciled list, do NOT hardcode 263. RECONCILED FINAL (with HONG KONG slot 06): 69+43+21+58+59+24 = 274 frames across 6 places."
     },
     "insta_thumbs_order": [
       "sydney",
@@ -215,9 +215,9 @@
         "code": "HKG",
         "coords": "22.28°N 114.16°E",
         "years": "2025",
-        "frames": 18,
+        "frames": 24,
         "pos": "50% 42%",
-        "source": "Eric decision (locked 2026-07-06): 6th tile = HONG KONG. New gallery imported at public/images/gallery/hongkong/ (cover.jpg + 01-18.jpg, 18 frames). Tile cover uses gallery/hongkong/cover.jpg."
+        "source": "Eric decision (locked 2026-07-06): 6th tile = HONG KONG. New gallery imported at public/images/gallery/hongkong/ (cover.jpg + 01-24.jpg, 24 frames; rebuilt to final 24-image sequence 2026-07-19). Tile cover uses gallery/hongkong/cover.jpg."
       }
     ],
     "secondary_more_places": [
