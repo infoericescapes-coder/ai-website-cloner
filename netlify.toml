@@ -45,3 +45,12 @@
   from = "/search"
   to = "/"
   status = 301
+
+# (d) Post-cutover (20 Jul 2026): the bare netlify.app host must not serve as
+#     an indexable duplicate of www.ericescapes.com — 301 everything across.
+#     force=true so it fires even though every path resolves on this site.
+[[redirects]]
+  from = "https://ericescapes-v2.netlify.app/*"
+  to = "https://www.ericescapes.com/:splat"
+  status = 301
+  force = true

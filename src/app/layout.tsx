@@ -31,6 +31,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ericescapes.com"),
+  // Self-referencing canonical on every route ("./" resolves per-path against
+  // metadataBase) — consolidates indexing signals onto www.ericescapes.com.
+  alternates: {
+    canonical: "./",
+  },
   title: "ERIC ESCAPES",
   description:
     "Street and travel photography from Eric Escapes — full-bleed frames, presets, and gear notes from the road.",
