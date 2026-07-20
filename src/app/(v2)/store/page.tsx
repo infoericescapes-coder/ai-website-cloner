@@ -7,9 +7,9 @@ import Reveal from "@/components/v2/chrome/Reveal";
  * Shop (`/store`) — specs/shop.md, extended per Eric's live-review decision:
  * BOTH digital products ship as cards (the spec's single live row + "Soon"
  * slot becomes a two-card grid that keeps the rhythm — mono data lines,
- * hairlines, mount treatment). Chaos to Calm links to its detail page
- * (/chaostocalm, still v1 this round); the Visual Diary pack is free and
- * links straight to Gumroad (its old product URL 301s to /store — see
+ * hairlines, mount treatment). Both products link to on-site detail pages
+ * (/chaostocalm and /visualdiary — the free pack's page embeds the email
+ * capture; its old Squarespace product URL 301s to /store, see
  * next.config.ts). Guides row + Substack line kept from the spec.
  */
 export const metadata: Metadata = {
