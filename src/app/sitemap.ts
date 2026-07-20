@@ -37,6 +37,7 @@ const STATIC_ROUTES = [
   // (next.config.ts) — redirecting URLs stay out of the sitemap.
   "/sydney2",
   "/vietnam",
+  "/visualdiary",
 ] as const;
 
 /**

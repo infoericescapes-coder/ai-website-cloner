@@ -2,24 +2,30 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/v2/chrome/Reveal";
+import PresetPackFormV2 from "@/components/v2/PresetPackFormV2";
 
 /**
- * Preset detail (`/chaostocalm`) — specs/preset-detail.md, with Eric's
- * override from the article rounds: the before/after imagery does NOT run
- * full-container — every image sits at TEXT-COLUMN width (max-width 860 +
- * gutter), in line with the prose. Site-wide B3 precedent also applies:
- * no mount boxes, no hairline borders around photos, clean images.
+ * Preset detail (`/visualdiary`) — the free three-look pack, on-site capture.
+ * Structure is carried over verbatim from /chaostocalm (local Column / Bracket
+ * / BeforeAfter, ← Shop back-link, section order, text-column-width imagery,
+ * no mount boxes / hairline borders around photos). Two deliberate departures:
  *
- * All copy, prices, preset names, imagery and the Gumroad link are carried
- * over from the previous /chaostocalm page + the locked spec copy.
+ *   1. The Gumroad CTA anchor is replaced by the embedded <PresetPackFormV2>
+ *      (MailerLite capture → Gumroad delivery). The page stays a server
+ *      component; only the form is a client island (see free-1/page.tsx:116).
+ *   2. Archive chrome (banner around the h1 + envelope sign-off after the FAQ),
+ *      per Eric's rebranded-landing masthead — a small local pattern, in
+ *      house style, duplicated on /chaostocalm too.
+ *
+ * Body copy is Eric's approved voice, taken verbatim from the rebranded
+ * landing (scratchpad/visualdiary-rebrand/index.html).
  */
 export const metadata: Metadata = {
-  title: "Chaos to Calm — ERIC ESCAPES",
+  title: "Visual Diary Collection — ERIC ESCAPES",
   description:
-    "Two Lightroom preset looks pulled off the streets of Japan: Neon & Grey for after dark, Warm Afternoon for the slow golden-hour days.",
+    "Three looks, built around light. Free. Three film-inspired Lightroom presets — First Light, Quiet Streets, After Dark — with XMP for Lightroom Classic, desktop and Mobile.",
 };
 
-const GUMROAD_URL = "https://ericescape.gumroad.com/l/avcmj";
 const MUTED = "#8B8F86";
 const INK = "#F2EFE6";
 const DIM = "#666B60";
@@ -53,44 +59,63 @@ type Look = {
 
 const LOOKS: readonly Look[] = [
   {
-    name: "Neon & Grey",
-    tag: "Cinestill 800T",
+    name: "First Light",
+    tag: "Soft / warm",
     description:
-      "Cinestill 800T, shot at street level. Warm neon glow, teal sliding into the shadows, that red halation bleeding around every sign. Reach for it after dark, when the city is lit by its own signage and you want the photo to feel like the place felt.",
-    caption: "Shinjuku, after dark. Straight off the camera, then the grade.",
-    objectPosition: "50% 40%",
+      "Early-morning runs around Sydney. The first-hour palette: warm but soft, a little hazy. Lifted shadows, muted tones, a gentle warmth that does not push. It reminds me of home.",
+    caption: "Sydney, early morning.",
+    // Opera House upper-mid, seated figure just below centre — keep the band.
+    objectPosition: "50% 42%",
     before: {
-      src: "/images/chaostocalm/neon-grey-before.jpg",
-      alt: "Neon and Grey, before",
+      src: "/images/visualdiary/firstlight-before.jpg",
+      alt: "First Light, before",
     },
     after: {
-      src: "/images/chaostocalm/neon-grey-after.jpg",
-      alt: "Neon and Grey, after",
+      src: "/images/visualdiary/firstlight-after.jpg",
+      alt: "First Light, after",
     },
   },
   {
-    name: "Warm Afternoon",
-    tag: "Warm / Kodak Gold",
+    name: "Quiet Streets",
+    tag: "Muted / documentary",
     description:
-      "Soft golden highlights, cool shadows, contrast kept gentle. Named for the second time I went to Kamakura, the day the light finally showed up. For late afternoons, the slow shots where you have time to wait for the sun.",
-    caption: "Kamakura, the Enoden crossing.",
-    objectPosition: "50% 55%",
+      "Built in Ho Chi Minh City, mostly overcast. Low-contrast and a touch desaturated, so it holds in flat grey light and does not fall apart when the sun cuts through. For walking somewhere unfamiliar.",
+    caption: "Ho Chi Minh City.",
+    // Scooter rider sits lower-centre — bias the crop down a touch.
+    objectPosition: "50% 58%",
     before: {
-      src: "/images/chaostocalm/warm-afternoon-before.jpg",
-      alt: "Warm Afternoon, before",
+      src: "/images/visualdiary/quietstreets-before.jpg",
+      alt: "Quiet Streets, before",
     },
     after: {
-      src: "/images/chaostocalm/warm-afternoon-after.jpg",
-      alt: "Warm Afternoon, after",
+      src: "/images/visualdiary/quietstreets-after.jpg",
+      alt: "Quiet Streets, after",
+    },
+  },
+  {
+    name: "After Dark",
+    tag: "Neon / night",
+    description:
+      "Tokyo at night. Neon, layered signs, that cyberpunk glow. It holds the atmosphere, the colour and the grain, without crushing the shadows or faking the exposure.",
+    caption: "Tokyo, after dark.",
+    // Chef in the lit window is right-of-centre, mid-height.
+    objectPosition: "52% 45%",
+    before: {
+      src: "/images/visualdiary/afterdark-before.jpg",
+      alt: "After Dark, before",
+    },
+    after: {
+      src: "/images/visualdiary/afterdark-after.jpg",
+      alt: "After Dark, after",
     },
   },
 ] as const;
 
 const PACK_BULLETS: readonly string[] = [
-  "Two presets: Neon & Grey and Warm Afternoon",
+  "Three presets: First Light, Quiet Streets, and After Dark",
   "XMP files for Lightroom Classic, desktop, and Mobile",
   "A plain-English install & usage guide",
-  "Free updates, forever",
+  "No spam. Unsubscribe whenever.",
 ] as const;
 
 type Qa = { q: string; a: string };
@@ -98,15 +123,15 @@ type Qa = { q: string; a: string };
 const FAQS: readonly Qa[] = [
   {
     q: "Will this work with my camera and software?",
-    a: "Yeah, most likely. The XMP files run in Lightroom Classic, Lightroom desktop, and Lightroom Mobile. They are built for RAW and they work on any brand, so you do not need to shoot Fuji to use them. I have run them on Canon, Sony and Fuji files. JPEGs work too, the colour just shifts a bit differently.",
+    a: "Yeah, most likely. The XMP files run in Lightroom Classic, Lightroom desktop, and Lightroom Mobile. Built for RAW, work on any brand, so you do not need to shoot Fuji. JPEGs work too, the colour just shifts a bit differently.",
   },
   {
     q: "Does it work on Lightroom Mobile?",
-    a: "Yep. The .xmp files import straight into the Lightroom Mobile app. And if you use the cloud version of Lightroom, presets you add on desktop sync to your phone on their own. Same files, all your devices.",
+    a: "Yep. The .xmp files import straight into the mobile app, and if you use the cloud version, presets you add on desktop sync to your phone on their own.",
   },
   {
     q: "What if it looks off on my photos?",
-    a: "Set your exposure and white balance first, then apply the preset. That fixes most of it. Each look comes with a note on where to start. And if a file turns up broken or missing on delivery, tell me and I will sort it.",
+    a: "Set your exposure and white balance first, then apply the preset. That fixes most of it. The included guide has a note on where to start for each look.",
   },
 ] as const;
 
@@ -131,7 +156,7 @@ function Bracket({ corner }: { corner: "tl" | "tr" | "bl" | "br" }) {
 /**
  * Archive chrome — banner (slanted folder tab + registry row + hairline) that
  * frames the h1, plus a matching envelope sign-off (see ArchiveEnvelope).
- * Local, in house style; a near-identical copy lives on /visualdiary.
+ * Local, in house style; a near-identical copy lives on /chaostocalm.
  */
 function ArchiveBanner({ file, cat }: { file: string; cat: string }) {
   return (
@@ -297,7 +322,7 @@ function BeforeAfter({ look }: { look: Look }) {
   );
 }
 
-export default function ChaosToCalmPage() {
+export default function VisualDiaryPage() {
   return (
     <div style={{ position: "relative", zIndex: 1 }}>
       {/* ── 1. Header ───────────────────────────────────────────────────── */}
@@ -320,7 +345,7 @@ export default function ChaosToCalmPage() {
           </Link>
 
           {/* Archive banner — frames the title. */}
-          <ArchiveBanner file="FILE · EE-01" cat="CAT. EE-CTC-01" />
+          <ArchiveBanner file="FILE · EE-02" cat="CAT. EE-VDC-02" />
 
           <div
             style={{
@@ -331,7 +356,7 @@ export default function ChaosToCalmPage() {
               color: MUTED,
             }}
           >
-            Lightroom preset pack · 2 looks
+            Lightroom preset pack · 3 looks · free
           </div>
 
           <div
@@ -351,9 +376,10 @@ export default function ChaosToCalmPage() {
                 fontWeight: 600,
                 lineHeight: 1.02,
                 letterSpacing: "-0.01em",
+                maxWidth: "12ch",
               }}
             >
-              Chaos to Calm
+              Visual Diary Collection
             </h1>
             <span
               style={{
@@ -370,7 +396,7 @@ export default function ChaosToCalmPage() {
             >
               Conservation copy
               <br />
-              A$5 release
+              Free release
               <br />
               Do not discard
             </span>
@@ -385,8 +411,7 @@ export default function ChaosToCalmPage() {
               maxWidth: "62ch",
             }}
           >
-            Two looks, pulled off the streets of Japan. Built on the road, based
-            on how the places made me feel.
+            Three looks, built around light. Free.
           </p>
           <p
             style={{
@@ -397,8 +422,9 @@ export default function ChaosToCalmPage() {
               maxWidth: "62ch",
             }}
           >
-            No over-cooked HDR, no fake grain cranked to eleven. Just colour
-            that respects the place.
+            The three presets I keep coming back to. Soft, honest, a touch of
+            grain. The everyday looks, not the show-off ones. Each one came out
+            of a real place.
           </p>
         </Reveal>
       </Column>
@@ -504,7 +530,7 @@ export default function ChaosToCalmPage() {
                 color: MUTED,
               }}
             >
-              The pack · 2 presets
+              The pack · 3 presets
             </div>
 
             <div
@@ -525,10 +551,10 @@ export default function ChaosToCalmPage() {
                   letterSpacing: "-0.01em",
                 }}
               >
-                Chaos to Calm
+                Visual Diary Collection
               </h2>
               <span style={{ fontSize: 14, letterSpacing: "0.08em", color: INK }}>
-                A$5+ AUD · <span style={{ color: MUTED }}>pay what you want</span>
+                3 LOOKS · <span style={{ color: "var(--ee-accent)" }}>FREE</span>
               </span>
             </div>
 
@@ -541,11 +567,9 @@ export default function ChaosToCalmPage() {
                 maxWidth: "64ch",
               }}
             >
-              The two looks I actually reach for, in one pack. Neon &amp; Grey
-              for the nights, Warm Afternoon for the slow days. These are a
-              starting point, not a one-tap miracle. You will still nudge them
-              to fit your shot, and that is kind of the point. Pay what you
-              want, from five bucks. You decide what they are worth.
+              Three presets, on me. Drop your email and they land in your inbox.
+              They are a starting point, not a one-tap miracle. Set your exposure
+              first, then let the look do the rest.
             </p>
 
             <div
@@ -567,27 +591,21 @@ export default function ChaosToCalmPage() {
               ))}
             </div>
 
-            <a
-              href={GUMROAD_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-[filter] duration-[120ms] hover:brightness-[1.15]"
+            {/* Send-me-the-pack capture (MailerLite → Gumroad delivery). */}
+            <div
               style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 12,
                 marginTop: 34,
-                background: "var(--ee-accent)",
-                color: "#050605",
-                fontSize: 12.5,
-                fontWeight: 600,
+                fontSize: 12,
                 letterSpacing: "0.2em",
-                padding: "15px 26px",
-                textDecoration: "none",
+                textTransform: "uppercase",
+                color: MUTED,
               }}
             >
-              GET THE PACK →
-            </a>
+              Send me the pack
+            </div>
+            <div style={{ marginTop: 18, maxWidth: 420 }}>
+              <PresetPackFormV2 />
+            </div>
 
             <p
               style={{
@@ -598,10 +616,9 @@ export default function ChaosToCalmPage() {
                 color: MUTED,
               }}
             >
-              Works with Lightroom Classic 7.3+, Lightroom CC desktop, and
-              Lightroom Mobile. Built for RAW, fine on any camera brand. Not
-              one-click magic: set your exposure and white balance first, then
-              drop the look on top.
+              No thanks? No worries. Have a look around first. Works with
+              Lightroom Classic, Lightroom CC desktop, and Lightroom Mobile.
+              Built for RAW, fine on any camera brand.
             </p>
           </div>
         </Reveal>
@@ -633,9 +650,21 @@ export default function ChaosToCalmPage() {
           >
             I am a street and travel photographer based in Sydney. I shoot Fuji
             mostly, Sony occasionally, a Ricoh in the pocket, sometimes just the
-            phone. These two looks came out of three weeks in Japan in 2025,
-            then got refined back home at the desk. They are a starting point.
-            The whole idea is that you make them yours.
+            phone. These three started as adjustments I kept making without
+            thinking, the same moves on the same kinds of light, until they
+            settled into looks worth keeping.
+          </p>
+          <p
+            style={{
+              margin: "14px 0 0",
+              fontSize: 16.5,
+              lineHeight: 1.75,
+              color: MUTED,
+              maxWidth: "66ch",
+            }}
+          >
+            They are a starting point. The whole idea is that you make them
+            yours.
           </p>
         </Reveal>
       </Column>
@@ -699,7 +728,7 @@ export default function ChaosToCalmPage() {
           </p>
 
           {/* Archive envelope sign-off. */}
-          <ArchiveEnvelope envelope="Archive Envelope / EE-01" />
+          <ArchiveEnvelope envelope="Archive Envelope / EE-02" />
         </Reveal>
       </Column>
     </div>

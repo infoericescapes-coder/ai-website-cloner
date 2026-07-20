@@ -20,8 +20,6 @@ export const metadata: Metadata = {
 
 const MUTED = "#8B8F86";
 
-const VISUAL_DIARY_GUMROAD = "https://ericescape.gumroad.com/l/jetyik";
-
 type Product = {
   index: string;
   kicker: string;
@@ -62,13 +60,13 @@ const PRODUCTS: readonly Product[] = [
     blurb:
       "Three film-inspired looks for street and travel photographers: First Light, Quiet Street, After Dark.",
     price: "Free",
-    action: "GUMROAD ↗",
+    action: "VIEW →",
     image: {
       src: "/images/store/visual-diary-cover.jpg",
       alt: "Visual Diary Collection — Lightroom preset pack, Eric Escapes archive cover",
     },
-    href: VISUAL_DIARY_GUMROAD,
-    external: true,
+    href: "/visualdiary",
+    external: false,
   },
 ] as const;
 
