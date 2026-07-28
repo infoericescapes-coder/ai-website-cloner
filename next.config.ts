@@ -38,9 +38,17 @@ const nextConfig: NextConfig = {
       // Old Squarespace product URL -> Shop. The redesigned /store is the
       // single digital surface; the product page was retired with the (v2)
       // Shop migration (docs/design-v2/ia-map.md, confirmed-required row).
+      // Both legacy Squarespace product URLs now land on the free pack's
+      // on-site page (built 21 Jul); GSC surfaced the second URL as a live
+      // 404 on 29 Jul.
       {
         source: "/store/p/visual-diary-collection-lightroom-presets",
-        destination: "/store",
+        destination: "/visualdiary",
+        permanent: true,
+      },
+      {
+        source: "/store/p/free-preset-pack",
+        destination: "/visualdiary",
         permanent: true,
       },
     ];
