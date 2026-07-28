@@ -2,7 +2,7 @@
 title: "The Kit Lens Myth: Fujifilm 16-50mm f/2.8-4.8 Review"
 date: "2025-02-24"
 author: "Eric Kowalczyk"
-categories: []
+categories: ["Gear"]
 tags: ["Gear", "Photography"]
 excerpt: "Kit lenses get a bad rap, but does the Fujifilm 16-50mm f/2.8-4.8 kill the myth?"
 featured: "/images/blog/the-kit-lens-myth-fujifilm-16-50mm-f28-48-review/featured.jpg"

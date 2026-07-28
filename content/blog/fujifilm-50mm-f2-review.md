@@ -2,7 +2,7 @@
 title: "Fujifilm 50mm f2 Review"
 date: "2025-01-09"
 author: "Eric Kowalczyk"
-categories: []
+categories: ["Gear"]
 tags: ["Gear"]
 excerpt: "A review of the FujiFilm 50mm f/2 lens. A great little walk around telephoto lens perfect for any style of Photography."
 featured: "/images/blog/fujifilm-50mm-f2-review/featured.jpg"

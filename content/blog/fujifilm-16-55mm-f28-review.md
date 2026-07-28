@@ -2,7 +2,7 @@
 title: "Fujifilm 16-55mm f2.8 Review - The Tank"
 date: "2024-10-10"
 author: "Eric Kowalczyk"
-categories: []
+categories: ["Gear"]
 tags: ["Gear"]
 excerpt: "It's versatile, it's big and reliable."
 featured: "/images/blog/fujifilm-16-55mm-f28-review/featured.jpg"

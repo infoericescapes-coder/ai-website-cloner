@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getAllPosts, getAllSlugs, getPostBySlug } from "@/lib/blog";
 import Reveal from "@/components/v2/chrome/Reveal";
 import ArticleBody from "@/components/v2/blog/ArticleBody";
+import PresetSpecimenCard from "@/components/v2/blog/PresetSpecimenCard";
 import { segmentArticle, countImages } from "@/lib/article-segments";
 
 type PostPageProps = {
@@ -164,6 +165,9 @@ export default async function BlogPostPage({ params }: PostPageProps) {
           Eric
         </div>
       </div>
+
+      {/* Gear reviews only: the preset cross-link (specimen card) */}
+      {post.categories.includes("Gear") ? <PresetSpecimenCard /> : null}
 
       {/* Prev / next */}
       {prev || next ? (
