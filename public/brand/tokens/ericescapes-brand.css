@@ -1,0 +1,143 @@
+/* ==========================================================================
+   ERIC ESCAPES / BRAND TOKENS
+   Live at https://www.ericescapes.com/brand/tokens/ericescapes-brand.css
+   --------------------------------------------------------------------------
+   Two palettes live here, and they are NOT interchangeable.
+
+     1. ARCHIVE PRINT  (--ee-archive-*)  Fixed-canvas artwork: product covers,
+        envelope mounts, printed and exported pieces. Source of truth is
+        archive-cover-design.md. Slightly warmer, slightly lifted blacks,
+        because it is rendered art, not a screen chrome.
+
+     2. SITE UI  (--ee-*)  The ericescapes.com shell. These names and values
+        mirror src/app/globals.css exactly, so this file is drop-in compatible
+        with the live site. Do not rename them.
+
+   Never mix a print value into a UI role, or the reverse. A cover that uses
+   --ee-canvas reads wrong next to the mats, and a page that uses
+   --ee-archive-desk reads muddy next to real photographs.
+
+   Australian English. No em dashes in published copy.
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. ARCHIVE PRINT PALETTE
+   Product covers, envelope mounts, exported artwork. 1400 x 2100 canvas.
+   -------------------------------------------------------------------------- */
+:root {
+  /* Surfaces, darkest to lightest. The desk holds the folder, the folder
+     holds the mats, the mats hold the photographs. */
+  --ee-archive-desk:       #060706;   /* page/canvas behind the folder */
+  --ee-archive-envelope:   #0b0d0b;   /* folder envelope panel */
+  --ee-archive-tab:        #12150f;   /* folder tab, the slanted one */
+
+  /* Type on dark, brightest to dimmest. Four steps, no more. */
+  --ee-archive-ink:        #f0efe6;   /* titles */
+  --ee-archive-sub:        #cfcec4;   /* subtitles */
+  --ee-archive-label:      #9ba097;   /* mono labels, header left */
+  --ee-archive-dim:        #666b60;   /* conservation notes, footer right */
+  --ee-archive-credit:     #e6e5db;   /* footer left, the signature */
+
+  /* Museum mat: the pale conservation board the photo sits behind. */
+  --ee-archive-mat:        #e9e7dc;   /* mat board */
+  --ee-archive-mat-ink:    #44473f;   /* letterpressed look name */
+  --ee-archive-mat-dim:    #8a897d;   /* right mark, EE ARCHIVE / SPECIMEN */
+
+  /* Accent. See THE GREEN LAW below before using this. */
+  --ee-archive-green:      #43d65a;
+
+  /* Hairlines. Always rgba over the surface, never a solid grey. */
+  --ee-archive-hairline:      rgba(237, 237, 230, 0.13); /* panel borders */
+  --ee-archive-hairline-soft: rgba(237, 237, 230, 0.12); /* header rule */
+  --ee-archive-hairline-top:  rgba(255, 255, 255, 0.15); /* lit top edge */
+
+  /* Photo window edge, sitting on the pale mat, so black not white. */
+  --ee-archive-window-edge:   rgba(0, 0, 0, 0.18);
+  --ee-archive-mat-shadow:    0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+
+/* --------------------------------------------------------------------------
+   2. SITE UI PALETTE
+   ericescapes.com shell. Mirrors src/app/globals.css. Exact values.
+   -------------------------------------------------------------------------- */
+:root {
+  --ee-canvas:   #050605;   /* page background */
+  --ee-panel:    #0b0d0b;   /* raised panel, cards, sheets */
+  --ee-mount:    #2b2d2c;   /* image mount / frame grey */
+  --ee-black:    #000;      /* true black, image letterboxing only */
+
+  --ee-text:     #f2efe6;   /* body and headings */
+  --ee-muted:    #8b8f86;   /* secondary text, metadata */
+
+  --ee-accent:   #5fb53c;   /* interactive accent, links, active state */
+  --ee-live:     #6bff4a;   /* live indicator only, the pulsing dot */
+  --ee-pressed:  #1f7a2e;   /* selection background, pressed state */
+
+  /* Comma-form triplets, for rgba(var(--ee-accent-rgb), a) glows. */
+  --ee-accent-rgb: 95, 181, 60;
+  --ee-live-rgb:   107, 255, 74;
+
+  /* Hairlines. Three weights, all rgba over the canvas ink. */
+  --ee-hairline:        rgba(242, 239, 230, 0.09);  /* default divider */
+  --ee-hairline-strong: rgba(242, 239, 230, 0.13);  /* panel border */
+  --ee-hairline-rest:   rgba(242, 239, 230, 0.35);  /* control at rest */
+
+  /* Motion */
+  --ee-hover:    120ms ease;
+  --ee-ease:     cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ee-duration-hover: 120ms;
+}
+
+
+/* --------------------------------------------------------------------------
+   3. TYPE
+   Two families, two jobs. Nothing else is ever introduced.
+   -------------------------------------------------------------------------- */
+:root {
+  /* DISPLAY. Space Grotesk. Titles only, uppercase, tight tracking.
+     700 on covers, 400/500/600 on the site shell. Self-hosted woff2 on the
+     site (src/lib/fonts.ts). Never centred: titles are left aligned. */
+  --ee-font-display: var(--font-space-grotesk), "Space Grotesk",
+                     "Helvetica Neue", Arial, sans-serif;
+
+  /* METADATA. IBM Plex Mono. Everything that is not a title: labels, file
+     numbers, catalogue numbers, captions, conservation stamps, footers.
+     Uppercase, wide tracking, 400/500 only. This is the machine voice
+     against the human photograph. */
+  --ee-font-mono: "IBM Plex Mono", "SF Mono", ui-monospace,
+                  Menlo, Consolas, monospace;
+
+  /* Tracking scale for the mono voice. Wider = quieter and more official. */
+  --ee-track-tight:  0.02em;   /* display titles */
+  --ee-track-mono:   0.22em;   /* mono default */
+  --ee-track-label:  0.28em;   /* header labels */
+  --ee-track-wide:   0.36em;   /* payload line, the widest we go */
+}
+
+
+/* --------------------------------------------------------------------------
+   4. THE GREEN LAW
+   -------------------------------------------------------------------------- */
+/*
+   Green appears in AT MOST TWO ROLES PER SURFACE. Never a third.
+
+   On an archive cover the two roles are fixed by the spec: the payline rule
+   (58 x 4px) and the payload text next to it. That is the entire green budget
+   for the piece.
+
+   On a site surface pick two and stop, for example accent links plus the live
+   dot. If a third green thing appears, one of the first two was decorative and
+   should be --ee-muted or a hairline instead.
+
+   The reason is the whole brand: photography must be the only saturated,
+   living element on the page. Green is a system signal, not decoration. The
+   moment it spreads, the folder starts competing with the photograph and the
+   archive conceit collapses.
+
+   Related rules that travel with this one:
+     - No photo over text, ever. Captions live on the mat, never on the image.
+     - No 3D boxes, spines, rotation, icons, emoji or rounded accent cards.
+     - The folder and the desk stay near black and quiet.
+*/

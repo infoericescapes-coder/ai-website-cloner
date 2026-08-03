@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="72" viewBox="0 0 320 72" fill="none">
+  
+  <line x1="30" y1="8" x2="290" y2="8" stroke="#F2EFE6" stroke-opacity="0.18"></line>
+  <line x1="30" y1="64" x2="290" y2="64" stroke="#F2EFE6" stroke-opacity="0.18"></line>
+  <g transform="translate(64,17) scale(0.79)">
+    <path d="M14 4 H4 V14 M34 4 H44 V14 M44 34 V44 H34 M14 44 H4 V34" stroke="#F2EFE6" stroke-width="1.9"></path>
+    <path d="M21 16 H13 V32 H21 M13 24 H19" stroke="#F2EFE6" stroke-width="1.9"></path>
+    <path d="M27 16 H35 V32 H27 M35 24 H29" stroke="#F2EFE6" stroke-width="1.9"></path>
+  </g>
+  <text x="112" y="35" font-family="&#39;Space Grotesk&#39;, sans-serif" font-size="15" font-weight="600" letter-spacing="3.6" fill="#F2EFE6">ERIC ESCAPES</text>
+  <text x="76" y="54" font-family="&#39;Space Grotesk&#39;, sans-serif" font-size="8.5" font-weight="500" letter-spacing="2.4" fill="#8B8F86">VISUAL ARCHIVE · EST. 2019</text>
+</svg>

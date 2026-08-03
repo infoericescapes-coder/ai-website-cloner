@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ERIC ESCAPES · Brand File EE-BRAND-00</title>
+<meta name="description" content="The Eric Escapes brand kit: marks, colour, type, vocabulary, photography, voice, and every asset as a live URL.">
+<link rel="icon" type="image/svg+xml" href="favicons/ee-favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --desk:#060706; --env:#0b0d0b; --tab:#12150f;
+    --ink:#f0efe6; --sub:#cfcec4; --label:#9ba097; --dim:#666b60;
+    --green:#43d65a; --mat:#e9e7dc; --matink:#44473f; --matdim:#8a897d;
+    --hair:rgba(237,237,230,0.13); --hair2:rgba(237,237,230,0.08);
+    --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    --disp:'Space Grotesk',-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{background:var(--desk);scroll-behavior:smooth}
+  body{background:var(--desk);color:var(--ink);font-family:var(--mono);
+    display:flex;justify-content:center;padding:40px 16px 80px;-webkit-font-smoothing:antialiased}
+  .file{width:100%;max-width:880px}
+
+  .tab{height:48px;width:min(340px,80%);background:var(--tab);
+    clip-path:polygon(0 0,84% 0,100% 100%,0 100%);
+    border-top:1px solid rgba(255,255,255,0.13);
+    display:flex;align-items:center;padding-left:22px}
+  .tab span{font-size:11px;letter-spacing:.3em;color:var(--label);text-transform:uppercase}
+  .env{background:var(--env);border:1px solid var(--hair);border-top:1px solid rgba(255,255,255,0.15);
+    padding:28px 26px 40px}
+  @media(min-width:700px){ .env{padding:36px 44px 56px} }
+
+  .hrow{display:flex;justify-content:space-between;font-size:10.5px;letter-spacing:.26em;text-transform:uppercase}
+  .hrow .l{color:var(--label)} .hrow .r{color:var(--dim);letter-spacing:.2em}
+  .rule{border-top:1px solid var(--hair2);margin:16px 0 0}
+
+  .masthead{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;margin-top:30px;flex-wrap:wrap}
+  h1{font-family:var(--disp);font-weight:700;font-size:clamp(34px,7vw,58px);
+    letter-spacing:.06em;text-transform:uppercase;line-height:1.05}
+  .annot{text-align:right;font-size:10.5px;line-height:2.1;letter-spacing:.24em;color:var(--dim);text-transform:uppercase}
+  .payline{display:flex;align-items:center;gap:16px;margin-top:20px}
+  .grule{width:44px;height:3px;background:var(--green)}
+  .pay{font-size:12px;letter-spacing:.32em;color:var(--green);text-transform:uppercase}
+
+  section{margin-top:64px}
+  .sec{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+  .sec .no{font-size:11px;color:var(--dim);letter-spacing:.1em}
+  .sec h2{font-family:var(--disp);font-weight:600;font-size:19px;letter-spacing:.14em;text-transform:uppercase}
+  .lede{font-family:-apple-system,sans-serif;font-size:15px;line-height:1.75;color:var(--sub);max-width:640px}
+  .lede b{color:var(--ink);font-weight:600}
+  .note{font-size:10.5px;letter-spacing:.18em;color:var(--dim);text-transform:uppercase;line-height:2}
+
+  .grid{display:grid;gap:14px}
+  @media(min-width:640px){ .g2{grid-template-columns:1fr 1fr} .g3{grid-template-columns:1fr 1fr 1fr} }
+
+  .cell{border:1px solid var(--hair2);background:var(--desk);padding:22px;display:flex;
+    flex-direction:column;align-items:center;gap:14px}
+  .cell img{max-width:100%;display:block}
+  .cell.light{background:var(--mat)}
+  .cell .cap{font-size:9.5px;letter-spacing:.22em;color:var(--dim);text-transform:uppercase;text-align:center}
+  .cell.light .cap{color:var(--matdim)}
+
+  .chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+  .chip{border:1px solid var(--hair2);padding:0 0 10px;overflow:hidden}
+  .chip .sw{height:64px}
+  .chip .nm{padding:10px 12px 2px;font-size:10px;letter-spacing:.16em;color:var(--sub);text-transform:uppercase}
+  .chip .hx{padding:0 12px;font-size:10.5px;color:var(--dim)}
+
+  .type-run{border:1px solid var(--hair2);padding:24px;display:flex;flex-direction:column;gap:18px}
+  .t-disp{font-family:var(--disp);font-weight:700;font-size:34px;letter-spacing:.06em;text-transform:uppercase;line-height:1.08}
+  .t-mono{font-size:11.5px;letter-spacing:.28em;color:var(--label);text-transform:uppercase}
+  .t-body{font-family:-apple-system,sans-serif;font-size:14.5px;line-height:1.75;color:var(--sub);max-width:560px}
+  .t-tag{font-size:9.5px;letter-spacing:.2em;color:var(--dim);text-transform:uppercase}
+
+  .vocab{display:flex;flex-direction:column;gap:26px}
+  .demo-tab{height:40px;width:min(240px,70%);background:var(--tab);
+    clip-path:polygon(0 0,82% 0,100% 100%,0 100%);border-top:1px solid rgba(255,255,255,0.13);
+    display:flex;align-items:center;padding-left:16px}
+  .demo-tab span{font-size:10px;letter-spacing:.28em;color:var(--label);text-transform:uppercase}
+  .demo-brackets{position:relative;border:1px solid var(--hair);padding:22px;font-size:11px;
+    letter-spacing:.2em;color:var(--sub);text-transform:uppercase}
+  .demo-brackets::before{content:"";position:absolute;top:-1px;left:-1px;width:14px;height:14px;
+    border-top:1px solid rgba(242,239,230,0.45);border-left:1px solid rgba(242,239,230,0.45)}
+  .demo-brackets::after{content:"";position:absolute;bottom:-1px;right:-1px;width:14px;height:14px;
+    border-bottom:1px solid rgba(242,239,230,0.45);border-right:1px solid rgba(242,239,230,0.45)}
+  .demo-mat{background:var(--mat);padding:10px 10px 0;max-width:460px;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+  .demo-mat .ph{height:150px;overflow:hidden;border:1px solid rgba(0,0,0,.18)}
+  .demo-mat img{width:100%;height:100%;object-fit:cover;display:block}
+  .demo-mat .cap{display:flex;align-items:center;height:34px;font-size:9px;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--matink)}
+  .demo-mat .cap .no{font-weight:500;width:34px}
+  .demo-mat .cap .nm{flex:1}
+  .demo-mat .cap .mk{color:var(--matdim);font-size:8.5px}
+
+  .strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+  .strip .fr{background:var(--mat);padding:6px 6px 0}
+  .strip .fr .ph{height:110px;overflow:hidden;border:1px solid rgba(0,0,0,.18)}
+  .strip .fr img{width:100%;height:100%;object-fit:cover;display:block}
+  .strip .fr .cap{height:22px;display:flex;align-items:center;font-size:7.5px;
+    letter-spacing:.18em;color:var(--matdim);text-transform:uppercase}
+
+  .reg{border-top:1px solid var(--hair2)}
+  .reg a{display:flex;align-items:center;gap:14px;text-decoration:none;
+    padding:14px 2px;border-bottom:1px solid var(--hair2)}
+  .reg .no{font-size:10px;color:var(--dim);width:24px}
+  .reg .nm{flex:1;font-family:var(--disp);font-weight:600;font-size:13.5px;
+    letter-spacing:.12em;color:var(--ink);text-transform:uppercase;transition:color 140ms ease}
+  .reg .pth{font-size:10px;color:var(--dim);letter-spacing:.08em}
+  .reg .arw{font-size:12px;color:var(--dim)}
+  @media(hover:hover){ .reg a:hover .nm{color:var(--green)} }
+
+  .dont li{font-family:-apple-system,sans-serif;font-size:13.5px;color:var(--sub);
+    line-height:1.9;list-style:none;padding-left:20px;position:relative}
+  .dont li::before{content:"✕";position:absolute;left:0;color:var(--dim);font-size:11px}
+
+  .foot{margin-top:70px;display:flex;justify-content:space-between;font-size:10px;
+    letter-spacing:.24em;text-transform:uppercase}
+  .foot .l{color:var(--sub)} .foot .r{color:var(--dim)}
+  .discard{margin-top:8px;text-align:right;font-size:9px;letter-spacing:.3em;color:var(--dim);text-transform:uppercase}
+</style>
+</head>
+<body>
+<main class="file">
+  <div class="tab"><span>File · EE-BRAND-00 · Identity</span></div>
+  <div class="env">
+    <div class="hrow"><span class="l">Eric Escapes Archive</span><span class="r">Cat. EE-BRAND-00</span></div>
+    <div class="rule"></div>
+
+    <div class="masthead">
+      <h1>The Brand File</h1>
+      <div class="annot">Conservation copy<br>Est. 2019 · Sydney, AUS<br>Do not discard</div>
+    </div>
+    <div class="payline"><span class="grule"></span><span class="pay">Marks · Colour · Type · Vocabulary · Photography · Voice</span></div>
+
+    <section>
+      <div class="sec"><span class="no">01</span><h2>The idea</h2></div>
+      <p class="lede">Every Eric Escapes product is <b>a file pulled from the archive</b>, not a boxed product. Machine-set monospace metadata (file numbers, catalogue stamps, conservation notes) sits over warm, human photography. The tension between the two is the brand: <b>the ghost in the machine</b>. The photograph is always the artefact; everything else is the sleeve it's archived in.</p>
+    </section>
+
+    <section>
+      <div class="sec"><span class="no">02</span><h2>Marks</h2></div>
+      <div class="grid g3">
+        <div class="cell"><img src="logos/ee-monogram-white.svg" width="72" height="72" alt="E-bracket monogram, white"><span class="cap">Monogram · white on desk</span></div>
+        <div class="cell light"><img src="logos/ee-monogram-black.svg" width="72" height="72" alt="E-bracket monogram, black"><span class="cap">Monogram · black on mat</span></div>
+        <div class="cell"><img src="logos/ee-monogram-green.svg" width="72" height="72" alt="E-bracket monogram, green"><span class="cap">Monogram · green (signal only)</span></div>
+      </div>
+      <div class="grid g2" style="margin-top:14px">
+        <div class="cell"><img src="logos/ee-registry-plate.svg" alt="Registry plate lockup"><span class="cap">Registry plate · full lockup</span></div>
+        <div class="cell"><img src="logos/reference/clear-space.png" alt="Clear space: one monogram width"><span class="cap">Clear space · 1× monogram width</span></div>
+      </div>
+      <ul class="dont" style="margin-top:20px">
+        <li>Never rotate, skew, outline, or add effects to any mark</li>
+        <li>Never recolour beyond the three colourways above</li>
+        <li>Never set the monogram over a photograph's subject</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="sec"><span class="no">03</span><h2>Colour</h2></div>
+      <p class="note" style="margin-bottom:14px">Archive print palette · covers, guides, documents</p>
+      <div class="chips">
+        <div class="chip"><div class="sw" style="background:#060706;border-bottom:1px solid var(--hair2)"></div><div class="nm">Desk</div><div class="hx">#060706</div></div>
+        <div class="chip"><div class="sw" style="background:#0b0d0b"></div><div class="nm">Envelope</div><div class="hx">#0b0d0b</div></div>
+        <div class="chip"><div class="sw" style="background:#12150f"></div><div class="nm">Tab</div><div class="hx">#12150f</div></div>
+        <div class="chip"><div class="sw" style="background:#f0efe6"></div><div class="nm">Ink</div><div class="hx">#f0efe6</div></div>
+        <div class="chip"><div class="sw" style="background:#9ba097"></div><div class="nm">Label</div><div class="hx">#9ba097</div></div>
+        <div class="chip"><div class="sw" style="background:#e9e7dc"></div><div class="nm">Mat</div><div class="hx">#e9e7dc</div></div>
+        <div class="chip"><div class="sw" style="background:#43d65a"></div><div class="nm">Signal green</div><div class="hx">#43d65a</div></div>
+      </div>
+      <p class="note" style="margin:22px 0 14px">Site UI palette · ericescapes.com</p>
+      <div class="chips">
+        <div class="chip"><div class="sw" style="background:#050605;border-bottom:1px solid var(--hair2)"></div><div class="nm">Canvas</div><div class="hx">#050605</div></div>
+        <div class="chip"><div class="sw" style="background:#0b0d0b"></div><div class="nm">Panel</div><div class="hx">#0b0d0b</div></div>
+        <div class="chip"><div class="sw" style="background:#f2efe6"></div><div class="nm">Text</div><div class="hx">#f2efe6</div></div>
+        <div class="chip"><div class="sw" style="background:#8b8f86"></div><div class="nm">Muted</div><div class="hx">#8b8f86</div></div>
+        <div class="chip"><div class="sw" style="background:#5fb53c"></div><div class="nm">Accent</div><div class="hx">#5fb53c</div></div>
+        <div class="chip"><div class="sw" style="background:#6bff4a"></div><div class="nm">Live</div><div class="hx">#6bff4a</div></div>
+      </div>
+      <p class="lede" style="margin-top:20px"><b>The green law:</b> green is signal, never decoration. It appears in at most two roles on any surface (a payline plus a link or LED). If green starts feeling like a theme colour, it's being overused.</p>
+    </section>
+
+    <section>
+      <div class="sec"><span class="no">04</span><h2>Type</h2></div>
+      <div class="type-run">
+        <div><div class="t-disp">Space Grotesk 700</div><div class="t-tag" style="margin-top:6px">Display · titles · uppercase · letter-spacing 0.02–0.14em</div></div>
+        <div><div class="t-mono">IBM Plex Mono · The machine voice</div><div class="t-tag" style="margin-top:6px">Metadata · labels · captions · uppercase · tracking 0.2–0.36em</div></div>
+        <div><div class="t-body">System sans for body copy. Warm, readable, never the star. The mono carries the archive's voice; the display carries its name; the body just talks like Eric does.</div><div class="t-tag" style="margin-top:6px">Body · -apple-system stack · 1.7 line height</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec"><span class="no">05</span><h2>The vocabulary</h2></div>
+      <p class="lede" style="margin-bottom:24px">Five elements build every Eric Escapes surface. Use them sparingly; a surface needs two or three, never all five at once.</p>
+      <div class="vocab">
+        <div><div class="demo-tab"><span>File · EE-NN</span></div><p class="note" style="margin-top:8px">Folder tab · slanted right edge · names the file</p></div>
+        <div><div class="demo-brackets">Corner brackets · frame a panel like a viewfinder</div></div>
+        <figure class="demo-mat">
+          <div class="ph"><img src="photography/01-the-archivist.jpg" alt="Specimen mat example: The Archivist"></div>
+          <figcaption class="cap"><span class="no">00</span><span class="nm">The Archivist</span><span class="mk">EE Archive · Specimen</span></figcaption>
+        </figure>
+        <p class="note">Specimen mat · pale border #e9e7dc · caption printed ON the mat, never on the photo · photos never overlap text</p>
+        <p class="note">Catalogue numbers · FILE EE-nn / CAT. EE-XXX-nn · increment per release · EE-01 Chaos to Calm · EE-02 Visual Diary · EE-03 Sydney Chrome</p>
+        <p class="note">Conservation stamps · "Conservation copy / Do not discard" · the archive taking itself seriously so the photos don't have to</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec"><span class="no">06</span><h2>Photography</h2></div>
+      <p class="lede" style="margin-bottom:22px"><b>Photography is the only saturated, living element on any surface.</b> The crop law: every frame holds its subject deliberately (tune the crop per image, pre-crop when the window can't reach the subject, and never use a motion-blurred frame at mat size). Night neon, quiet streets, harbour light: the frames below are the register.</p>
+      <div class="strip">
+        <div class="fr"><div class="ph"><img src="photography/01-the-archivist.jpg" alt="The Archivist"></div><div class="cap">The Archivist</div></div>
+        <div class="fr"><div class="ph"><img src="photography/02-neon-face.jpg" alt="Neon reflection, Hong Kong"></div><div class="cap">Night Signal</div></div>
+        <div class="fr"><div class="ph"><img src="photography/03-first-light.jpg" alt="Sydney Opera House at first light"></div><div class="cap">First Light</div></div>
+        <div class="fr"><div class="ph"><img src="photography/04-quiet-streets.jpg" alt="Scooter rider, Ho Chi Minh City"></div><div class="cap">Quiet Streets</div></div>
+        <div class="fr"><div class="ph"><img src="photography/05-after-dark.jpg" alt="Chef in a lit window, Tokyo"></div><div class="cap">After Dark</div></div>
+        <div class="fr"><div class="ph"><img src="photography/06-neon-grey.jpg" alt="Shinjuku billboards"></div><div class="cap">Neon &amp; Grey</div></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec"><span class="no">07</span><h2>Voice</h2></div>
+      <p class="lede">Australian, conversational, honest. Short paragraphs. A mate talking over coffee, not a committee. Self-deprecating but confident underneath. Anti-gatekeeping without being angry about it. Published copy never uses em dashes, never uses marketing superlatives, and always grounds ideas in a real place, camera, or moment. The register in one line: <b>"the door, not the destination."</b></p>
+    </section>
+
+    <section>
+      <div class="sec"><span class="no">08</span><h2>Registry</h2></div>
+      <nav class="reg">
+        <a href="logos/"><span class="no">01</span><span class="nm">Logos</span><span class="pth">/brand/logos/</span><span class="arw">↗</span></a>
+        <a href="favicons/"><span class="no">02</span><span class="nm">Favicons</span><span class="pth">/brand/favicons/</span><span class="arw">↗</span></a>
+        <a href="social/"><span class="no">03</span><span class="nm">Social</span><span class="pth">/brand/social/</span><span class="arw">↗</span></a>
+        <a href="covers/"><span class="no">04</span><span class="nm">Product covers</span><span class="pth">/brand/covers/</span><span class="arw">↗</span></a>
+        <a href="photography/"><span class="no">05</span><span class="nm">Photography</span><span class="pth">/brand/photography/</span><span class="arw">↗</span></a>
+        <a href="tokens/ericescapes-brand.css"><span class="no">06</span><span class="nm">Tokens · CSS</span><span class="pth">/brand/tokens/ericescapes-brand.css</span><span class="arw">↗</span></a>
+        <a href="tokens/ericescapes-brand.json"><span class="no">07</span><span class="nm">Tokens · JSON</span><span class="pth">/brand/tokens/ericescapes-brand.json</span><span class="arw">↗</span></a>
+        <a href="README.md"><span class="no">08</span><span class="nm">Readme for humans + agents</span><span class="pth">/brand/README.md</span><span class="arw">↗</span></a>
+        <a href="brand-kit.zip"><span class="no">09</span><span class="nm">Download the kit</span><span class="pth">/brand/brand-kit.zip</span><span class="arw">↗</span></a>
+      </nav>
+      <p class="note" style="margin-top:16px">Deep spec for rebuilding any surface: archive-cover-design.md (in the kit README) · Everything on this page is served from www.ericescapes.com/brand/</p>
+    </section>
+
+    <div class="foot"><span class="l">Eric Escapes</span><span class="r">Archive Envelope / EE-BRAND-00</span></div>
+    <div class="discard">Conservation copy · Do not discard</div>
+  </div>
+</main>
+</body>
+</html>

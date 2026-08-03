@@ -1,0 +1,97 @@
+{
+  "$description": "Eric Escapes brand tokens. W3C DTCG flavoured. Same data as ericescapes-brand.css. Two palettes: archive (fixed-canvas print artwork) and site (ericescapes.com UI shell). They are not interchangeable.",
+  "archive": {
+    "$description": "ARCHIVE PRINT palette. Product covers, envelope mounts, exported artwork on the 1400x2100 canvas. Source of truth is archive-cover-design.md.",
+    "surface": {
+      "desk": { "$type": "color", "$value": "#060706", "$description": "Canvas behind the folder" },
+      "envelope": { "$type": "color", "$value": "#0b0d0b", "$description": "Folder envelope panel" },
+      "tab": { "$type": "color", "$value": "#12150f", "$description": "Folder tab, slanted right edge" }
+    },
+    "text": {
+      "ink": { "$type": "color", "$value": "#f0efe6", "$description": "Titles" },
+      "sub": { "$type": "color", "$value": "#cfcec4", "$description": "Subtitles" },
+      "label": { "$type": "color", "$value": "#9ba097", "$description": "Mono labels, header left" },
+      "dim": { "$type": "color", "$value": "#666b60", "$description": "Conservation notes, footer right" },
+      "credit": { "$type": "color", "$value": "#e6e5db", "$description": "Footer left signature" }
+    },
+    "mat": {
+      "board": { "$type": "color", "$value": "#e9e7dc", "$description": "Museum conservation mat" },
+      "ink": { "$type": "color", "$value": "#44473f", "$description": "Letterpressed look name on the mat" },
+      "dim": { "$type": "color", "$value": "#8a897d", "$description": "Right mark, EE ARCHIVE / SPECIMEN" }
+    },
+    "accent": {
+      "green": { "$type": "color", "$value": "#43d65a", "$description": "Bound by the green law. At most two roles per surface. On a cover those roles are fixed: payline rule and payload text." }
+    },
+    "line": {
+      "hairline": { "$type": "color", "$value": "rgba(237, 237, 230, 0.13)", "$description": "Panel borders" },
+      "hairline-soft": { "$type": "color", "$value": "rgba(237, 237, 230, 0.12)", "$description": "Header rule" },
+      "hairline-top": { "$type": "color", "$value": "rgba(255, 255, 255, 0.15)", "$description": "Lit top edge of the envelope panel" },
+      "window-edge": { "$type": "color", "$value": "rgba(0, 0, 0, 0.18)", "$description": "Photo window border, sits on the pale mat so it is black not white" }
+    },
+    "shadow": {
+      "mat": {
+        "$type": "shadow",
+        "$value": { "offsetX": "0px", "offsetY": "16px", "blur": "40px", "spread": "0px", "color": "rgba(0, 0, 0, 0.5)" },
+        "$description": "Mat lift off the envelope panel"
+      }
+    }
+  },
+  "site": {
+    "$description": "SITE UI palette. Mirrors src/app/globals.css exactly. CSS custom property names are --ee-{name} and must not be renamed.",
+    "surface": {
+      "canvas": { "$type": "color", "$value": "#050605", "$description": "Page background" },
+      "panel": { "$type": "color", "$value": "#0b0d0b", "$description": "Raised panel, cards, sheets" },
+      "mount": { "$type": "color", "$value": "#2b2d2c", "$description": "Image mount / frame grey" },
+      "black": { "$type": "color", "$value": "#000000", "$description": "True black, image letterboxing only" }
+    },
+    "text": {
+      "text": { "$type": "color", "$value": "#f2efe6", "$description": "Body and headings" },
+      "muted": { "$type": "color", "$value": "#8b8f86", "$description": "Secondary text, metadata" }
+    },
+    "accent": {
+      "accent": { "$type": "color", "$value": "#5fb53c", "$description": "Interactive accent, links, active state" },
+      "live": { "$type": "color", "$value": "#6bff4a", "$description": "Live indicator only, the pulsing dot" },
+      "pressed": { "$type": "color", "$value": "#1f7a2e", "$description": "Selection background, pressed state" },
+      "accent-rgb": { "$type": "string", "$value": "95, 181, 60", "$description": "Comma-form triplet for rgba() glows" },
+      "live-rgb": { "$type": "string", "$value": "107, 255, 74", "$description": "Comma-form triplet for rgba() glows" }
+    },
+    "line": {
+      "hairline": { "$type": "color", "$value": "rgba(242, 239, 230, 0.09)", "$description": "Default divider" },
+      "hairline-strong": { "$type": "color", "$value": "rgba(242, 239, 230, 0.13)", "$description": "Panel border" },
+      "hairline-rest": { "$type": "color", "$value": "rgba(242, 239, 230, 0.35)", "$description": "Control at rest" }
+    },
+    "motion": {
+      "duration-hover": { "$type": "duration", "$value": "120ms" },
+      "ease": { "$type": "cubicBezier", "$value": [0.2, 0.7, 0.2, 1] }
+    }
+  },
+  "typography": {
+    "$description": "Two families, two jobs. Nothing else is ever introduced.",
+    "family": {
+      "display": {
+        "$type": "fontFamily",
+        "$value": ["Space Grotesk", "Helvetica Neue", "Arial", "sans-serif"],
+        "$description": "Titles only, uppercase, tight tracking. 700 on covers, 400/500/600 on the site shell. Self-hosted woff2 on the site. Titles are left aligned, never centred."
+      },
+      "mono": {
+        "$type": "fontFamily",
+        "$value": ["IBM Plex Mono", "SF Mono", "ui-monospace", "Menlo", "Consolas", "monospace"],
+        "$description": "Everything that is not a title: labels, file and catalogue numbers, captions, conservation stamps, footers. Uppercase, wide tracking, 400/500 only. The machine voice against the human photograph."
+      }
+    },
+    "tracking": {
+      "tight": { "$type": "dimension", "$value": "0.02em", "$description": "Display titles" },
+      "mono": { "$type": "dimension", "$value": "0.22em", "$description": "Mono default" },
+      "label": { "$type": "dimension", "$value": "0.28em", "$description": "Header labels" },
+      "wide": { "$type": "dimension", "$value": "0.36em", "$description": "Payload line, the widest we go" }
+    }
+  },
+  "rules": {
+    "$description": "Non-negotiable usage law. Read these before shipping any surface.",
+    "green-law": { "$type": "string", "$value": "Green appears in at most two roles per surface, never a third. On an archive cover the two roles are fixed: the payline rule and the payload text. Photography must be the only saturated, living element." },
+    "no-photo-over-text": { "$type": "string", "$value": "No photo over text, ever. Captions live on the mat, never on the image." },
+    "no-ornament": { "$type": "string", "$value": "No 3D boxes, spines, rotation on mounts, icons, emoji or rounded accent cards." },
+    "em-dash-ban": { "$type": "string", "$value": "No em dashes in published copy. Use colons, commas, semicolons or separate sentences." },
+    "catalogue-numbering": { "$type": "string", "$value": "Tab is FILE / EE-nn. Header right is CAT. EE-{PRODUCT INITIALS}-nn. Footer right is ARCHIVE ENVELOPE / EE-nn." }
+  }
+}
