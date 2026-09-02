@@ -1,6 +1,6 @@
 ---
 title: iPhone Photography Journal
-date: 2026-08-03
+date: 2026-03-08
 author: Eric Kowalczyk
 categories:
   - Photography
