@@ -31,7 +31,7 @@ This is the equivalent of baking in filters or looks or something akin to Fuji f
 
 A cool way I use this is I tweaked the Quiet photographic style, which has this vintage vibe, like an old-timey journal entry. Something out of Indiana Jones's personal journal. That 1940s brown leather kind of thing.
 
-![](/images/blog/Quiet.png)
+![](/images/blog/iphonejournal/01.jpg)
 
 My Quiet tweak on the 17 Pro: Tone -60, Colour 02, Palette 16. Dragged the pad down and left, warmth pulled toward the top right.
 
@@ -43,10 +43,10 @@ When I'm out and about, whether it's travelling around the world or just at home
 
 Now what makes this really cool is the fact that iOS has amazing metadata. It's got time, date, where you took it, and just so much data that it's actually fantastic. When you couple that with iOS's photo search in the more modern iOS versions, you can use all the machine learning to find all these files and go back to memories and locations you've been to, to jog those mundane in-between moments. Cameras like the Fuji or the Sony don't carry all that data. They're great for focused photography, but they miss the information that makes the iPhone great as a visual journal.
 
-![](/images/blog/fujimap.png)
+![](/images/blog/iphonejournal/02.jpg)
 
 When I was in Japan earlier this year, I used this photo journal mindset with this photographic style and it was actually really awesome. I caught photos of ramen, coffee, random streets I was in, or just really ordinary moments that I saw when I was out and about. It's been really cool going back to those because it's not those hyper curated, focused photos from my other camera but rather those in-between moments, which kind of is the essence of why I love photography. Like I said at the top, it loses that experience factor but it makes up for it in that casual capturing of everyday stuff. You know what? I'm just really enjoying treating the iPhone like this.
 
 Those photos might not mean much to you. But they mean something to me and trust me the 100s of photos of Ramen filling up my iCloud storage mean a lot to me.
 
-![](/images/blog/tempImagetSL10S.avif)
+![](/images/blog/iphonejournal/03.jpg)
