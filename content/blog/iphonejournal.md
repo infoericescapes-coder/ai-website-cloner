@@ -11,7 +11,7 @@ tags:
   - iPhone
   - Photographic Styles
 excerpt: ''
-featured: ''
+featured: /images/blog/iphonegreen.jpg
 slug: iphonejournal
 ---
 
