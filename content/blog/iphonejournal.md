@@ -37,7 +37,7 @@ My Quiet tweak on the 17 Pro: Tone -60, Colour 02, Palette 16. Dragged the pad d
 
 This is the iOS photographic style that I just leave on default. I've actually found it really cool to use this with the mindset of photo journals.
 
-When I'm out and about, whether it's travelling around the world or just at home in my local areas, my phone's with me all the time. Having that photographic style set by default changes how I approach taking photos on my phone. I use it as something akin to the old Instagram, or back when phones first got cameras. We'd just take photos of the mundane things happening in our lives. I use it as a literal photo journal.
+When I'm out and about, whether it's travelling around the world or just at home in my local areas, my phone's with me all the time. Having that photographic style set by default changes how I approach taking photos on my phone. I use it as something like the old Instagram, or back when phones first got cameras. We'd just take photos of the mundane things happening in our lives. I use it as a literal photo journal.
 
 ## The Bit Nobody Talks About
 
