@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { designConfig } from "@/lib/design-config";
 import Nav from "@/components/v2/Nav";
@@ -61,6 +61,19 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: [OG],
   },
+};
+
+/**
+ * Browser chrome colour for every v2 page. iOS Safari and Android Chrome tint
+ * the status-bar strip and toolbar from theme-color (and the page canvas);
+ * colorScheme tells the UA the page is dark before CSS loads. Canvas token
+ * --ee-canvas. viewport-fit=cover is deliberately NOT set: the nav, the menu
+ * and the intro's SKIP control do not pad for env(safe-area-inset-*), so the
+ * page stays inside the safe area and the bars take the theme colour.
+ */
+export const viewport: Viewport = {
+  themeColor: "#050605",
+  colorScheme: "dark",
 };
 
 export default function V2Layout({ children }: { children: React.ReactNode }) {

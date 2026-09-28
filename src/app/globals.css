@@ -216,6 +216,23 @@
   --ee-hover: 120ms ease;
 }
 
+/* Root canvas for v2 pages (iOS Safari chrome). iOS Safari tints its
+   status-bar strip, the area behind the floating toolbar and the overscroll
+   from the ROOT canvas (html/body), not from .ee-root. The shadcn base layer
+   paints body with the light --background, so every v2 page showed white
+   bands on iPhone. Scoped with :has() so only a document that renders
+   .ee-root (every (v2) page and the global 404) takes the dark canvas; a
+   page without .ee-root keeps the light base. Unlayered, so it wins over
+   the @layer base body rule. The (v2) layout also exports themeColor +
+   colorScheme through Next's viewport API. */
+:root:has(.ee-root) {
+  color-scheme: dark;
+  background-color: var(--ee-canvas);
+}
+:root:has(.ee-root) body {
+  background-color: var(--ee-canvas);
+}
+
 /* v2 scope wrapper — resets the old 20px root, paints canvas, sets the font. */
 .ee-root {
   font-size: 16px;
