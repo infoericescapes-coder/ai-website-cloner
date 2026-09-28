@@ -81,7 +81,7 @@ export default function SubscribeBar() {
         <span aria-hidden style={{ ...bracket, bottom: -1, right: -1, borderBottom: "1px solid rgba(242,239,230,0.45)", borderRight: "1px solid rgba(242,239,230,0.45)" }} />
 
         {/* Left copy block */}
-        <div className="flex flex-col" style={{ minWidth: 300, gap: 13 }}>
+        <div className="flex flex-col" style={{ minWidth: "min(300px, 100%)", gap: 13 }}>
           <span
             style={{ fontSize: 12, fontWeight: 600, letterSpacing: "0.24em", color: "var(--ee-text)" }}
           >
@@ -107,7 +107,7 @@ export default function SubscribeBar() {
 
         {/* Right — form or subscribed state */}
         {submitted ? (
-          <div className="flex items-center" style={{ gap: 12, flex: 1, minWidth: 340 }}>
+          <div className="flex items-center" style={{ gap: 12, flex: 1, minWidth: "min(340px, 100%)" }}>
             <LedDot size={5} />
             <span
               style={{ fontSize: 12, fontWeight: 500, letterSpacing: "0.2em", color: "var(--ee-text)" }}
@@ -124,7 +124,7 @@ export default function SubscribeBar() {
               target={IFRAME_TARGET}
               onSubmit={handleSubmit}
               className="flex items-end"
-              style={{ gap: 30, flex: 1, maxWidth: 600, minWidth: 340 }}
+              style={{ gap: 30, flex: 1, maxWidth: 600, minWidth: "min(340px, 100%)" }}
             >
               <input type="hidden" name="ml-submit" value="1" />
               <input type="hidden" name="anticsrf" value="true" />
@@ -142,6 +142,7 @@ export default function SubscribeBar() {
                 className="ee-sub-input"
                 style={{
                   flex: 1,
+                  minWidth: 0,
                   background: "transparent",
                   border: "none",
                   borderBottom: "1px solid rgba(242,239,230,0.28)",
