@@ -89,6 +89,19 @@ Driven by JS `<canvas id="ee-dust">` (`initDust()` in the DCLogic class). Three 
 ### 13. Hover transitions (universal)
 - `transition: … 120ms ease;` — **color / opacity / border-color ONLY**. Never transition layout, size, or position on hover. Image scale-on-hover (tiles, `scale(1.02)`) is the one transform, and it uses **`400ms`/`600ms` ease** (tile img `transition:transform 600ms ease`), separate from the 120ms rule.
 
+
+### 14. Home arrival intro + ambient layer (ADDED 2026-09-29, Eric commission, eye-gated on his iPhone and desktop)
+
+Sanctioned by amendment. Homepage (`/`) only; every other route is untouched. Source: `src/components/v2/intro/`.
+
+- **Arrival intro, once per browser session.** One canvas overlay drawn from a single seeded `render(t)`, about 6.25 s: dead signal (NO CARRIER), glitch boot with the EE sigil locking focus, the typed line `ghost@ee:~$ access --archive ericescapes --mode visual` (phones: `ghost@ee:~$ access --archive --mode visual`), index decrypt + ACCESS GRANTED, an archive-code flood, then the flood itself **compiles top-down into the page** (each character takes the page's true colour, condenses to a block, resolves to detail) and a calm scan line hands off to the real DOM. **Never** Matrix-film rain (falling columns, katakana, green cascades) and **never** a green wash over photographs: both were rejected by Eric.
+- **Gates:** `sessionStorage` key (once per session); skippable from frame one (any tap, click, wheel or key, plus a visible SKIP INTRO); off under reduced motion; JS off or pre-hydration = the page exactly as without it; a 2.5 s pre-paint failsafe uncovers the page if the engine never takes over. Hooks: `?intro=1` replays, `?intro=0` skips, `?t=<ms>` freezes a frame.
+- **Ambient layer (after the intro is played, skipped or off).** One rAF loop, `dt` capped at 100 ms, paused when hidden, IntersectionObserver-gated; every added node is `aria-hidden`, `pointer-events:none` and carries **no transform** (a transformed ancestor breaks the lightbox's `position:fixed`).
+  1. **Signal scope:** a small SVG trace in the "Currently filing · Sydney" status bar, breathing on the LED's own `eePulse` phase. It does **not** glow, so the one-glowing-element rule (§1) holds.
+  2. **Hero ghost:** about every 9 to 14 s, a 420 ms RGB split from the hero photo's own channels with torn slices, inside `.ee-hero-photo`.
+  3. **Tile render-in:** once per tile, below-the-fold tiles only: archive-code characters in the photo's true colours condense and clear top to bottom to the real `<img>` behind a faint front line, then the canvas is removed (never covered for more than 1.5 s after being seen).
+- **Exception to §5's "NO scanlines drawn over photos":** that rule governs persistent CRT texture. The tile render-in's single transient front line (gone within 1.5 s) and the hero ghost's 420 ms tear are the only sanctioned exceptions. Nothing persistent is ever drawn over a photograph.
+
 ---
 
 ## `prefers-reduced-motion: reduce` — explicit kill list
@@ -110,5 +123,8 @@ This alone kills, by construction: `eePulse`, `eeFlicker`, `eeReveal`, `eeViewIn
 | Scroll reveals (IntersectionObserver fallback) | Skip the fade; render content at final state immediately (add `.is-revealed` on mount, don't animate). |
 | Scroll progress bar | May keep (scroll-driven, not time-driven) or drop — recommend keep; it is informational, not decorative motion. |
 | Lightbox | Keyboard/click still work; only the `filter` hover transition is dropped by the global rule. |
+| Home arrival intro (§14) | Never plays: no overlay, no cover, session key not set. |
+| Signal scope (§14) | Drawn once as a still; no rAF. |
+| Hero ghost + tile render-in (§14) | Never scheduled; tiles are never covered. |
 
 **Also disable backdrop canvas + heavy overlays on mobile (`vw < 760`)** regardless of reduced-motion, for performance — the prototype's `M` flag path never initialises the animated canvas at mobile widths in practice; treat mobile as: static base only, grain optional, no rAF.

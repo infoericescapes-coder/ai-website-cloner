@@ -5,6 +5,8 @@ import Reveal from "@/components/v2/chrome/Reveal";
 import LedDot from "@/components/v2/chrome/LedDot";
 import InstaStrip from "@/components/v2/InstaStrip";
 import SubscribeBar from "@/components/v2/SubscribeBar";
+import IntroGate from "@/components/v2/intro/IntroGate";
+import ArchiveIntro from "@/components/v2/intro/ArchiveIntro";
 import { getAllPosts } from "@/lib/blog";
 import placeData from "../../../docs/design-v2/place-data.json";
 
@@ -76,6 +78,8 @@ export default function Home() {
 
   return (
     <div style={{ position: "relative", zIndex: 1 }}>
+      {/* Archive intro pre-paint gate: first node, runs before the page paints. */}
+      <IntroGate />
       {/* ═══════════════════ 1 · HERO ═══════════════════ */}
       <Reveal
         className="ee-hero"
@@ -442,6 +446,9 @@ export default function Home() {
 
       {/* ═══════════════════ 7 · SUBSCRIBE (footer comes from the shell) ═══════════════════ */}
       <SubscribeBar />
+
+      {/* Archive intro + ambient layer (renders nothing; homepage only). */}
+      <ArchiveIntro />
     </div>
   );
 }
