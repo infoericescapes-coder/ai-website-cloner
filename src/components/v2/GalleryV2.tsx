@@ -398,6 +398,13 @@ export default function GalleryV2({
               sizes="80vw"
               style={{
                 maxWidth: "min(80vw, 1280px)",
+                // The side row is [arrow][gap][photo][gap][arrow]; as a flex
+                // item the photo's automatic minimum width is its full
+                // max-width, so on widths under ~1100 px a wide or square
+                // photo pushed the arrows off both edges (portrait iPads).
+                // minWidth 0 lets the photo, and only the photo, yield
+                // exactly what the arrows need: the row can never overflow.
+                minWidth: 0,
                 maxHeight: "76vh",
                 width: "auto",
                 height: "auto",
