@@ -10,6 +10,7 @@ import {
   type CSSProperties,
 } from "react";
 import { createPortal } from "react-dom";
+import { startGalleryRenderIn } from "@/components/v2/intro/gallery-render-in";
 
 /**
  * GalleryV2 — design-v2 location gallery (specs/gallery.md).
@@ -129,6 +130,16 @@ export default function GalleryV2({
     };
   }, [open]);
 
+  // Photo render-in (motion.md §14, shared with the homepage tiles): frames
+  // below the fold resolve out of archive code the first time they scroll
+  // into view. Reduced motion and JS off: plain photos.
+  const masonryRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const root = masonryRef.current;
+    if (!root) return;
+    return startGalleryRenderIn(root);
+  }, []);
+
   const active = lb !== null ? images[lb] : null;
 
   // Header meta line 1: "{code} · {coords}" when mapped, else "{N} SELECTS".
@@ -245,6 +256,7 @@ export default function GalleryV2({
 
         {/* 4 · Masonry */}
         <div
+          ref={masonryRef}
           className="ee-masonry"
           style={{ columnGap: 18 }}
           data-cols={columns}

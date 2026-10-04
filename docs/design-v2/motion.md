@@ -90,9 +90,9 @@ Driven by JS `<canvas id="ee-dust">` (`initDust()` in the DCLogic class). Three 
 - `transition: … 120ms ease;` — **color / opacity / border-color ONLY**. Never transition layout, size, or position on hover. Image scale-on-hover (tiles, `scale(1.02)`) is the one transform, and it uses **`400ms`/`600ms` ease** (tile img `transition:transform 600ms ease`), separate from the 120ms rule.
 
 
-### 14. Home arrival intro + ambient layer (ADDED 2026-09-29, Eric commission, eye-gated on his iPhone and desktop)
+### 14. Home arrival intro + ambient layer, photo render-in on galleries (ADDED 2026-09-29, Eric commission, eye-gated on his iPhone and desktop; galleries ADDED 2026-10-05, pending Eric's eye gate)
 
-Sanctioned by amendment. Homepage (`/`) only; every other route is untouched. Source: `src/components/v2/intro/`.
+Sanctioned by amendment. The intro and the ambient layer are homepage (`/`) only. The photo render-in (item 3) also runs on every place gallery (`GalleryV2`: `/sydney`, `/sydney2`, `/japan`, `/hongkong` and the rest); every other route is untouched. Source: `src/components/v2/intro/` (`render-in.ts` is the one shared implementation, `ambient-loop.ts` the one loop).
 
 - **Arrival intro, once per browser session.** One canvas overlay drawn from a single seeded `render(t)`, about 6.25 s: dead signal (NO CARRIER), glitch boot with the EE sigil locking focus, the typed line `ghost@ee:~$ access --archive ericescapes --mode visual` (phones: `ghost@ee:~$ access --archive --mode visual`), index decrypt + ACCESS GRANTED, an archive-code flood, then the flood itself **compiles top-down into the page** (each character takes the page's true colour, condenses to a block, resolves to detail) and a calm scan line hands off to the real DOM. **Never** Matrix-film rain (falling columns, katakana, green cascades) and **never** a green wash over photographs: both were rejected by Eric.
 - **Gates:** `sessionStorage` key (once per session); skippable from frame one (any tap, click, wheel or key, plus a visible SKIP INTRO); off under reduced motion; JS off or pre-hydration = the page exactly as without it; a 2.5 s pre-paint failsafe uncovers the page if the engine never takes over. Hooks: `?intro=1` replays, `?intro=0` skips, `?t=<ms>` freezes a frame.
@@ -100,7 +100,13 @@ Sanctioned by amendment. Homepage (`/`) only; every other route is untouched. So
   1. **Signal scope:** a small SVG trace in the "Currently filing · Sydney" status bar, breathing on the LED's own `eePulse` phase. It does **not** glow, so the one-glowing-element rule (§1) holds.
   2. **Hero ghost:** about every 9 to 14 s, a 420 ms RGB split from the hero photo's own channels with torn slices, inside `.ee-hero-photo`.
   3. **Tile render-in:** once per tile, below-the-fold tiles only: archive-code characters in the photo's true colours condense and clear top to bottom to the real `<img>` behind a faint front line, then the canvas is removed (never covered for more than 1.5 s after being seen).
-- **Exception to §5's "NO scanlines drawn over photos":** that rule governs persistent CRT texture. The tile render-in's single transient front line (gone within 1.5 s) and the hero ghost's 420 ms tear are the only sanctioned exceptions. Nothing persistent is ever drawn over a photograph.
+- **Gallery render-in (same effect, same contract as item 3).** Each masonry frame that was below the fold renders in once per page view, the first time it is scrolled into view; frames on screen at arrival are never touched, the real `<img>` is always underneath, and JS off is just the photos. The canvas covers the photo only (never the caption row). Gallery-specific safety:
+  - a frame whose lazy `<img>` is not loaded and decoded when it is seen is released and loads as a plain photo, never rendered from a blank or a placeholder;
+  - a frame that scrolls out of view mid-render is released at once (off screen), so a flick never leaves a half-rendered photo;
+  - at most 10 render at once; a frame that arrives while the slots are full shows as the photo;
+  - colour sampling is built off the main thread when each photo loads, and starts are staggered one per frame, so a fast scroll never stacks the work into one long task.
+  - The lightbox is portalled to `<body>` and opens over a frame mid-render with the real photo.
+- **Exception to §5's "NO scanlines drawn over photos":** that rule governs persistent CRT texture. The render-in's single transient front line (homepage tiles and gallery frames alike; gone within 1.5 s) and the hero ghost's 420 ms tear are the only sanctioned exceptions. Nothing persistent is ever drawn over a photograph.
 
 ---
 
@@ -126,5 +132,6 @@ This alone kills, by construction: `eePulse`, `eeFlicker`, `eeReveal`, `eeViewIn
 | Home arrival intro (§14) | Never plays: no overlay, no cover, session key not set. |
 | Signal scope (§14) | Drawn once as a still; no rAF. |
 | Hero ghost + tile render-in (§14) | Never scheduled; tiles are never covered. |
+| Gallery render-in (§14) | Never created; frames are never covered. |
 
 **Also disable backdrop canvas + heavy overlays on mobile (`vw < 760`)** regardless of reduced-motion, for performance — the prototype's `M` flag path never initialises the animated canvas at mobile widths in practice; treat mobile as: static base only, grain optional, no rAF.
