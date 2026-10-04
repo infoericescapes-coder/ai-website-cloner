@@ -299,6 +299,13 @@ export default function GalleryV2({
       {open && active && lb !== null && createPortal(
         <div
           ref={overlayRef}
+          className="ee-lb"
+          // Portrait phones: the stage below is display:contents, so the
+          // empty area around the photo is this element; a tap there closes,
+          // as the stage's own backdrop click does everywhere else.
+          onClick={(e) => {
+            if (e.target === e.currentTarget) closeLb();
+          }}
           role="dialog"
           aria-modal="true"
           aria-label={`${place} · frame ${lb + 1} of ${total}`}
@@ -342,8 +349,12 @@ export default function GalleryV2({
             </button>
           </div>
 
-          {/* Center — backdrop click (only on itself) closes */}
+          {/* Center — backdrop click (only on itself) closes. Portrait phones
+              (globals.css .ee-lb): this row dissolves (display:contents) and
+              the arrows drop into the footer row either side of the counter,
+              because beside an 80vw photo they sat off-screen. */}
           <div
+            className="ee-lb-stage"
             onClick={(e) => {
               if (e.target === e.currentTarget) closeLb();
             }}
@@ -361,7 +372,7 @@ export default function GalleryV2({
               type="button"
               onClick={() => stepLb(-1)}
               aria-label="Previous frame"
-              className="ee-lb-arrow"
+              className="ee-lb-arrow ee-lb-prev"
               style={{
                 background: "none",
                 border: "none",
@@ -378,6 +389,7 @@ export default function GalleryV2({
 
             <Image
               key={active.src}
+              className="ee-lb-img"
               src={active.src}
               alt={active.alt}
               width={1600}
@@ -398,7 +410,7 @@ export default function GalleryV2({
               type="button"
               onClick={() => stepLb(1)}
               aria-label="Next frame"
-              className="ee-lb-arrow"
+              className="ee-lb-arrow ee-lb-next"
               style={{
                 background: "none",
                 border: "none",
@@ -416,6 +428,7 @@ export default function GalleryV2({
 
           {/* Mono footer — NN/TOTAL · PLACE · YEAR (build-order override). */}
           <div
+            className="ee-lb-foot"
             style={{
               display: "flex",
               justifyContent: "center",

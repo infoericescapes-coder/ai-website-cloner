@@ -472,6 +472,57 @@
   filter: brightness(1.7);
 }
 
+/* Lightbox, portrait phones. Beside an 80vw photo the side arrows (60 px
+   wide, 26 px gaps) overflowed the row and sat off-screen, so portrait
+   phones had no prev/next. Here the stage row dissolves and the dialog
+   becomes a grid: the photo keeps its own size in the middle row, and the
+   arrows sit in the footer row either side of the counter, 48 px targets,
+   never over the photo. Landscape phones, tablets and desktop are
+   untouched (the side layout fits there). Inline styles win over classes,
+   hence the scoped !important. */
+@media (max-width: 759px) and (orientation: portrait) {
+  .ee-lb {
+    display: grid !important;
+    grid-template-columns: 56px minmax(0, 1fr) 56px;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+  .ee-lb > :first-child {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  .ee-lb-stage {
+    display: contents !important;
+  }
+  .ee-lb-img {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    place-self: center;
+  }
+  .ee-lb-arrow {
+    grid-row: 3;
+    align-self: center;
+    justify-self: center;
+    width: 48px;
+    height: 48px;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ee-lb-prev {
+    grid-column: 1;
+  }
+  .ee-lb-next {
+    grid-column: 3;
+  }
+  .ee-lb-foot {
+    grid-column: 2;
+    grid-row: 3;
+    padding: 22px 0 !important;
+    text-align: center;
+  }
+}
+
 /* Masonry frame hover/focus — mirrors the home-tile pattern (.ee-tile-fx).
    CRT tint + caption are INVISIBLE at rest, revealed only on frame
    hover/focus (spec §4). The gate lives on the wrapper so the inner span's
