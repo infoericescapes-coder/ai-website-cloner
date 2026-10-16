@@ -38,7 +38,7 @@ Found a sleeping cat against a yellow dragon mural with a scooter wheel cutting 
 
 ![](/images/blog/DragonCat.jpg)
 
-The next morning an eagle turned up at the harbour. A actual fricken eagle. I got frames of it, and the only reason I did was that the camera was already up at my eye. That's how I was shooting now. When the bird showed up I was already in position.
+The next morning an eagle turned up at the harbour. An actual fricken eagle. I got frames of it, and the only reason I did was that the camera was already up at my eye. That's how I was shooting now. When the bird showed up I was already in position.
 
 Two days in and I was thinking: I'm not sure I want to fix this screen even when I get home.
 
