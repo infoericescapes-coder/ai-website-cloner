@@ -15,7 +15,7 @@ featured: /images/blog/23mmf2-vs23mmf2.8-1.jpg
 slug: 23mmf2vs23mmf2.8-1
 ---
 
-As you can see, I don’t want this to be a boring technical review. You can find those on many websites out there. Instead, I want to explore what I value most: the experience of using the lenses.
+I don’t want this to be a boring technical review. You can find those on many websites out there. Instead, I want to explore what I value most: the experience of using the lenses.
 
 For years, the Fujifilm 23mm f2 has been my go-to lens on my Fuji X-T5. That traditional 35mm full-frame equivalent focal length. I call it my storytelling lens. Not too wide, not too tight, just right. It’s compact, and image quality is solid. I can’t speak for any character in the lens. I can simply say the images that come out of it are great. Focuses well. Built really well. The dials are smooth but stiff enough that you know when you have dialled in a setting, it stays put. The tiny dome hood it ships with offers the perfect protection for the front element.
 
