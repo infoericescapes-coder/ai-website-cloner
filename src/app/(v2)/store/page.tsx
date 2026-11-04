@@ -11,11 +11,18 @@ import Reveal from "@/components/v2/chrome/Reveal";
  * (/chaostocalm and /visualdiary — the free pack's page embeds the email
  * capture; its old Squarespace product URL 301s to /store, see
  * next.config.ts). Guides row + Substack line kept from the spec.
+ * 2026-11-05: Simple Social (free iOS app) added as card 03 on Eric's ask; it
+ * links to its launch page (ericescapes.com.au/simplesocial/), which carries
+ * the App Store badge, rather than straight to the App Store. It is a `wide`
+ * card: at md+ it spans both grid columns, cover left and text right; the
+ * inner gap (56px = 2px grid gap + 2 x 26px padding + 2 x 1px border) puts the
+ * cover exactly under card 01's cover and the text column exactly where card
+ * 02's text starts. Phone width stays one column, same as the other cards.
  */
 export const metadata: Metadata = {
   title: "Store — ERIC ESCAPES",
   description:
-    "Digital shop — Lightroom preset packs from the road: Chaos to Calm (pay what you want) and the free Visual Diary Collection.",
+    "Digital shop: Lightroom preset packs from the road, Chaos to Calm (pay what you want) and the free Visual Diary Collection, plus Simple Social, a free iOS app for zine-style carousels and stories.",
 };
 
 const MUTED = "#8B8F86";
@@ -30,12 +37,21 @@ type Product = {
   image: { src: string; alt: string };
   href: string;
   external: boolean;
+  /** Spans both grid columns at md+ (horizontal composition). */
+  wide?: boolean;
+  /** Optional mono data lines under the blurb, hairline-ruled. */
+  specs?: readonly string[];
 };
 
 /**
  * Real product data only — copy adapted from the existing /chaostocalm and
  * /store/p/visual-diary-collection-lightroom-presets pages; prices verified
- * against those pages (A$5+ pay-what-you-want / $0.00 free).
+ * against those pages (A$5+ pay-what-you-want / $0.00 free). Simple Social:
+ * copy adapted from its launch page; "Free" verified against Apple's App Store
+ * lookup for id6779313911 (AU storefront, 2026-11-05); spec lines are the
+ * launch page's own claims. Cover: archive envelope EE-04 (EE-03 is Sydney
+ * Chrome in the brand kit), built from the EE-03 single-mount source with the
+ * launch page's home + editor screens.
  */
 const PRODUCTS: readonly Product[] = [
   {
@@ -68,18 +84,43 @@ const PRODUCTS: readonly Product[] = [
     href: "/visualdiary",
     external: false,
   },
+  {
+    index: "03",
+    kicker: "iOS app · Carousels + stories",
+    title: "Simple Social",
+    blurb:
+      "Zine-style carousels and stories, built by a street photographer. Pick a layout, drop in your shots, crop, export. Your photos never leave your phone.",
+    price: "Free",
+    action: "VIEW ↗",
+    image: {
+      src: "/images/store/simple-social-cover.jpg",
+      alt: "Simple Social, Eric Escapes archive cover EE-04: the iOS app's home and editor screens",
+    },
+    href: "https://ericescapes.com.au/simplesocial/",
+    external: true,
+    wide: true,
+    specs: [
+      "4:5 posts · 9:16 stories",
+      "Up to 10 slides per carousel",
+      "No subscription · no watermark",
+      "No account · no ads",
+    ],
+  },
 ] as const;
 
 /** Card body — shared between the internal <Link> and external <a> wrappers. */
 function ProductCardBody({ product }: { product: Product }) {
   return (
     <div
+      className={
+        product.wide
+          ? "flex flex-col md:grid md:grid-cols-2 md:gap-x-[56px]"
+          : "flex flex-col"
+      }
       style={{
         background: "#0B0D0B",
         border: "1px solid rgba(242,239,230,0.08)",
         padding: 26,
-        display: "flex",
-        flexDirection: "column",
         height: "100%",
       }}
     >
@@ -102,70 +143,99 @@ function ProductCardBody({ product }: { product: Product }) {
         />
       </div>
 
-      {/* Mono data line + index */}
+      {/* Text column: fills the remaining height so the price row stays at
+          the bottom (beside the cover's bottom edge on a wide card). */}
       <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          gap: 16,
-          marginTop: 24,
-          fontSize: 11.5,
-          letterSpacing: "0.16em",
-          textTransform: "uppercase",
-          color: MUTED,
-        }}
+        className={
+          product.wide
+            ? "mt-[24px] flex flex-1 flex-col md:mt-0"
+            : "mt-[24px] flex flex-1 flex-col"
+        }
       >
-        <span>{product.kicker}</span>
-        <span style={{ fontSize: 10.5 }}>{product.index}</span>
-      </div>
-
-      <h2
-        style={{
-          margin: "12px 0 0",
-          fontSize: 28,
-          fontWeight: 500,
-          letterSpacing: "-0.005em",
-        }}
-      >
-        {product.title}
-      </h2>
-
-      <p
-        style={{
-          margin: "10px 0 0",
-          fontSize: 15,
-          lineHeight: 1.6,
-          color: MUTED,
-          maxWidth: "52ch",
-        }}
-      >
-        {product.blurb}
-      </p>
-
-      {/* Price / action row — hairline top, arrow 0.55 → 1 on card hover */}
-      <div
-        style={{
-          marginTop: "auto",
-          paddingTop: 22,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 22,
-          borderTop: "1px solid rgba(242,239,230,0.09)",
-        }}
-      >
-        <span style={{ fontSize: 20, fontWeight: 500 }}>{product.price}</span>
-        <span
-          className="opacity-55 transition-opacity duration-[120ms] group-hover:opacity-100"
+        {/* Mono data line + index */}
+        <div
           style={{
-            fontSize: 12,
-            fontWeight: 600,
-            letterSpacing: "0.2em",
-            color: "var(--ee-accent)",
+            display: "flex",
+            justifyContent: "space-between",
+            gap: 16,
+            fontSize: 11.5,
+            letterSpacing: "0.16em",
+            textTransform: "uppercase",
+            color: MUTED,
           }}
         >
-          {product.action}
-        </span>
+          <span>{product.kicker}</span>
+          <span style={{ fontSize: 10.5 }}>{product.index}</span>
+        </div>
+
+        <h2
+          style={{
+            margin: "12px 0 0",
+            fontSize: 28,
+            fontWeight: 500,
+            letterSpacing: "-0.005em",
+          }}
+        >
+          {product.title}
+        </h2>
+
+        <p
+          style={{
+            margin: "10px 0 0",
+            fontSize: 15,
+            lineHeight: 1.6,
+            color: MUTED,
+            maxWidth: "52ch",
+          }}
+        >
+          {product.blurb}
+        </p>
+
+        {product.specs && (
+          <ul style={{ margin: "22px 0 0", padding: 0, listStyle: "none" }}>
+            {product.specs.map((line) => (
+              <li
+                key={line}
+                style={{
+                  padding: "11px 0",
+                  borderTop: "1px solid rgba(242,239,230,0.09)",
+                  fontSize: 11.5,
+                  letterSpacing: "0.16em",
+                  textTransform: "uppercase",
+                  color: MUTED,
+                }}
+              >
+                {line}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {/* Price / action row — hairline top, arrow 0.55 → 1 on card hover */}
+        <div
+          style={{
+            marginTop: "auto",
+            paddingTop: 22,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            gap: 22,
+            borderTop: "1px solid rgba(242,239,230,0.09)",
+          }}
+        >
+          <span style={{ fontSize: 20, fontWeight: 500 }}>{product.price}</span>
+          <span
+            className="opacity-55 transition-opacity duration-[120ms] group-hover:opacity-100"
+            style={{
+              fontSize: 12,
+              fontWeight: 600,
+              letterSpacing: "0.2em",
+              color: "var(--ee-accent)",
+            }}
+          >
+            {product.action}
+          </span>
+        </div>
       </div>
     </div>
   );
@@ -224,7 +294,9 @@ export default function StorePage() {
                 href={product.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block"
+                className={
+                  product.wide ? "group block md:col-span-2" : "group block"
+                }
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <ProductCardBody product={product} />
@@ -233,7 +305,9 @@ export default function StorePage() {
               <Link
                 key={product.title}
                 href={product.href}
-                className="group block"
+                className={
+                  product.wide ? "group block md:col-span-2" : "group block"
+                }
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <ProductCardBody product={product} />
